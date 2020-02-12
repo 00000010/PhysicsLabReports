@@ -1,0 +1,245 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For keeping time
+\usepackage {datetime}
+% For pictures/graphs
+\usepackage {tikz}
+% The essential math library
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% To add multiple rows or columns per table column/row
+\usepackage {multirow}
+% To add horizontal lines spanning only some columns in tables
+\usepackage {array}
+\usepackage {verbatim}
+% To add captions to tables
+\usepackage {caption}
+\usepackage {float}
+% For the degree symbol
+\usepackage {gensymb}
+% To make graphs
+\usepackage {pgfplots}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Mechanical Energy}
+\vspace {0.35cm}
+
+\normalsize
+Lab 8
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 17 Oct 2019\\
+Due date: 24 Oct 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {DATA}
+  \begin {table}[h]
+    \centering
+    \begin {tabular} {| l | r | r | r | r |}
+      \hline\hline
+      Mass & Trial 1 & Trial 2 & Trial 3 & Average \\
+      \hline
+      \(m_{1}\) & 0.1980 & 0.1979 & 0.1979 & 0.197933333 \\
+      \hline
+      \(m_{2}\) & 0.0652 & 0.0651 & 0.0652 & 0.065166667 \\
+      \hline\hline
+    \end {tabular}
+    \caption {Experiment 1 Masses (in kg)}
+  \end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline 
+    Trial & Force (N) & \(x\) (m) & Calculated \(k\) constant (\(\tfrac{\text{N}}{\text{m}}\)) \\
+    \hline
+    Trial 1 & 0.430 & 0.115 & 3.739130435 \\
+    \hline
+    Trial 2 & 0.435 & 0.116 & 3.75 \\
+    \hline
+    Trial 3 & 0.433 & 0.1095 & 3.9543379 \\ 
+    \hline
+    Average & 0.432666667 & 0.1135 & 3.814489445 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Spring Force Measurements}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r |}
+    \hline\hline 
+    Height Difference (m) & Velocity (\(\dfrac{\text{m}}{\text{s}^2}\)) \\
+    \hline
+    \multirow {3}{*}{0.3} & 0.56 \\
+    & 0.55 \\
+    & 0.55 \\
+    \hline
+    Average & 0.553333333 \\
+    \hline
+    \multirow {3}{*}{0.465} & 1.07 \\
+    & 1.07 \\
+    & 1.07 \\
+    \hline
+    Average & 1.07 \\
+    \hline
+    \multirow {3}{*}{0.715} & 1.33 \\
+    & 1.33 \\
+    & 1.33 \\
+    \hline
+    Average & 1.33 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Final Velocities}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline
+    Trial & \(E_{i}\) & \(E_{f}\) & \(\Delta{E}\) \\
+    \hline
+    Trial 1 & 0.245873835 & 0.09456152023 & -0.1513123144 \\
+    \hline
+    Trial 2 & 0.3512483351 & 0.2048954286 & -0.1463529065 \\
+    \hline
+    Trial 3 & 0.5109066693 & 0.2869826286 & -0.2239240407 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Energy Calculations}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline
+    Height Difference (m) & Final Velocity (\(\tfrac{\text{m}}{\text{s}}\)) \\
+    \hline
+    \multirow {3}{*}{0.1} & 0.56 \\
+    & 0.56 \\
+    & 0.56 \\
+    \hline
+    Average & 0.56 \\
+    \hline
+    \multirow {3}{*}{0.2} & 0.69 \\
+    & 0.69 \\
+    & 0.69 \\
+    \hline
+    Average & 0.69 \\
+    \hline
+    \multirow {3}{*}{0.3} & 0.70 \\
+    & 0.70 \\
+    & 0.70 \\
+    \hline
+    Average & 0.70 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Final Velocities}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline
+    Trial & \(E_{i}\) & \(E_{f}\) & \(\Delta{E}\) \\
+    \hline
+    Trial 1 & 0.191590001 & 0.3597052196 & -0.1681152186 \\
+    \hline
+    Trial 2 & 0.2554533346 & 0.5718065668 & -0.3163532322 \\
+    \hline
+    Trial 3 & 0.3193166683 & 0.7643595841 & -0.4450429158 \\ 
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Energy Calculations}
+\end {table}
+
+\noindent
+Our lab consisted of an airtrack, two masses, and a spring. For the first experiment, the transformation of gravitational potential energy to kinetic energy and gravitational potential energy was observed. The second experimented added a spring force to examine the gravitational potential energy to kinetic energy, gravitational potential energy, and spring potential energy.
+
+\subsection* {Question 1}
+
+PART A \\\\
+For the first experiment, the work done by the falling mass was independent of the path taken because of Conservation of Energy. The Conservation of Energy states that the sum of kinetic and potential energy (mechanical energy) will stay constant in a system only concerning conservative forces (i.e., frictionless, no air resistance) \footnote{http://physics.bu.edu/~duffy/py105/EnergyConservation.html}. Thus, assuming our system of the airtrack, two masses, and the pulley is frictionless and air resistance is negligible, then the mechanical energy we measure at the start of the experiment will be the same as the mechanical energy measured at the end will be the same, regardless of what happened in the middle. \\
+
+\noindent
+PART B \\\\
+The addition of the spring now means we have to consider the force the spring acts on the masses along with the other forces in Experiment 1. We know the spring force is conservative because we can model Experiment 2 without taking into account the distance the spring stretched from its original position. In other words, the path taken by the spring doesn't matter, and so it is a conservative force. Since the spring force is conservative, we only have to examine the energy at the start of the experiment and at the end, as in Experiment 1. \\
+
+\noindent
+PART C \\\\
+\begin {equation*}
+  \begin {split}
+     \dfrac{1}{2}m_{1}v_{1,i}^2 + \dfrac{1}{2}m_{2}v_{2,i}^2 + m_{2}gy_{2,i} = \dfrac{1}{2}m_{1}v_{1,f}^2 + \dfrac{1}{2}m_{2}v_{2,f} + m_{2}gy_{2,f} + \dfrac{1}{2}kx^2 \\
+  \end {split}
+\end {equation*} \\
+Assuming both masses start at rest and knowing the length the spring stretched from equilibrium (\(x\)) is equal to the height the second mass dropped, we get the following equation:
+\begin {equation*}
+  \begin {split}
+     m_{2}gy_{2,i} = \dfrac{1}{2}m_{1}v_{1,f}^2 + \dfrac{1}{2}m_{2}v_{2,f}^2 + m_{2}gy_{2,f} + \dfrac{1}{2}k(y_{2,i} - y_{2,f})^2 \\
+  \end {split}
+\end {equation*}
+
+\noindent
+PART D \\\\
+The maximum kinetic energy for Experiment 1 occurred at the point when we measured the velocity of the masses, or \(v_{f}\). For Experiment 2, the maximum kinetic energy can be found by looking at the representative equation: 
+\begin {equation*}
+  \begin {split}
+    v_{f}^2 & = \dfrac{m_{2}gy_{i} - m_{2}gy_{f} - \tfrac{1}{2}kx^2}{\tfrac{1}{2}m_{1}+\tfrac{1}{2}m_{2}} \\
+  \end {split}
+\end {equation*}
+If we assume the ending height was zero, we get:
+\begin {equation*}
+  \begin {split}
+    v_{f}^2 & = \dfrac{m_{2}gy_{i} - \tfrac{1}{2}kx^2}{\tfrac{1}{2}m_{1}+\tfrac{1}{2}m_{2}} \\
+  \end {split}
+\end {equation*}
+We need only concern ourselves with the numerator, as the masses stay the same:
+\begin {equation*}
+  \begin {split}
+    m_{2}gy_{i} - \tfrac{1}{2}k{y_{i}}^2 \\
+  \end {split}
+\end {equation*}
+What \(y_{i}\) value would maximize the value of this expression? Solving for \(y_{i}\), we get 0.167 meters, which is where the kinetic energy is at its maximum. \\
+
+\noindent
+PART E \\\\
+No, we cannot truly ignore friction. As seen in Table 4, the energy difference is negative, showing that the final energy is less than the initial energy. Table 6 shows similar results, additionally showing that the difference between the final and initial energy increased, which makes sense assuming friction was doing negative work on system as a non-conservative force. The more distance the cart moves, the more friction puts work into the system as its magnitude depends on the distance traveled. \\
+
+\noindent
+PART F \\\\
+The ratios in Table 4 and 6 demonstrate the energy at the start and end of the experiment. However, these ratios are not 1:1, which seems to disprove the Conservation of Energy. In this case, it is likely that friction had a part in the energy difference, but it does not account for the extremity of the difference. Due to the extreme change in energy, it is likely there were experimental or calculation errors. \\
+
+\noindent
+PART G \\\\
+For Experiment 1, a different release point would result in a higher or lower final velocity. For instance, if the release point was closer to the photogate, then the velocity would be less. However, if we placed the release point of the cart farther away from the photogate, it would have more time to increase its velocity due to the acceleration from the falling mass and thus have a higher final velocity. \\\\
+For Experiment 2, a different release point would result in a different velocity depending on how much distance the hanging mass falls. Looking back to PART D, we see that the maximum kinetic energy (and thus, the maximum velocity) can be found at 0.167 meters. If the distance is different from this number, then the velocity will be less.
+
+\end {document}

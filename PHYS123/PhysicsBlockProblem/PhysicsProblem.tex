@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+\noindent
+Problem: A mass \(m_{1}\) = 6.3 kg rests on a frictionless table. It is connected by a massless and frictionless pulley to a second mass \(m_{2}\) = 3.2 kg that hangs freely. What is the magnitude of the acceleration of block 1?\\\\
+For \(m_{1}\):
+\begin{equation*}
+  \begin{split}
+    \vec{F}_{net} & = m\vec{a}\\
+    F_{t} & = m_{1}a
+  \end{split}
+\end{equation*}\\
+For \(m_{2}\):
+\begin{equation*}
+  \begin{split}
+    \vec{F}_{net} & = m\vec{a}\\
+    F_{g}-F_{t} & = m_{2}a\\
+    F_{t} & = F_{g}-m_{2}a\\
+    F_{t} & = m_{2}g-m_{2}a
+  \end{split}
+\end{equation*}\\
+Putting them together (as \(F_{t}\) is already in the same direction for both equations):\\
+\begin{equation*}
+  \begin{split}
+    m_{1}a & = m_{2}g-m_{2}a\\
+    m_{1}a+m_{2}a & = m_{2}g\\
+    a & = \dfrac{m_{2}g}{m_{1}+m_{2}}\\
+    a & = \dfrac{(3.2\text{kg})(9.8\tfrac{\text{m}}{\text{s}^2})}{6.3\text{kg}+3.2\text{kg}}\\
+    a & = 3.301\tfrac{\text{m}}{\text{s}^2}
+  \end{split}
+\end{equation*}
+\end {document}

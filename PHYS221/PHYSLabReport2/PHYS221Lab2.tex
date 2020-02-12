@@ -1,0 +1,241 @@
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For drawing pictures
+\usepackage {tikz}
+% For equations
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% For multiple rows in table slot
+\usepackage {multirow}
+\usepackage {verbatim}
+% To add captions
+\usepackage {caption}
+\usepackage {float}
+% To make graphs
+\usepackage {pgfplots}
+% To make scatter plots
+\usepackage{pgfplotstable}
+
+\usetikzlibrary {shapes.geometric, arrows, angles}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics II: Electromagnetism (PHYS 221-01)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Instrumentation and Oscilloscope Introduction}
+\vspace {0.35cm}
+
+\normalsize
+Lab 2
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Lavanya Roy (lab partner) \\
+Date of experiment: 5 Feb 2020 \\
+Due date: 12 Feb 2020 \\
+Lab section L06 \\
+TA: Will Limestall \\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {DATA}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r | r |}
+    \hline\hline
+    & Voltage (V) & Amps (A) \\
+    \cline{2-3}
+    \multirow {5}{*}{Circuit 1} & 1.00 & 0.0038 \\
+    \cline{2-3}
+    & 2.01 & 0.0072 \\
+    \cline{2-3}
+    & 3.00 & 0.0105 \\
+    \cline{2-3}
+    & 4.00 & 0.0145 \\
+    \cline{2-3}
+    & 5.00 & 0.0177 \\
+    \hline
+    \multirow {5}{*}{Circuit 2} & 1.00 & 0.0035 \\
+    \cline{2-3}
+    & 2.01 & 0.0070 \\
+    \cline{2-3}
+    & 3.02 & 0.0105 \\
+    \cline{2-3}
+    & 3.99 & 0.0140 \\
+    \cline{2-3}
+    & 4.99 & 0.0175 \\
+    \hline\hline
+  \end{tabular}
+  \caption{Voltages and corresponding amperage for Circuit a and b}
+\end{table}
+
+\subsection* {Questions from Part 1}
+From Step 2: \\
+The value of the resister was 0.27 k\(\Omega\) as measured by the multimeter. The color code for the resister was: Red, violet, brown, gold. \\
+
+\noindent
+From Step 3: \\
+See Table 1. \\
+
+\noindent
+From Step 4: \\
+See Table 1.
+
+\subsection* {Questions from Part 2}
+From Step 5: \\
+What happens to the line on the screen (when the voltage output on the power supply to 5V is slowly increased)? \\
+The line on the screen moves up as the voltage output is increased. \\\\
+Describe what happens when the vertical scale settings is moved in both directions. \\
+The line on the screen moves up or down whether it increases (up) or decreases (down). \\
+
+\noindent
+From Step 6: \\
+What happens to the DC voltage display when the CH2 coupling is changed to AC? \\
+The DC voltage display drops to zero when it is changed to AC. \\
+
+\noindent
+From Step 7: \\
+How would you determine the frequency of the sine wave using the oscilloscope?
+Frequency is defined as:
+\begin{equation}
+  \begin{split}
+    F = \dfrac{1}{T} \\
+  \end{split}
+\end{equation}
+where \(F\) is the frequency (Hz) and \(T\) is the wave period (s). The frequency is the cycle per time unit (second, for instance and in this case). So to measure the frequency, the period could be measured by eye, where one period is the seconds passed from peak to peak. The reciprocal would then be taken for the frequency. The period measured was 250 \(\mu\)s, so the frequency is:
+
+\begin{equation*}
+  \begin{split}
+    F &= \dfrac{1}{0.00025{\text{ s}}+ 0.0025{\text{ s}} + 0.00125{\text{ s}}} \\
+    F &= 1600 \text{ Hz}\\
+  \end{split}
+\end{equation*} \\
+
+\noindent
+From Step 8: \\
+\(\Delta\text{t} = 1.100 - 0.430 = 0.67\)
+Then, the frequency is calculated using Equation 1, which results in \(F = 1.49\)kHz. \\
+
+\noindent
+From Step 9: \\
+Compare the frequency obtained using the oscilloscope and the values from the function generator, using the cursors, and estimating visually. Which value would you deem to be most accurate? Why? \\
+The value from the oscilloscope was 1.494402 while the value indicated by the function generator was 1495 Hz, and the value indicated by the cursors was 1.429 kHz. The value found by estimating visually was 1600 Hz. The value that should be the most accurate would be the value from the oscilloscope because it is the value that has the most significant figures. The value recorded by estimating visually would also be expected to be the least accurate, as it uses the human eye. \\
+
+\noindent
+From Step 10: \\
+Discuss the differences between calculating the amplitude by estimating visually, using the cursors, and using the MEASURE menu on the oscilloscope. \\
+Estimating visually, the amplitude was around 3.2 V, while the amplitude measured by the cursors was 3.2 V to 3.28 V (two different cursors). The voltage as measured by the oscilloscope was not recorded, but we would expect it's value to be the most accurate since it's using the MEASURE function.
+
+
+\subsection*{Questions}
+1. Using the color codes, what is the expected resistance of the resistor? Verify that the actual value is  within  the  tolerance  given  by  the  color  code  by  using  the  Multimeter. What  color  code  would designate a 1k\(\Omega\), 10\% resistor? \\
+The expected resistance of the resistor was 27 \(\times{10}\text{ k}\Omega\pm{5}\%\), or 0.27 k\(\Omega\). This is corroborated with the answer from Part 1, Step 2. The color code for a 1 k\(\Omega\) resistor with a tolerance of \(\pm\)10\% would be brown, black, red, silver. \\
+
+\noindent
+2. Plot \(V\) versus \(I\) using both of your data set. You may plot both data sets on the same graph if they are clearly and neatly labeled. Prove that the slope of the best-fit line of your data is equal to the resistance \(R\). This is referred to as Ohm’s Law; \(V = IR\). Using the best-fit line and Ohm’s Law, find the measured resistance for each resistor. Compare any differences. What are the sources of error? \\\\
+\(V\) and \(I\) have been plotted in Figures 1 and 2. The formula for a line is:
+\begin{equation*}
+  \begin{split}
+    y = mx + b \\
+  \end{split}
+\end{equation*} \\
+where \(m\) is the slope and \(b\) is the y-intercept. If \(V\) and \(I\) are plotted against each other using Ohm's Law
+\begin{equation}
+  \begin{split}
+    V = IR \\
+  \end{split}
+\end{equation}
+then plotting \(I\) sets it as the "\(x\)" and \(V\) as the "\(y\)". Thus, the slope is then \(R\). This information is further corroborated with the slopes of the best-fit lines. The slope for Figure 1 shows 284.58 Ohms, which is close to the value measured by the multimeter (0.27 kOhms). Figure 2 shows a very similar value at 284.58 Ohms. \\\\
+While the experiment was being conducted, the values for some of the initial voltage values were not recorded precisely. For instance, when the manual instructed to set the voltage to 1.0 V, the voltage was placed at the closest value possible, which may have been 1.01 V. However, this was not recorded. Other sources of error include any resistance in the materials themselves, although this error would be almost imperceivable. \\
+
+\noindent
+3. If the two experimental values of R that you have obtained are different from each other, which one is closest to the nominal value found using the multimeter?  Why are the experimental values different from each other?  Which circuit should give a more accurate reading of the actual resistance? \\\\
+The value closer to the value measured by the multimeter was in Circuit A. They could be different due to \textit{voltage drop}, when there is a loss of voltage across a circuit (Chaaban, n.d.), since the multimeter measured a larger portion of the circuit in Circuit B. Circuit A should give the more accurate reading, so the results make sense.
+
+\pgfplotstableread {
+X Y
+0.0038 1
+0.0072 2.01
+0.0105 3.00
+0.0145 4.00
+0.0177 5.00
+}\circuita
+
+\pgfplotstableread {
+X Y
+0.0035 1
+0.0070 2.01
+0.0105 3.02
+0.0140 3.99
+0.0175 4.99
+}\circuitb
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      title = {Circuit A Voltage Vs. Amperage},
+      xlabel = {Voltage (V)},
+      ylabel = {Amperage (A)},
+      legend pos=north west,
+      ]
+      \addplot [only marks, mark = *] table {\circuita};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\circuita};
+      \addlegendentry{Data}
+      \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {}
+\end {figure}
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      title = {Circuit B Voltage Vs. Amperage},
+      xlabel = {Voltage (V)},
+      ylabel = {Amperage (A)},
+      legend pos = north west,
+      ]
+      \addplot [only marks, mark = *] table {\circuitb};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\circuitb};
+      \addlegendentry{Data}
+      \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {}
+\end {figure}
+
+\subsection* {REFERENCES}
+Amer Chaaban, M. (n.d.). Voltage Drop. Retrieved February 12, 2020, from https://www.e-education.psu.edu/ae868/node/967 \\\\
+Gladding, G., Selen, M. A., \& Stelzer, T. (2012). Electricity and Magnetism. New York: W.H. Freeman. \\\\
+Illinois Institute of Technology. (n.d.). Experiment 1: Coulomb's Law. PDF. Chicago.
+\end {document}

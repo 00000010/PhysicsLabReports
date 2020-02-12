@@ -1,0 +1,295 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+\usepackage {datetime}
+\usepackage {tikz}
+\usepackage {caption}
+\usepackage {amsmath}
+\usepackage {tabu}
+\usepackage {multirow}
+\usepackage {verbatim}
+\usepackage {caption}
+\usepackage {float}
+
+\usetikzlibrary {shapes.geometric, arrows}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {}
+\vspace {0.35cm}
+
+\normalsize
+Lab 1
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 30 Aug 2019\\
+Due date: 5 Sept 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+\subsection* {STATEMENT OF OBJECTIVE}
+The objective of this lab was to familiarize ourselves with the lab materials by calculating the density of certain objects as well as create an experiment to determine whether Hooke was correct about his force spring equation.\\
+
+\subsection* {THEORY}
+\noindent
+All materials have a certain density. We can calculate this density by the knowing both its mass and its volume, illustrated by Formula 1
+\begin {equation}
+  \begin {split}
+    \rho=\tfrac{M}{V}
+  \end {split}
+\end {equation}
+with units \(\tfrac{\text{g}}{\text{cm}^3}\). Likewise, we can also use density as a fairly accurate descriptor of a material. When the object being measured is a cylinder, its volume can be calculated with
+\begin {equation}
+  \begin {split}
+    V=\pi{}r^2h
+  \end {split}
+\end {equation}
+
+One of the contact forces is the spring force, introduced by Robert Hooke sometime around the 1600s. Hooke's Law as it became known, measures the force applied by a spring using the distance the spring was stretched or compressed from equilibrium and the spring's spring constant. The formula is illustrated as such 
+\begin {equation}
+  \begin {split}
+    \vec{F}=-k\vec{x}
+  \end {split}
+\end {equation}
+where \(F\) is in Newtons, \(k\) is in \(\tfrac{\text{Newtons}}{\text{meter}}\), and \(x\) is in meters. Newton's 1st Law can be used to find further information about the system:
+\begin {equation}
+  \begin {split}
+    \vec{F}_{\text{net}}=m\vec{a} 
+  \end {split}
+\end {equation}
+
+\subsection* {EQUIPMENT}
+  \noindent
+  \begin {itemize}
+    \itemsep0em
+    \item {one PASCO Capstone software}
+    \item {two springs}
+    \item {two dial calipers}
+    \item {one digital scale}
+    \item {three aluminum cylinders of varying sizes}
+    \item {four yellow cylinders of unknown material}
+    \item {one set of weights}
+  \end {itemize}
+
+\subsection* {PROCEDURE}
+There were two parts to this lab. First, the density of the aluminum cylinders were to be calculated by measuring their masses and volumes using the dial calipers and scale. Each measurement was to be done three times, each by a different lab member (or switching the lab members in the case of two). After the measurements, the data would be coalesced and averaged to give the best measurement of the cylinders' density. The same procedure held for the four cylinders of unknown material to find its density and compare it against a table of values to determine its identity.\\\\
+Second, Hooke's Law was to be verified or disproved by measuring multiple sets of masses and their effects on a spring. Hooke's Law would be supported should the equation hold up against different weights and their effects on the spring, but would not hold if the spring constant or the distance from equilibrium were inaccurate for consistently determining a spring force.
+
+\subsection* {DATA}
+The scale and the dial calipers were used for the measurement of the mass and dimensions of the cylinders, respectively. The data for the aluminum cylinders is shown in Table I. The data for the cylinders of unknown material is shown in Table II.\\\\
+The scale was also used for the measurement of the masses. The PASCO Capstone software was used to measure the force on the spring when the system (spring and mass) were not accelerating. The data for these masses and their accompanying \(x\) distance are shown in Table III.\\\\
+
+\begin {table}[H]
+  \centering
+  \begin {tabular}{|l | r | r | r|}
+    \hline\hline
+    Cylinder & 1 & 2 & 3 \\
+    \hline
+    \multirow {3}{*}{Diameter(cm)} & 1.15 & 1.12 & 0.51 \\
+    & 1.15 & 1.15 & 0.50 \\
+    & 1.15 & 1.12 & 0.50 \\
+    \hline
+    Avg Radius (cm) & 0.575 & 0.565 & 0.25 \\
+    \hline
+    \multirow {3}{*}{Length (cm)} & 3.95 & 7.31 & 7.25 \\
+    & 3.95 & 7.30 & 7.20 \\
+    & 3.95 & 7.30 & 7.20 \\
+    \hline
+    Avg Length (cm) & 3.95 & 7.30 & 7.22 \\
+    \hline
+    \multirow {3}{*}{Mass (g)} & 14.4 & 26.2 & 6.2 \\
+    & 14.4 & 26.2 & 6.1 \\
+    & 14.3 & 26.4 & 6.2 \\
+    \hline
+    Avg Mass (g) & 14.4 & 26.3 & 6.2 \\
+    \hline\hline
+  \end {tabular} \\
+  \caption {Aluminum cylinder dimensions and mass}
+\end {table}
+
+\begin{table}[H]
+  \centering
+  \begin {tabular}{|l | r | r | r | r|}
+    \hline\hline
+    Cylinder & 1 & 2 & 3 & 4 \\
+    \hline
+    \multirow {3}{*}{Diameter (cm)} & 1.50 & 1.50 & 1.98 & 1.98 \\
+    & 1.50 & 1.49 & 1.98 & 1.99 \\
+    & 1.50 & 1.50 & 1.95 & 1.90 \\
+    \hline
+    Avg Radius (cm) & 0.750 & 0.748 & 0.958 & 0.978 \\
+    \hline
+    \multirow {3}{*}{Length (cm)} & 2.28 & 3.80 & 5.22 & 6.68 \\
+    & 2.25 & 3.78 & 5.22 & 6.70 \\
+    & 2.25 & 3.80 & 5.20 & 6.68 \\
+    \hline
+    Avg Length (cm) & 2.26 & 3.79 & 5.21 & 6.69 \\
+    \hline
+    \multirow {3}{*}{Mass (g)} & 5.9 & 9.6 & 13.0 & 16.8 \\
+    & 5.8 & 9.5 & 13.0 & 16.8 \\
+    & 5.8 & 9.6 & 12.9 & 16.8 \\
+    \hline
+    Avg Mass (g) & 5.8 & 9.6 & 13.0 & 16.8 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Unknown material cylinder dimensions and mass} ~\\~\\
+
+  \begin {tabular}{| l | r | r | r | r |}
+    \hline\hline
+    Mass & 1 & 2 & 3 & 4 \\
+    \hline
+    \multirow {3}{*}{Mass (g)} & 230.4 & 210.3 & 130.1 & 70.0 \\
+    & 230.4 & 210.3 & 130.2 & 70.0 \\
+    & 230.4 & 210.3 & 130.1 & 70.0 \\
+    \hline
+    Avg Mass (g) & 230.4 & 210.3 & 130.1 & 70.0 \\
+    \hline
+    \multirow {3}{*}{\(x\) Distance (cm)} & 17.4 & 15.9 & 9.8 & 5.0 \\
+    & 17.5 & 15.9 & 9.9 & 5.0 \\
+    & 17.5 & 15.9 & 9.9 & 5.0 \\
+    \hline
+    Avg \(x\) Distance (cm) & 17.5 & 15.9 & 9.9 & 5.0 \\
+    \hline
+    \multirow {3}{*}{Force (N)} & 2.26 & 2.05 & 1.26 & 0.67 \\
+    & 2.27 & 2.06 & 1.26 & 0.66 \\
+    & 2.25 & 2.07 & 1.27 & 0.68 \\
+    \hline
+    Avg Force (N) & 2.26 & 2.06 & 1.26 & 0.67 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Masses and their \(x\) distances and spring force}
+\end {table}
+
+\subsection* {ANALYSIS OF DATA}
+  The volume of the cylinders was calculated using Formula 2. The density can then be calculated using the density formula illustrated earlier in Formula 1. Table 4 showcases these calculations and their results for the aluminum cylinders. The same calculations were done for the unknown material in Table 5. 
+
+\begin {table}[H]
+  \centering
+  \begin {tabular}{| l | r | r | r |}
+    \hline\hline
+    Cylinder & 1 & 2 & 3 \\
+    \hline
+    Avg Volume (\(\text{cm}^3\)) & 4.10 & 7.33 & 1.44 \\
+    \hline
+    Avg Mass (g) & 14.4 & 26.3 & 6.2 \\
+    \hline
+    Avg Density (\(\tfrac{\text{g}}{\text{cm}^3}\)) & 3.50 & 3.59 & 4.30 \\
+    \hline\hline
+  \end {tabular} \\
+  \caption {Aluminum cylinder density calculations}
+\end {table}
+
+The average density of all the aluminum cylinders was calculated to be 3.80 \(\tfrac{\text{g}}{\text{cm}^3}\). \\\\
+
+\begin {table}[H]
+  \centering
+  \begin {tabular}{| l | r | r | r | r |}
+    \hline\hline
+    Cylinder & 1 & 2 & 3 & 4 \\
+    \hline
+    Avg Volume (\(\text{cm}^3\)) & 3.99 & 6.67 & 15.89 & 20.12 \\
+    \hline
+    Avg Mass (g) & 5.8 & 9.6 & 13.0 & 16.8 \\
+    \hline
+    Avg Density (\(\tfrac{\text{g}}{\text{cm}^3}\)) & 1.46 & 1.43 & 0.808 & 0.837 \\
+    \hline\hline
+  \end {tabular} \\
+  \caption {Unknown material cylinder density calculations}
+\end {table}
+
+The average density of all the unknown material cylinders was calculated to be 1.13 \(\tfrac{\text{g}}{\text{cm}^3}\).\\\\
+
+\begin {table}[H]
+  \centering
+  \begin {tabular}{| l | r | r | r | r |}
+    \hline\hline
+    Weight & 1 & 2 & 3 & 4 \\
+    \hline
+    Avg Mass (kg) & 0.2304 & 0.2103 & 0.1301 & 0.0700 \\
+    \hline
+    Avg Distance (m) & 0.175 & 0.159 & 0.0987 & 0.05 \\
+    \hline
+    Avg Calculated Force (N) & 2.268 & 2.061 & 1.275 & 0.6860 \\
+    \hline
+    Avg Force (N) & 2.26 & 2.06 & 1.26 & 0.67 \\
+    \hline
+    Avg Calculated \(k\) (\(\tfrac{\text{N}}{\text{m}}\)) & 12.9 & 13.0 & 12.9 & 13.72 \\
+    \hline\hline
+  \end {tabular} \\
+  \caption {Masses and their calculated forces and \(k\) spring constants}
+\end {table}
+
+\noindent
+The calculated force and \(k\) spring constant were obtained through Newton's 1st Law, shown in Formula 4, when the known acceleration is 0 \(\tfrac{\text{m}}{\text{s}^2}\):
+\begin {equation}
+  \begin {split}
+    \vec{F}_{\text{net}} & = 0 \\
+    F_{\text{spring}}-F_{\text{gravity}} & = 0 \\
+    F_{\text{spring}} & = F_{\text{gravity}} \\
+    F_{\text{spring}} & = mg \\
+    -kx & = mg \\
+    k & = \dfrac{-mg}{x}
+  \end {split}
+\end {equation}
+Table 6 showcases the calculated values and their resemblance to the values PASCO showed. \\\\
+After collecting data from the third table, it was realized that the two springs used in the experiment were different. Although the springs were not switched out from the three measurements of the same weight, they could be different from weight to weight. This discrepancy would be a problem because the experiment was determining whether Hooke was correct in his equation. If two different springs were used and it was assumed they were the same, then the inconsistency could be incorrectly labeled as evidence against Hooke's formula. 
+The best solution to this problem was to take note of it. If there were inconsistencies between two weights in terms of force, this would be attributed to the springs' differences in spring constants. 
+\begin {comment}
+\begin {tikzpicture}
+  \begin {axis} [
+    title = {Comparison of Expected Force and Calculated Force},
+    xlabel = {Average Mass (kg)},
+    ylabel = {Force (N)},
+    xmin = 0, xmax = 0.5,
+    ymin = 0, ymax = 3,
+    xtick = {0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5},
+    ytick = {0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3},
+    legend pos = north west,
+    ]
+    \addplot [
+      color = blue,
+      mark = square,
+    ]
+    coordinates = {(0.2304,2,268)(0.2103,2.061)(0.1301,1.275)(0.07,0.686)};
+    \legend {Calculated}
+  \end {axis}
+\end {tikzpicture}
+\end {comment}
+
+\subsection* {DISCUSSION OF RESULTS}
+The results for the aluminum cylinders did not match with the documented density of aluminum (Nave, 2017)\footnote{Nave, C. R. (2017). Densities of Common Substances. Retrieved from http://hyperphysics.phy-astr.gsu.edu/hbase/Tables/density.html}. Polyurethane was the closest guess for the unknown material, which has a wide range of density values. Since the process for finding the density of the aluminum cylinders were incorrect, the densities for the unknown material were probably also incorrect. \\\\
+For the results in examining Hooke's Law, the results for the calculated force based on the measurements were fairly close to the expected force from PASCO. The spring constants were also consistent across all weights except for the fourth one, which jumps significantly. It is likely that this was the different spring as the researchers completed the last spring experiment as further data after the first three, when the spring was taken off the hook (no pun intended). 
+
+\subsection* {FURTHER STUDY}
+There were many mistakes made in the conduction of this lab. Starting with the procedure itself, it would have been more beneficial to conduct the entire experiment twice: once with one spring, and once with a different spring. This would also include confirming the identities of the two springs to prevent mixing. While the problem was duly noted and acknowledged, this experiment's results cannot be used for further proof or disproof of Hooke's Law because whether or not the results matched Hooke's Law were entirely dependent on whether they matched in the first place. \\\\
+Second, there was a gross inconsistency in the measurements with both cylinder measurements. While the two aluminum cylinders gathered around 3.50 \(\tfrac{\text{g}}{\text{cm}^3}\), the third cylinder was completely off with 4.30 \(\tfrac{\text{g}}{\text{cm}^3}\), not including the fact that the documented density of aluminum is around 2.7 \(\tfrac{\text{g}}{\text{cm}^3}\) (Nave, 2017). \\\\
+Future experiments would take more time to carefully measure all parts of the experiment, especially regarding the density measurements. The springs would also be documented as different, and researchers should be careful that they label the springs, even if the springs are said to be the same.
+
+\end {document}

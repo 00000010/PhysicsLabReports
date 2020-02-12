@@ -1,0 +1,317 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+\usepackage {datetime}
+\usepackage {tikz}
+\usepackage {caption}
+\usepackage {amsmath}
+\usepackage {tabu}
+\usepackage {multirow}
+\usepackage {verbatim}
+\usepackage {caption}
+\usepackage {float}
+\usepackage {cancel}
+\usepackage {pgfplots}
+\usepackage {siunitx}
+
+\usetikzlibrary {shapes.geometric, arrows}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Atwood's Machine}
+\vspace {0.35cm}
+
+\normalsize
+Lab 5
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 26 Sept 2019\\
+Due date: 3 Oct 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+\pgfplotsset{compat=1.7}
+\subsection* {STATEMENT OF OBJECTIVE}
+The objective of this lab was to devise and conduct experiments that measured the acceleration of two objects under the influence of each other and the gravity constant using a pulley.
+
+\subsection* {THEORY}
+\noindent
+In order to measure the acceleration of gravity and accelerations between two masses, we introduce Atwood's Machine, which consists of a pulley and string connecting two masses. Using this system, we can determine the acceleration of the objects as \\
+\begin {equation}
+  \begin {split}
+    a = \dfrac{(m_{1}-m_{2})g}{m_{1}+m_{2}} \\
+  \end {split}
+\end {equation} \\
+which we can compare to our experimental acceleration.
+Note that the acceleration of the system rests on the assumption that the pulley and string are massless and there is negligible friction between the pulley and string, as well as minimal air resistance. We will use this equation to determine the experimental acceleration of the system, using 9.8 \(\tfrac{\text{m}}{\text{s}}^2\) as the gravitational acceleration. \\\\
+Our second experiment will test the idea that the gravitational acceleration is 9.8 \(\tfrac{\text{m}}{\text{s}}^2\) using our experimental acceleration. We manipulate Equation 1 to obtain \\
+\begin {equation}
+  \begin {split}
+    g = \dfrac{a(m_{1}+m_{2})}{m_{1}-m_{2}} \\
+  \end {split}
+\end {equation} \\
+Note that in order to test gravity, the masses must not equal each other or else our gravity equation will be dividing by zero.
+
+\subsection* {EQUIPMENT}
+  \noindent
+  \begin {itemize}
+    \itemsep0em
+    \item {one PASCO Capstone software}
+    \item {one scale}
+    \item {one pulley}
+    \item {one string}
+    \item {two mass holders}
+    \item {masses}
+    \item {one photogate}
+  \end {itemize}
+
+\subsection* {PROCEDURE}
+For our first experiment, we will show the relationship between the masses and accelerations by measuring ten masses: \(m_{1A}\), \(m_{1B}\), \(m_{1C}\), \(m_{1D}\), \(m_{1E}\), \(m_{2A}\), \(m_{2B}\), \(m_{2C}\), \(m_{2D}\), and \(m_{2E}\), where
+\begin {equation*}
+  \begin {split}
+    m_{A} = m_{B} = m_{C} = m_{D} = m_{E} \\
+  \end {split}
+\end {equation*}
+In other words, to ensure our acceleration is directly connected to the masses, we will keep the total mass (\(m_{1}\) and \(m_{2}\)) the same but change the ratio. We will measure each mass three times as usual, and conduct each trial of the mass combinations three times, giving an output of three accelerations. We will use the resulting accelerations and calculate the net force to determine whether our accelerations were accurate by comparing the true and calculated total masses. \\\\
+For the second experiment, we will measure the acceleration of the masses using the photogate and change the masses on the pulley. Specifically, we will keep \(m_{1}\) constant and change the mass of \(m_{2}\) by 10 grams each run. We will run this experiment six times with three trials each to ensure our calculations are accurate and don't depend on another inconsequential variable. The resulting accelerations will be compared to the mass proportion to measure the gravity constant.
+
+\subsection* {DATA}
+The data and calculations are as follows in Table 1 and Table 2. Each measurement was recorded three times, where all the data recorded was put into these tables.
+\begin {table}[h!]
+  \centering
+  \begin {tabular}{| l | r | r | r | r | r |}
+    \hline\hline
+    & \(m_{1}\) & \(m_{2}\) & Acceleration (\(\tfrac{\text{m}}{\text{s}^2}\))& \(\vec{F}_{NET}\) of \(m_{1}\) (N) \\
+    \hline
+    \multirow{3}{*}{A} & 0.1049 & 0.0049 & 8.35 \(\pm\) 0.022 & 0.98\\
+    & 0.1048 & 0.0049 & 8.35 \(\pm\) 0.033 & 0.98 \\ %902 (LDR)
+    & 0.1048 & 0.0049 & 8.34 \(\pm\) 0.40 & 0.98 \\ %902 (LDR)
+    \hline
+    Avg. & 0.1048 & 0.0049 & 8.35 \(\pm\) 0.15 & 0.98 \\ %33333 %6666667 (LDR) %1666667 %9346667  (LDR)
+    \hline
+    \multirow{3}{*}{B} & 0.0850 & 0.0248 & 5.02 \(\pm\) 0.011 & 0.59 \\ %996 (LDR)
+    & 0.0849 & 0.0248 & 5.02 \(\pm\) 0.0080 & 0.59 \\ %898 (LDR)
+    & 0.0850 & 0.0249 & 5.02 \(\pm\) 0.0082 & 0.59 \\ %898 LDR)
+    \hline
+    Avg. & 0.0850 & 0.0248 & 5.02 \(\pm\) 0.0058 & 0.59 \\ %66667 (LDR) %33333 %33333 %9306667 (LDR)
+    \hline
+    \multirow{3}{*}{C} & 0.0650 & 0.0447 & 1.67 \(\pm\) 0.0032 & 0.20 \\ %894 (LDR)
+    & 0.0651 & 0.0448 & 1.68 \(\pm\) 0.0030 & 0.20 \\ %894 (LDR)
+    & 0.0651 & 0.0447 & 1.67 \(\pm\) 0.0035 & 0.20 \\ %992 (LDR)
+    \hline
+    Avg. & 0.0651 & 0.0447 & 1.67 \(\pm\) 0.0032 & 0.20 \\ %66667 (LDR) %33333 %3333333  %33333 %9266667 (LDR)
+    \hline
+    \multirow{3}{*}{D} & 0.0450 & 0.0649 & -1.62 \(\pm\) 0.0030 & -0.20 \\ %502 (LDR)
+    & 0.0450 & 0.0648 &  -1.60 \(\pm\) 0.0038 & -0.19 \\ %404
+    & 0.0450 & 0.0648 & -1.62 \(\pm\) 0.0033 & -0.19 \\ %404
+    \hline
+    Avg. & 0.0450 & 0.0648 & -1.61 \(\pm\) 0.0034 & -0.19 \\ %33333 %3333333 %66667 (LDR) %4366667
+    \hline
+    \multirow{3}{*}{E} & 0.0251 & 0.0847 & -5.01 \(\pm\) 0.0093 & -0.58 \\ %408
+    & 0.0250 & 0.0847 & -5.03 \(\pm\) 0.017 & -0.59 \\ %506 (LDR)
+    & 0.0250 & 0.0847 & -5.00 \(\pm\) 0.011 & -0.59 \\ %506 (LDR)
+    \hline
+    Avg. & 0.0250 & 0.0847 & -5.01 \(\pm\) 0.012 & -0.58 \\ %33333 %3333333 %433333 %4733333
+    \hline\hline
+  \end {tabular}
+  \caption {Mass and Acceleration Measurements (Experiment 1)}
+\end {table}
+
+\begin {table}[h!]
+  \centering
+  \begin {tabular}{| l | r | r | r | r | r | r |}
+    \hline\hline
+    & \(m_{1}\) (kg) & \(m_{2}\) (kg) & \(m_{1}\) Prop. (kg) & Accel. (\(\tfrac{\text{m}}{\text{s}^2}\)) & \(F_{\text{net}}\) & \(m_{1}\) Tension (N) \\
+    \hline
+    \multirow{3}{*}{A} & 0.0050 & 0.0150 & -0.5 & -4.00 \(\pm\) 0.010 & -0.098 & 0.049 \\
+    & 0.0049 & 0.0150 & -0.51 & -4.03 \(\pm\) 0.015 & -0.099 & 0.051 \\ %7537688 (LDR) %98 (LDR) %96 (LDR)
+    & 0.0050 & 0.0150 & -0.5 & -4.03 \(\pm\) 0.0086 & -0.098 & 0.049 \\
+    \hline
+    Avg. & 0.0050 & 0.0150 & -0.50 & -4.02 \(\pm\) 0.0112 & -0.098 & 0.050 \\%66667 (LDR) %2512563 %326667 %653333 (LDR)
+    \hline
+    \multirow{3}{*}{B} & & 0.0250 & -0.67 & -5.66 \(\pm\) 0.019 & -0.20 & 0.15 \\ %6666667 (LDR) %6 (LDR) %7 (LDR)
+    & & 0.0250 & -0.67 & -5.67 \(\pm\) 0.012 & -0.20 & 0.15 \\ %2240803 %698 (LDR) %896 (LDR)
+    & & 0.0250 & -0.67 & -5.67 \(\pm\) 0.016 & -0.20 & 0.15 \\ %6666667 (LDR) %6 (LDR) %7 (LDR)
+    \hline
+    Avg. & & 0.0250 & -0.67 & -5.67 \(\pm\) 0.016 & -0.20 & 0.15 \\ %8524712 %6666667 %666667 (LDR) %6326667 (LDR) %7653333 (LDR)
+    \hline
+    \multirow{3}{*}{C} & & 0.0350 & -0.75 & -6.54 \(\pm\) 0.014 & -0.29 & 0.25 \\ %4 %5  (LDR)
+    & & 0.0349 & -0.75 & -6.55 \(\pm\) 0.024 & -0.29 & 0.25 \\ %3768844 %4 (LDR) %598 (LDR)
+    & & 0.0350 & -0.75 & -6.55 \(\pm\) 0.015 & -0.29 & 0.25 \\ %4 %5 (LDR)
+    \hline
+    Avg. & & 0.0350 & -0.75 & -6.55 \(\pm\) 0.018 & -0.29 & 0.25 \\%66667 (LDR) %1256281 %6666667 (LDR) %666667 (LDR) %4 %5326667 (LDR)
+    \hline
+    \multirow{3}{*}{D} & & 0.0450 & -0.80 & -7.09 \(\pm\) 0.021 & -0.39 & 0.34 \\ %2 %3
+    & & 0.0450 & -0.80 & -7.11 \(\pm\) 0.818 & -0.39 & 0.34 \\ %3607214 %298 %496
+    & & 0.0450 & -0.80 & -7.13 \(\pm\) 0.017 & -0.39 & 0.34 \\ %2 %3
+    \hline
+    Avg. & & 0.0450 & -0.80 & -7.11 \(\pm\) 0.29 & -0.39 & 0.34 \\ %1202405 %5333333 (LDR) %2326667 %3653333
+    \hline
+    \multirow{3}{*}{E} & & 0.0549 & -0.83 & -7.49 \(\pm\) 0.021 & -0.49 & 0.44 \\ %3055092 %902 (LDR) %1
+    & & 0.0550 & -0.84 & -7.46 \(\pm\) 0.015 & -0.49 & 0.44 \\ %639399 (LDR) %098 %296
+    & & 0.0550 & -0.83 & -7.48 \(\pm\) 0.022 & -0.49 & 0.44 \\ %3333333 %1
+    \hline
+    Avg. & & 0.0550 & -0.83 & -7.48 \(\pm\) 0.019 & -0.49 & 0.44 \\ %66667 (LDR) %4260805 %6666667 (LDR) %333333 %1653333
+    \hline
+    \multirow{3}{*}{F} & & 0.0649 & -0.86 & -7.74 \(\pm\) 0.018 & -0.59 & 0.54 \\ %6938484 (LDR) %702 (LDR) %802 (LDR)
+    & & 0.0650 & -0.86 & 7.74 \(\pm\) 0.018 & -0.59 & 0.54 \\ %9799714 (LDR) %898 (LDR) %096 
+    & & 0.0649 & -0.86 & -7.73 \(\pm\) 0.026 & -0.59 & 0.54 \\ %6938484 (LDR) %702 (LDR) %802 (LDR)
+    \hline
+    Avg. & & 0.0649 & -0.86 & -7.74 \(\pm\) 0.021 & -0.59 & 0.54 \\ %33333 %7892227  (LDR) %6666667 (LDR) %666667 (LDR) %7673333 (LDR) %9 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Mass Measurements (Experiment 2)}
+\end {table}
+
+\subsection* {ANALYSIS OF DATA}
+\begin {table}
+  \centering
+  \begin {tabular}{| l | r |}
+    \hline\hline
+    Correlation & 0.999998503 \\
+    \hline
+    Acceleration Standard Deviation & 3.336671662 \\
+    \hline
+    Net Force Standard Deviation & 0.39004 \\
+    \hline
+    Slope & 0.1168947549 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Regression Calculations for Experiment 1}
+\end {table}
+
+\begin {figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin {axis}[
+      title = {Net Force On \(m_{1}\) Vs Experimental Acceleration},
+      xlabel = {Acceleration (\(\tfrac{\text{m}}{\text{s}^s}\))},
+      ylabel = {Net Force (N)},
+    ]
+    \addplot+[error bars/.cd,
+    y dir=plus,y explicit]
+    coordinates {
+      (8.346666667,0.979346667) +- (0.151666667,0.0)
+      (5.02,0.589306667) +- (0.005833333,0.0)
+      (1.673333333,0.199266667) +- (0.003233333,0.0)
+      (-1.613333333,-0.194366667) +- (0.003366667,0.0)
+      (-5.013333333,-0.584733333) +- (0.012433333,0.0)};
+    \end {axis}
+  \end {tikzpicture}
+  \caption {Acceleration Vs. Net Force}
+\end {figure}
+
+For the first experiment, the masses and accelerations were measured, but in order to find the relationship between force and acceleration, we had to calculate the net force. We used the equation from the lab manual, restated in Equation 1.
+From Newton's Laws, we also know the given:
+\begin {equation*}
+  \begin {split}
+    \vec{F}_{\text{net}} = m\vec{a} \\
+    \vec{a} = \dfrac{\vec{F}_{\text{net}}}{m} \\
+  \end {split}
+\end {equation*}
+Thus, we can combine the two equations to give us
+\begin {equation*}
+  \begin {split}
+    \dfrac{(m_{1}-m_{2})g}{m_{1}+m_{2}} & = \dfrac{F_{\text{net}}}{m} \\
+  \end {split}
+\end {equation*}
+As we are looking at the total system, the mass on the right-hand side of the equation must be equal to the total mass of the system. This deduction leaves the following:
+\begin {equation}
+  \begin {split}
+    F_{\text{net}} & = (m_{1}-m_{2})g \\
+  \end {split}
+\end {equation}
+Using this equation, we calculate the net force in Experiment 1. The results of these calculations are listed in Table 1, while the illustration between the acceleration and net force is in Figure 1. Since the acceleration is the independent variable and the net force is the dependent variable, we have by the slope-intercept equation that the slope of Figure 1 should equal the total mass of the system (\(m_{1}+m_{2}\)). Table 3 shows this result (0.1169 kg). \\\\
+For the second experiment, we examined \(\tfrac{m_{1}-m_{2}}{m_{1}+m_{2}}\) versus the acceleration. The proportion was calculated, and its results are shown in Table 2. By the slope-intercept equation, if the acceleration is the dependent variable and the mass proportion is the x variable, then gravity must be the slope (see Equation 1). The slope of the line was estimated at 10.47 \(\tfrac{\text{m}}{\text{s}^2}\). \\\\
+Note: The error bars are too small to be illustrated in Figure 1 and 2.
+
+\begin {table}
+  \centering
+  \begin {tabular}{| l | r |}
+    \hline\hline
+    Correlation & 0.9996134184 \\
+    \hline
+    Proportion Standard Deviation & 0.132714947 \\
+    \hline
+    Acceleration & 1.39065359 \\
+    \hline
+    Slope & 10.47444934 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Regression Calculations for Experiment 2}
+\end {table}
+
+\begin {figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin{axis}[
+      title = {Experimental Acceleration Vs. \(m_{1}\) Proportion},
+      xlabel = {Absolute \(m_{1}\) Proportion (kg)},
+      ylabel = {Acceleration (\(\tfrac{\text{m}}{\text{s}^s}\))},
+    ]
+    \addplot+[error bars/.cd,
+    y dir=plus,y explicit]
+    coordinates {
+      (-0.50,-4.02) +- (0.0112,0.0)
+      (-0.67,-5.67) +- (0.0,0.016)
+      (-0.75,-6.55) +- (0.018,0.0)
+      (-0.80,-7.11) +- (0.29,0.0)
+      (-0.83,-7.48) +- (0.019,0.0)
+      (-0.86,-7.74) +- (0.021,0.0)
+      };
+    \begin {comment}
+    \addplot coordinates {(0.502512563,4.02) (0.668524712,5.666666667) (0.751256281,6.546666667) (0.801202405,7.11) (0.834260805,7.476666667) (0.857892227,7.736666667)};
+    \end {comment}
+    \end{axis}
+  \end {tikzpicture}
+  \caption {Acceleration Vs. Proportion}
+\end {figure}
+
+\subsection* {DISCUSSION OF RESULTS}
+For the first experiment, we expected that our best-fit line comparing the net force and acceleration would equal the total mass. Our answer (0.1167 kg) had a percentage error of about 6.46\%, which is fairly adequate assuming our pulley is ideal, even if it isn't. \\\\
+The goal of the second experiment was to measure the gravity constant, which we estimated at about 10.47 \(\tfrac{\text{m}}{\text{s}^2}\). While not close, this value was calculated under the assumption of a perfect pulley. If we accounted for the pulley's specifications, we would likely reach a closer answer. 
+
+\subsection* {FURTHER STUDY}
+Were we to conduct these experiments again, it is clear that our pulley can no longer be assumed ideal. The pulley's mass and radius would need to be accounted for. Additional external forces could include friction and air resistance, although these are likely not as substantial.
+
+\subsection* {SUPPLEMENTAL QUESTIONS}
+1. We can calculate the tensions in the string in the second experiment by subtracting the force of gravity from the net force. We know the net force to be \((m_{1}-m_{2})g\) from Equation 4. The results from these calculations are shown in Table 2. \\\\
+2. When the force is held constant, we see that the relationship between the acceleration and total mass is linear, where the total mass and the acceleration are directly proportional. We see this relationship in Newton's 2nd Law:
+\begin {equation*}
+  \begin {split}
+    \vec{F}_{\text{net}} & = m\vec{a} \\
+    \vec{F}_{\text{net}} & = (\tfrac{1}{2}m)(2\vec{a}) \\
+  \end {split}
+\end {equation*}
+If the mass is half, then the acceleration must be double to compensate and multiply to the same force. \\\\
+\noindent
+3. Equation 3 (Equation 1 in our report) can be compared to Newton's 2nd Law. The specific comparison between them can be found in the data analysis. However, when we used this equation to find gravity, which is a known and established value, our experimental value was off by a percentage error of about 6.77\%. Sources of this error could be that the pulley was assumed to be "ideal", where we neglected its mass and radius. Other errors could include the mass of the string, friction between the pulley and string, and any air resistance of the hanging masses. It is likely that the pulley had a substantial enough mass that our calculations were off. Should we account for the non-ideal pulley, we would expect to calculate a gravity constant closer to 9.8 \(\tfrac{\text{m}}{\text{s}^2}\).
+
+\end {document}

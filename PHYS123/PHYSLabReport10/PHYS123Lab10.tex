@@ -1,0 +1,259 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+\usepackage {datetime}
+\usepackage {tikz}
+\usepackage {caption}
+\usepackage {amsmath}
+\usepackage {tabu}
+\usepackage {multirow}
+\usepackage {verbatim}
+\usepackage {caption}
+\usepackage {float}
+\usepackage {cancel}
+\usepackage {pgfplots}
+\usepackage {pgfplotstable}
+\usepackage {siunitx}
+\usepackage {filecontents}
+
+\usetikzlibrary {shapes.geometric, arrows}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\pgfplotstableread{
+X Y
+7.765511113 0.382351721
+17.2225 0.674223265
+24.01 0.966094808
+32.75654444 1.257966351
+38.39867778 1.549837894
+}\datatable
+
+\pgfplotstableread{
+X Y
+0.382351721 0.1
+0.674223265 0.11
+0.966094808 0.12
+1.257966351 0.13
+1.549837894 0.14
+}\ForceandRadius
+
+\raggedbottom
+\begin {document}
+\pgfplotsset{compat=1.16}
+
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Circular Motion}
+\vspace {0.35cm}
+
+\normalsize
+Lab 10
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 31 Oct 2019\\
+Due date: 7 Nov 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+\pgfplotsset{compat=1.7}
+\subsection* {STATEMENT OF OBJECTIVE}
+The objective of this lab was to examine the relationship between the accelerating force in a circular motion situation and the angular velocity of rotation, as well as verify that the force keeping a hanging mass in uniform circular motion is proportional to the radius of rotation.
+
+\subsection* {THEORY}
+\noindent
+When an object is undergoing a circular motion at a constant speed, it experiences a force pulling it inward to keep it moving in a circle. Building up to this fact, we know the following about the velocity of the mass, given that the mass travels the circle at a constant speed:
+\begin {equation*}
+  \begin {split}
+    v &= wr \\ 
+  \end {split}
+\end {equation*}
+The centripedal acceleration is known to be the following, given constant speed:
+\begin {equation*}
+  \begin {split}
+    a_{c} = \dfrac{v^2}{r} \\
+  \end {split}
+\end {equation*}
+Getting the centripedal acceleration in terms of angular velocity, we have
+\begin {equation*}
+  \begin {split}
+    a_{c} &= \dfrac{w^{2}r^{2}}{r} \\
+    a_{c} &= w^{2}r \\
+  \end {split}
+\end {equation*}
+We can calculate the force keeping the mass at this acceleration by using Newton's 2nd Law
+\begin {equation}
+  \begin {split}
+    \vec{F} &= m\vec{a} \\
+    F &= mw^{2}r \\
+  \end {split}
+\end {equation}
+where the magnitude of the force is equal to the mass times the square of the angular velocity and the radius at which the mass is moving in a circle. Additionally, the force keeping the mass in place can be calculated using the formula for the spring force:
+\begin {equation*}
+  \begin {split}
+    F = kx \\
+  \end {split}
+\end {equation*}
+
+\subsection* {EQUIPMENT}
+  \noindent
+  \begin {itemize}
+    \itemsep0em
+    \item {one rotating platform}
+    \item {various removable masses}
+    \item {one spring}
+    \item {one bob}
+  \end {itemize}
+
+\subsection* {PROCEDURE}
+For the first experiment, we need to examine the relationship between the accelerating force and the angular velocity of rotation. Our equipment will allow us to measure the angular velocity while we control the hanging mass. By comparing the force of gravity on the hanging mass and the square of the angular velocity times the radius, we can verify the equality of the two sides, as shown in Equation 1. \\\\
+The second experiment involved examining the relationship between the accelerating force and the radius of rotation. This relationship can be shown by recording the radius at which the bob is at while recording data for Experiment 1.
+
+\subsection* {DATA}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    & Mass 1 & Mass 2 & Mass 3 & Mass 4 \\
+    \hline
+    \multirow {3}{*}{Mass (kg)} & 0.0300 & 0.0400 & 0.0500 & 0.0600 \\
+    & 0.0300 & 0.0400 & 0.0500 & 0.0599 \\
+    & 0.0300 & 0.0400 & 0.050 & 0.0600 \\
+    \hline
+    Average & 0.0300 & 0.0401 & 0.0500 & 0.0600 \\ %6666667 (LDR) %3333333
+    \hline\hline
+  \end {tabular}
+  \caption {Masses}
+\end {table}
+
+\begin {table}[h]
+  \centering
+    \begin {tabular} {| l | r | r |}
+      \hline\hline
+      Mass & \(x\) Distance (m) & k (\(\tfrac{\text{N}}{\text{m}}\)) \\
+      \hline
+      1 & 0.00880 & 33.409 \\ %09091
+      \hline
+      2 & 0.0136 & 28.872 \\ %56863 (LDR)
+      \hline
+      3 & 0.0169 & 29.013 \\ %41223
+      \hline
+      4 & 0.0231 & 25.455 \\ %54545 (LDR)
+      \hline
+      Average & & 29.187 \\ %15431
+      \hline\hline
+    \end {tabular}
+  \caption {Spring Constant Calculations}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r | r |}
+    \hline\hline
+    \(x\) Distance (m) & 0.0131 & 0.0231 & 0.0331 & 0.0431 & 0.0531 \\
+    \hline
+    Radius (m) & 0.1000 & 0.1100 & 0.1200 & 0.1300 & 0.1400 \\
+    \hline
+    \multirow {3}{*}{\(\omega\) (\(\tfrac{\text{rad}}{\text{s}}\))} & 2.82 & 4.10 & 5.03 & 5.66 & 6.17 \\
+    & 2.69 & 4.07 & 4.77 & 5.75 & 6.31 \\
+    & 2.85 & 4.28 & 4.90 & 5.76 & 6.11 \\
+    \hline
+    Average \(\omega\) & 2.79 & 4.15 & 4.9 & 5.72 & 6.20 \\ %6666667 (LDR) %3333333 %6666667 (LDR)
+    \hline
+    Force (N) & 0.38 & 0.67 & 0.97 & 1.26 & 1.55 \\ %2351721 %4223265 %6094808 (LDR) %7966351 (LDR) %9837894 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {\(x\) Distance, Radius, Angular Velocity, and Force}
+\end {table}
+    
+\subsection* {ANALYSIS OF DATA}
+
+The spring constant (\(k\)) was calculated using the equation for spring energy and isolating \(k\):
+\begin {equation*}
+  \begin {split}
+    \vec{F}_{spring} & = -kx \\
+    k & = \dfrac{F_{spring}}{x} \\
+  \end {split}
+\end {equation*}
+
+\noindent
+The results of these calculations are in Table 2. \\
+
+\noindent
+The force in the first experiment can be calculated using the above spring force equation, where the force is equal to the spring constant multiplied by the \(x\) distance. These results are shown in Table 3.
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      legend pos=north west,
+      xlabel = {\(\omega^2\) (\(\tfrac{\text{rad}^2}{\text{s}^2}\))},
+      ylabel = {F (N)},
+      ]
+      \addplot [only marks, mark = *] table {\datatable};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\datatable};
+      \addlegendentry{\(\omega^2\) vs. F}
+      \addlegendentry{\(R\cdot{m}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {\(\omega^2\) vs. F}
+\end {figure}
+
+\noindent
+Graphing the square of the angular velocity and the force gives Figure 1. The best-fit line is red and represents the mass times the radius. This relationship is shown in Equation 1, where \(\omega^2\) is the \(x\) and the force is the \(y\) of the equation. Based on this relationship then, the slope, m, is equal to the mass times the radius. The slope of this line is 0.03776969789. \\\\
+For the second experiment, we examined the proportionality of the force keeping the bob moving in uniform circular motion and the radius of where the bob was. Figure 2 shows the relationship visually. We see that the data creates a rather uniform slope, which is equal to the mass times the square of the angular velocity.
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      legend pos=north west,
+      xlabel = {Force (N)},
+      ylabel = {Radius (m)},
+      ]
+      \addplot [only marks, mark = *] table {\ForceandRadius};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\ForceandRadius};
+      \addlegendentry{F vs R}
+      \addlegendentry{m\(\omega^2\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {Force vs. Radius}
+\end {figure}
+
+\subsection* {DISCUSSION OF RESULTS}
+For the first experiment, we looked at the relationship between the square of the angular velocity and the force keeping the bob in place. The slope in the graph (Figure 1) represents the radius and the mass. The relative linearity of the graph shows that \(\omega^2\) and F are proportional to one another; as \(\omega^2\) increases, the force increases by a set amount. \\\\
+For the second experiment, we examined the force and radius of the system. We see in Figure 2 that the force and radius are proportional to one another, as shown by the best-fit line.
+
+\subsection* {FURTHER STUDY}
+Were we to conduct these experiments again, it would be beneficial to take more time in understanding the rotating platform, as it would help with the general experiment. Additionally, finding another method to test the force vs radius relationship would allow us to see the relationship more clearly, as the slope ended up being a calculation based off the initial calculation, therefore not showing any direct proportionality.
+\end {document}

@@ -1,0 +1,484 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For keeping time
+\usepackage {datetime}
+% For pictures/graphs
+\usepackage {tikz}
+% The essential math library
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% To add multiple rows or columns per table column/row
+\usepackage {multirow}
+% To add horizontal lines spanning only some columns in tables
+\usepackage {array}
+\usepackage {verbatim}
+% To add captions to tables
+\usepackage {caption}
+\usepackage {float}
+% For the degree symbol
+\usepackage {gensymb}
+% To make graphs
+\usepackage {pgfplots}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Friction}
+\vspace {0.35cm}
+
+\normalsize
+Lab 6
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 3 Oct 2019\\
+Due date: 10 Oct 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {UNPROCESSED DATA}
+  \begin {table}[h]
+    \centering
+    \begin {tabular} {| l | r | r | r |}
+      \hline\hline
+      \multirow {3}{*}{\(m_{1,\text{felt}}\)} & 0.0828 \\
+      & 0.0828 \\
+      & 0.0828 \\
+      \hline
+      Average & 0.0828 \\
+      \hline
+      \(m_{1,\text{cork}}\) & \\
+      \hline
+      Estimated & 0.0908 \\
+      \hline
+      \multirow {3}{*}{\(m_{1,\text{plastic}}\)} & 0.0925 \\
+      & 0.0925 \\
+      & 0.0925 \\
+      \hline
+      Average & 0.0925 \\
+      \hline
+      \multirow {3}{*}{\(m_{2A}\)} & 0.1700 \\
+      & 0.1699 \\
+      & 0.1699 \\
+      \hline
+      Average & 0.169933333 \\
+      \hline
+      \multirow {3}{*}{\(m_{2B}\)} & 0.1298 \\
+      & 0.1299 \\
+      & 0.1298 \\
+      \hline
+      Average & 0.129833333 \\
+      \hline
+      \multirow {3}{*}{\(m_{2C}\)} & 0.1499 \\
+      & 0.1499 \\
+      & 0.1500 \\
+      \hline
+      Average & 0.149933333 \\
+      \hline\hline
+    \end {tabular}
+    \caption {Experiment 1 Masses}
+  \end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | l | r |}
+    \hline\hline 
+    Material & & Mass (kg) & Measured Force \\
+    \hline
+    \multirow {12}{*}{Felt} & \multirow {3}{*}{\(m_{1A}\)} & 0.5796 & 5.26 \\
+    & & 0.5796 & 6.03 \\
+    & & 0.5796 & 4.90 \\
+    \cline{2-4}
+    & Average & 0.5796 & 5.40 \\ %6666667 (LDR)
+    \cline{2-4}
+    & \multirow {3}{*}{\(m_{1B}\)} & 1.0768 & 14.7 \\
+    & & 1.0768 & 9.96 \\
+    & & 1.0768 & 10.8 \\
+    \cline{2-4}
+    & Average & 1.0768 & 11.82 \\
+    \cline{2-4}
+    & \multirow {3}{*}{\(m_{1C}\)} & 0.15736 & 13.5 \\
+    & & 0.15736 & 11.1 \\
+    & & 0.15736 & 14.9 \\
+    \cline{2-4}
+    & Average & 0.15736 & 13.2 \\ %6666667 (LDR)
+    \hline
+    \multirow {12}{*}{Cork} & \multirow {3}{*}{\(m_{1A}\)} & 0.5876 & 2.89 \\
+    & & 0.5876 & 2.25 \\
+    & & 0.5876 & 2.51 \\
+    \cline{2-4}
+    & Average & 0.5876 & 2.55 \\
+    \cline{2-4}
+    & \multirow {3}{*}{\(m_{1B}\)} & 1.0848 & 4.30 \\
+    & & 1.0848 & 4.53 \\
+    & & 1.0848 & 4.19 \\
+    \cline{2-4}
+    & Average & 1.0848 & 4.34 \\
+    \cline{2-4}
+    & \multirow {3}{*}{\(m_{1C}\)} & 1.5816 & 5.24 \\
+    & & 1.5816 & 5.71 \\
+    & & 1.5816 & 5.83 \\
+    \cline{2-4}
+    & Average & 1.5816 & 5.59 \\ %3333333
+    \cline{2-4}
+    \hline
+    \multirow {12}{*}{Plastic} & \multirow {3}{*}{\(m_{1A}\)} & 0.5893 & 0.931 \\
+    & & 0.5893 & 1.05 \\
+    & & 0.5893 & 1.09 \\
+    \cline{2-4}
+    & Average & 0.5893 & 1.02 \\ %3666667
+    \cline{2-4}
+    & \multirow {3}{*}{\(m_{1B}\)} & 1.0865 & 1.50 \\
+    & & 1.0865 & 1.59 \\
+    & & 1.0865 & 1.81 \\
+    \cline{2-4}
+    & Average & 1.0865 & 1.63 \\ %3333333
+    \cline{2-4}
+    & \multirow {3}{*}{\(m_{1C}\)} & 1.5833 & 1.75 \\
+    & & 1.5833 & 1.94 \\
+    & & 1.5833 & 1.99 \\
+    \cline{2-4}
+    & Average & 1.5833 & 1.89 \\ %3333333
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Masses}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | l | r |}
+    \hline\hline 
+    Material & Mass & Acceleration (\(\tfrac{\text{m}}{\text{s}^2}\)) \\
+    \hline
+    \multirow {12}{*}{Felt} & \multirow {3}{*}{\(m_{2A}\)} & 2.77 \\
+    & & 2.55 \\
+    & & 2.63 \\
+    \cline{2-3}
+    & Average & 2.65 \\
+    \cline{2-3}
+    & \multirow {3}{*}{\(m_{2B}\)} & 1.34 \\
+    & & 1.22 \\
+    & & 1.11 \\
+    \cline{2-3}
+    & Average & 1.22 \\ %3333333
+    \cline{2-3}
+    & \multirow {3}{*}{\(m_{2C}\)} & 2.40 \\
+    & & 2.21 \\
+    & & 2.23 \\
+    \cline{2-3}
+    & Average & 2.28 \\
+    \hline
+    \multirow {12}{*}{Cork} & \multirow {3}{*}{\(m_{2A}\)} & 4.83 \\
+    & & 4.80 \\
+    & & 4.88 \\
+    \cline{2-3}
+    & Average & 4.84 \\ %6666667
+    \cline{2-3}
+    & \multirow {3}{*}{\(m_{2B}\)} & 3.87 \\
+    & & 3.88 \\
+    & & 3.91 \\
+    \cline{2-3}
+    & Average & 3.89 \\ %6666667
+    \cline{2-3}
+    & \multirow {3}{*}{\(m_{2C}\)} & 4.43 \\
+    & & 4.46 \\
+    & & 4.43 \\
+    \cline{2-3}
+    & Average & 4.44 \\
+    \cline{2-3}
+    \hline
+    \multirow {12}{*}{Plastic} & \multirow {3}{*}{\(m_{2A}\)} & 4.92 \\
+    & & 5.01 \\
+    & & 4.98 \\
+    \cline{2-3}
+    & Average & 4.97 \\
+    \cline{2-3}
+    & \multirow {3}{*}{\(m_{2B}\)} & 4.13 \\
+    & & 4.15 \\
+    & & 4.21 \\
+    \cline{2-3}
+    & Average & 4.16 \\ %3333333
+    \cline{2-3}
+    & \multirow {3}{*}{\(m_{2C}\)} & 4.43 \\
+    & & 4.46 \\
+    & & 4.43 \\
+    \cline{2-3}
+    & Average & 4.44 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Accelerations for Different Materials and Masses}
+\end {table}
+
+
+  \begin {table}[h]
+    \centering
+    \begin {tabular} {| l | r | r | r |}
+      \hline\hline
+      & & Acceleration \(\tfrac{\text{m}}{\text{s}^2}\) & Calculated \(\mu_{k}\) \\
+      \hline
+      \multirow {3}{*}{Felt} & \(m_{2A}\) & 2.65 & 1.23 \\ %6958655 (LDR)
+      & \(m_{2B}\) & 1.22 & 1.25 \\ %3333333 %7467736 (LDR)
+      & \(m_{2C}\) & 2.28 & 1.16 \\ %6447797 (LDR)
+      \hline
+      Average & & & 1.21 \\ %0291396
+      \hline
+      \multirow {3}{*}{Cork} & \(m_{2A}\) & 4.84 & 0.45 \\ %6666667 LDR) %4313632
+      & \(m_{2B}\) & 3.89 & 0.47 \\ %6666667 (LDR) %619442 (LDR)
+      & \(m_{2C}\) & 4.44 & 0.45 \\ %0070423
+      \hline
+      Average & & & 0.46 \\ %6859492 (LDR)
+      \hline
+      \multirow {3}{*}{Plastic} & \(m_{2A}\) & 4.97 & 0.40 \\ %8293435 (LDR)
+      & \(m_{2B}\) & 4.16 & 0.38 \\ %3333333 (LDR) %2480846 (LDR)
+      & \(m_{2C}\) & 4.44 & 0.43 \\ %3472328
+      \hline
+      Average & & & 0.40 \\ %474887 (LDR)
+      \hline\hline
+    \end {tabular}
+    \caption {Experiment 1 Calculated \(\mu_{k}\)}
+  \end {table}
+
+\noindent
+Our lab consisted of three carts, each with a different bottom (felt, cork, plastic) that were placed on a carpet surface to measure the coefficients of static and kinetic friction. Note that the mass for the cork cart in experiment 1 is labeled as "Estimated". I did not have this data, but working back from the masses in Experiment 2, I was able to find the incremental masses added to the carts and subtract this result from the cork cart in Experiment 2.
+
+\subsection* {Question 1}
+PART A \\\\
+We calculate the static friction constant by using the equation 
+\begin {equation}
+  \begin {split}
+    a = \dfrac{(m_{2}-\mu_{s}m_{1})g}{m_{1}+m_{2}} \\
+  \end {split}
+\end {equation} 
+from the lab manual (Equation 6). We solve for \(\mu_{s}\) to calculate the coefficient of static friction.
+\begin {equation*}
+  \begin {split}
+    \dfrac{a(m_{1}+m_{2})}{g} & = m_{2}-\mu_{s}m_{1} \\
+    \mu_{s}m_{1} & = m_{2}-\dfrac{a(m_{1}+m_{2})}{g} \\
+    \mu_{s} & = \dfrac{m_{2}}{m_{1}}-\dfrac{a(m_{1}+m_{2})}{gm_{1}} \\
+  \end {split}
+\end {equation*}
+
+\noindent
+We then use this result to calculate the static friction coefficient. See Table 4 for these results. \\\\
+
+\noindent
+PART B \\\\
+The actual coefficients of kinetic friction (\(\mu_{k}\)) for felt, cork, and plastic on carpet surfaces are not known, but the results we received do not follow with practical thought. For instance, the value we received for the cork and plastic were 3.17 and 10.63, which go beyond the highest recorded coefficients (like rubber). However, our felt static friction was relatively normal, with a value of 0.59. Errors between our experiment and the established values could be from the neglecting the mass of the pulley and any air resistance from the moving parts of the experiment; however, with the values we received, it is likely there was a fundamental error in our experiment. \\\\
+
+\noindent
+PART C \\\\
+For the second experiment, the force we are measuring is the static friction force, when \(F_{\text{s}} = \mu_{s}F_{\text{N}}\). When we apply a force to the carts and they are not moving, then the static friction force is \(F_{\text{s}} \leq \mu_{s}F_{\text{N}}\). Thus, when we measure the max force, we can calculate the coefficient of static friction. The slope of Figure 1 represents the coefficients of static friction. We derive this fact from Newton's 2nd Law:
+\begin {equation*}
+  \begin {split}
+    F & = ma \\
+  \end {split}
+\end {equation*}
+Since the acceleration is equal to zero, we have
+\begin {equation*}
+  \begin {split}
+    F_{\text{measured}} - F_{s} & = 0 \\
+    F_{\text{measured}} & = F_{s} \\
+    F_{\text{measured}} & = \mu_{s}F_{\text{N}} \\
+    \mu_{s} & = \dfrac{F_{\text{measured}}}{F_{\text{N}}} \\
+  \end {split}
+\end {equation*}
+    
+\noindent
+The end result shows that the slope of the measured force and the normal force gives us the static friction coefficient. \\\\
+
+\begin {table}[h]
+  \centering
+    \begin {tabular} {| l | r |}
+      \hline\hline
+      Correlation & -0.97 \\ %66927353 (LDR)
+      \hline
+      Measured Force Standard Deviation & 4.15 \\ %2220737
+      \hline
+      Normal Force Standard Deviation & 2.54 \\ %1279413
+      \hline
+      Slope & -0.59 \\ %16439667
+      \hline\hline
+    \end {tabular}
+  \caption {Experiment 2 Felt Static Coefficients}
+\end {table}
+ 
+\begin {table}[h]
+  \centering
+    \begin {tabular} {| l | r |}
+      \hline\hline
+      Correlation & 0.99 \\ %48807175
+      \hline
+      Measured Force Standard Deviation & 1.53 \\ %9532729 (LDR)
+      \hline
+      Normal Force Standard Deviation & 4.87 \\ %0600131
+      \hline
+      Slope & 3.17 \\ %8069608 (LDR)
+      \hline\hline
+    \end {tabular}
+  \caption {Experiment 2 Cork Static Coefficients}
+\end {table}
+
+\begin {table}[h]
+  \centering
+    \begin {tabular} {| l | r |}
+      \hline\hline
+      Correlation & 0.97 \\ %4151378 
+      \hline
+      Measured Force Standard Deviation & 0.45 \\ %63954812 (LDR)
+      \hline
+      Normal Force Standard Deviation & 4.87 \\ %0600131 (LDR)
+      \hline
+      Slope & 10.63 \\ %891994 (LDR)
+      \hline\hline
+    \end {tabular}
+  \caption {Experiment 2 Plastic Static Coefficients}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline
+    & Mass & Measured Force (N) & Normal Force (N) \\
+    \hline
+    \multirow {3}{*}{Felt} & \(m_{1A}\) & 5.40 & 5.68 \\ %6666667 (LDR) %008
+    & \(m_{1B}\) & 11.82 & 1.06 \\ %5264 (LDR)
+    & \(m_{1C}\) & 13.17 & 1.54 \\ %666667 (LDR) %2128
+    \hline
+    \multirow {3}{*}{Cork} & \(m_{1A}\) & 2.55 & 5.76 \\ %848 (LDR)
+    & \(m_{1B}\) & 4.34 & 10.63 \\ %104
+    & \(m_{1C}\) & 5.59 & 15.50 \\ %3333333 %968 (LDR)
+    \hline
+    \multirow {3}{*}{Plastic} & \(m_{1A}\) & 1.02 & 5.78 \\ %3666667 %514 (LDR)
+    & \(m_{1B}\) & 1.63 & 10.65 \\ %3333333 %77 (LDR)
+    & \(m_{1C}\) & 1.89 & 15.52 \\ %3333333 %634 (LDR)
+    \hline
+  \end {tabular}
+  \caption {Experiment 2 Measured Force and Normal Force}
+\end {table}
+
+\begin{figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin{axis}[
+      title = {Measured Force Vs. Normal Force},
+      xlabel = {Measured Force (N)},
+      ylabel = {Normal Force (N)},
+    ]
+    \addplot coordinates {(5.396666667, 5.68008) (11.82,1.055264) (13.16666667,1.542128)};
+    \addplot coordinates {(2.55,5.75848) (4.34,10.63104) (5.593333333,15.49968)};
+    \addplot coordinates {(1.023666667,5.77514) (1.633333333,10.6477) (1.893333333,15.51634)};
+
+    \legend {Felt,Cork,Plastic}
+    \end {axis}
+  \end {tikzpicture}
+  \caption {Experiment 2 Measured and Normal Forces}
+\end{figure}
+
+\noindent
+PART D \\\\
+The applied force and normal force for Experiment 3 can be seen in Table 6. 
+
+\begin{figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin{axis}[
+      title = {Normal Vs. Applied Force},
+      xlabel = {Normal Force (N)},
+      ylabel = {Applied Force (N)},
+      %axis equal,
+      %xtick=data,
+      legend style={at={(0.5,-0.22)},
+        anchor=north,legend columns=-1},
+      %symbolic x coords={0.330,1.48,2.72,3.72},
+    ]
+    \addplot coordinates {(5.68008,5.42) (10.55264,11.82)};
+    \addplot coordinates {(5.77808,2.163333333) (10.63104,3.803333333)};
+    \addplot coordinates {(5.77514,1.056666667) (10.6477,1.846666667)};
+
+    \legend {Felt,Cork,Plastic}
+    \end {axis}
+  \end {tikzpicture}
+  \caption {Experiment 3 Coefficients of Kinetic Friction}
+\end{figure}
+
+\noindent
+Looking at Figure 2, we can see visually that the slope of the felt is the steepest, followed by the cork and plastic. This observation makes sense practically, as felt has the roughest surface, followed by cork and plastic. \\\\
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | l | r | r |}
+    \hline\hline 
+    Material & & Mass (kg) & Applied Force & Normal Force \\
+    \hline
+    \multirow {8}{*}{Felt} & \multirow {3}{*}{\(m_{1A}\)} & 0.5796 & 5.42 & 5.680 \\ %08
+    & & 0.5796 & 5.53 & 5.680 \\ %08
+    & & 0.5796 & 4.81 & 5.680 \\ %08
+    \cline{2-5}
+    & Average & 0.5796 & 5.25 & 5.680 \\ %3333333 %08
+    \cline{2-5}
+    & \multirow {3}{*}{\(m_{1B}\)} & 1.0768 & 14.7 & 10.553 \\ %64
+    & & 1.0768 & 9.96 & 10.553 \\ %64 (LDR)
+    & & 1.0768 & 10.8 & 10.553 \\ %64 (LDR)
+    \cline{2-5}
+    & Average & 1.0768 & 11.8 & 10.553 \\ %2 %64 (LDR)
+    \hline
+    \multirow {8}{*}{Cork} & \multirow {3}{*}{\(m_{1A}\)} & 0.5896 & 2.17 & 5.778 \\ %08
+    & & 0.5876 & 2.16 & 5.778 \\ %08
+    & & 0.5876 & 2.16 & 5.778 \\ %08
+    \cline{2-5}
+    & Average & 0.5876 & 2.16 & 5.778 \\ %3333333 %08
+    \cline{2-5}
+    & \multirow {3}{*}{\(m_{1B}\)} & 1.0848 & 3.69 & 10.631 \\ %04
+    & & 1.0848 & 3.96 & 10.631 \\ %04
+    & & 1.0848 & 3.76 & 10.631 \\ %04
+    \cline{2-5}
+    & Average & 1.0848 & 3.80 & 10.631 \\ %3333333 %04
+    \cline{2-5}
+    \hline
+    \multirow {8}{*}{Plastic} & \multirow {3}{*}{\(m_{1A}\)} & 0.5893 & 1.01 & 5.775 \\ %14
+    & & 0.5893 & 1.01 & 5.775 \\ %14
+    & & 0.5893 & 1.15 & 5.775 \\ %14
+    \cline{2-5}
+    & Average & 0.5893 & 1.06 & 5.775 \\ %6666667 (LDR) %14
+    \cline{2-5}
+    & \multirow {3}{*}{\(m_{1B}\)} & 1.0865 & 1.76 & 10.648 \\ %7 (LDR)
+    & & 1.0865 & 1.95 & 10.648 \\ %7 (LDR)
+    & & 1.0865 & 1.83 & 10.648 \\ %7 (LDR)
+    \cline{2-5}
+    & Average & 1.0865 & 1.85 & 10.648 \\ %6666667 (LDR) %7 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 3 Applied and Normal Forces}
+\end {table}
+
+\noindent
+
+\noindent
+PART E \\\\
+The coefficient of friction from our third experiment was each of the slopes of the lines in Figure 2. We calculated the slopes of these materials to be 1.313477925, 0.337938083, and 0.162132431 for the felt, cork, and plastic. We see in our first experiment that the coefficient of frictions were 1.21, 0.46, and 0.405. While the coefficient of friction for the felt stayed relatively similar, the coefficients for plastic and cork were off by a large margin. Sources for this error could include not pulling the carts with a constant enough velocity and accidentally capturing inaccurate data from the software. \\\\
+
+\end {document}

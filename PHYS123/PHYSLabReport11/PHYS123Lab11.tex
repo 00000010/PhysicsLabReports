@@ -1,0 +1,334 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+\usepackage {datetime}
+\usepackage {tikz}
+\usepackage {caption}
+\usepackage {amsmath}
+\usepackage {tabu}
+\usepackage {multirow}
+\usepackage {verbatim}
+\usepackage {caption}
+\usepackage {float}
+\usepackage {cancel}
+\usepackage {pgfplots}
+\usepackage {pgfplotstable}
+\usepackage {siunitx}
+\usepackage {filecontents}
+\usepackage {color}
+\usepackage {soul}
+
+\usetikzlibrary {shapes.geometric, arrows}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\pgfplotstableread{
+X Y
+0.008903894 0.595666667
+0.01602582 1.21
+0.023147747 1.836666667
+}\datatable
+
+\pgfplotstableread{
+X Y
+0.043165779 1.918158569 
+0.035571795 1.57480315 
+0.025958462 1.126126126
+}\Moment
+
+\raggedbottom
+\begin {document}
+\pgfplotsset{compat=1.16}
+
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Torque}
+\vspace {0.35cm}
+
+\normalsize
+Lab 11
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 7 Nov 2019\\
+Due date: 14 Nov 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+\pgfplotsset{compat=1.7}
+\subsection* {STATEMENT OF OBJECTIVE}
+The objective of this lab was to examine the relationship between the torque, radius, moment of inertia, and the angular acceleration by applying a torque to a rotatable object.
+
+\subsection* {THEORY}
+\noindent
+Torque is caused by any twisting or rotating forces applied to an object about its axis. We can calculate the torque applied to an object with the radius of the object the torque is being applied to, the moment of inertia, and the angular acceleration. This relationship is modeled using the following equation:
+\begin {equation}
+  \begin {split}  
+    \tau &= I\alpha = rF_{\perp} \\
+  \end {split}
+\end {equation}
+
+\noindent
+The moment of inertia is defined as the difficulty in moving an object as it relates to rotational motion. As the distribution of mass changes, the moment of inertia changes as well. For basic shapes, such as a sphere, cylinder, or rod, there are specific moment of inertia formulas. However, many times the rotating object is not a basic shape, and thus we see the general formula for moment of inertia for all objects:
+\begin {equation}
+  \begin {split}
+    I = \sum_{i}^{N}m_{i}r_{i}^2 \\
+  \end {split}
+\end {equation}
+
+\subsection* {EQUIPMENT}
+  \noindent
+  \begin {itemize}
+    \itemsep0em
+    \item {one rotating rail}
+    \item {various removable masses}
+    \item {one string}
+    \item {two large attachable masses}
+    \item {one pulley}
+  \end {itemize}
+
+\subsection* {PROCEDURE}
+For the first experiment, our goal is to determine the moment of inertia of the rotating rail. Looking at Equation 1, the moment of inertia is:
+\begin {equation}
+  \begin {split}  
+    I = \dfrac{rF_{\perp}}{\alpha} \\
+  \end {split}
+\end {equation}
+Thus, we will need to record the radius of the cylinder that the string is wound around as well as the force being applied at a right angle to the cylinder and the angular acceleration at which the rail is rotating. For this experiment, we decided to vary the force. In our setup, this will mean varying the mass of the hanging mass. By changing this mass, we see the relationship between the applied force and the moment of inertia. \\\\
+For the second experiment, we need to verify that the moment of inertia is inversely proportional to the angular acceleration, given that the torque is held constant. We vary the moment of inertia by using different placements of the large attachable masses on the rotating rail. While our experiment does not assume the rotating object is a basic shape, we can treat these masses as point particles at different radii of the rotating rail and add these values to the moment of inertia calculated in Experiment 1.
+
+\subsection* {DATA}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    Trial & 1 & 2 & 3 & Average \\
+    \hline
+    Radius (m) & 0.01825 & 0.01810 & 0.01820 & 0.01818 \\ %333333
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Radius Measurements}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r |}
+    \hline\hline
+    Trial & Variable & Measurement \\
+    \hline
+    \multirow {8}{*}{1} & \multirow {3}{*}{\(m_{1}\) (kg)} & 0.0500 \\
+    & & 0.0499 \\
+    & & 0.0500 \\
+    \cline{2-3}
+    & Average & 0.0500 \\ %66667 (LDR)
+    \cline{2-3}
+    & \multirow {3}{*}{\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))} & 0.600 \\
+    & & 0.592 \\
+    & & 0.595 \\
+    \cline{2-3}
+    & Average & 0.596 \\ %666667 (LDR)
+    \hline
+    \multirow {8}{*}{2} & \multirow {3}{*}{\(m_{2}\) (kg)} & 0.0900 \\
+    & & 0.0899 \\
+    & & 0.0899 \\
+    \cline{2-3}
+    & Average & 0.0899 \\ %33333 (LDR)
+    \cline{2-3}
+    & \multirow {3}{*}{\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))} & 1.20 \\
+    & & 1.22 \\
+    & & 1.21 \\
+    \cline{2-3}
+    & Average & 1.21 \\
+    \hline
+    \multirow {8}{*}{3} & \multirow {3}{*}{\(m_{3}\) (kg)} & 0.1299 \\
+    & & 0.1299 \\
+    & & 0.1299 \\
+    \cline{2-3}
+    & Average & 0.1299 \\
+    \cline{2-3}
+    & \multirow {3}{*} {\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))} & 1.83 \\
+    & & 1.84 \\
+    & & 1.84 \\ 
+    \cline{2-3}
+    & Average & 1.84 \\ %6666667 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Angular Velocity Measurements}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    Trial & 1 & 2 & 3 & Average \\
+    \hline
+    \(I\) (kg \(\tfrac{\text{m}^2}{s}\)) & 0.0149 & 0.0132 & 0.0126 & 0.0136 \\ %47779 %44479 %03129 %98462 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Calculated Moments of Inertia}
+\end {table}
+ 
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    Trial & 1 & 2 & 3 & Average \\
+    \hline
+    Radius (m) & 0.0180 & 0.0181 & 0.0181 & 0.0181 \\ %6666667 (LDR)
+    \hline
+    Hanging Mass (kg) & 0.1299 & 0.1298 & 0.1299 & 0.1299 \\ %66667 (LDR)
+    \hline
+    End Mass (kg) & 0.2747 & 0.2746 & 0.2747 & 0.2747 \\ %66667 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Radius and Hanging Mass Measurements}
+\end {table}
+
+\begin {table}[h!]
+  \centering
+  \begin {tabular} {| l | c | r |}
+    \hline\hline
+    Trial & Variable & Measurement \\
+    \hline
+    \multirow {5}{*}{1} & Radius (m) & 0.232 \\
+    \cline{2-3}
+    & \multirow {3}{*}{\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))} & 0.521 \\
+    & & 0.521 \\
+    & & 0.522 \\
+    \cline{2-3}
+    & Average & 0.521 \\ %333333
+    \cline{2-3}
+    & \(I_{\text{total}}\) & 0.0432 \\ %65779 (LDR)
+    \hline
+    \multirow {5}{*}{2} & Radius (m) & 0.200 \\
+    \cline{2-3}
+    & \multirow {3}{*}{\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))} & 0.639 \\
+    & & 0.633 \\
+    & & 0.633 \\
+    \cline{2-3}
+    & Average & 0.635 \\
+    \cline{2-3}
+    & \(I_{\text{total}}\) & 0.0356 \\ %71795 (LDR)
+    \hline
+    \multirow {5}{*}{3} & Radius (m) & 0.150 \\
+    \cline{2-3}
+    & \multirow {3}{*} {\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))} & 0.889 \\
+    & & 0.892 \\
+    & & 0.883 \\ 
+    \cline{2-3}
+    & Average & 0.888 \\
+    \cline{2-3}
+    & \(I_{\text{total}}\) & 0.0260 \\ %58462 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Spool Radius, Angular Velocity, and Moment of Inertia Measurements and Calculations}
+\end {table}
+
+\subsection* {ANALYSIS OF DATA}
+
+The moment of inertia for Experiment 1 was calculated using Equation 3. More specifically, as the applied force is simply the force of gravity on the hanging mass, we have the following equation:
+\begin {equation*}
+  \begin {split}
+    I = \dfrac{rmg}{\alpha} \\
+  \end {split}
+\end {equation*}
+
+\noindent
+The results of these calculations are in Table 3. \\
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      legend pos=north west,
+      xlabel = {\(\tau\) (kg\(\tfrac{\text{m}^2}{\text{s}^2}\))},
+      ylabel = {\(\alpha\) (\(\tfrac{\text{rad}}{\text{s}^2}\))},
+      ]
+      \addplot [only marks, mark = *] table {\datatable};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\datatable};
+      \addlegendentry{\(\tau\) vs. \(\alpha\)}
+      \addlegendentry{\(\tfrac{1}{I}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {Torque vs. Angular Velocity}
+\end {figure}
+
+\noindent
+Figure 1 shows the torque and the angular acceleration in Experiment 1. The slope of the graph represents the inverse of the moment of inertia. As calculated, the average inverse of the moment of inertia is 73.5 kg\(\cdot\text{m}^2\), while the slope in the graph is 87.1. \\ %3772802 %2530242
+
+\begin {figure}[h!]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      legend pos=north west,
+      xlabel = {\(I\) (kg\(\cdot\text{m}^2\))},
+      ylabel = {\(\tfrac{1}{\alpha}\) (\(\tfrac{\text{rad}}{\text{s}^2}\))},
+      ]
+      \addplot [only marks, mark = *] table {\Moment};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\Moment};
+      \addlegendentry{\(I\) vs. \(\tfrac{1}{\alpha}\)}
+      \addlegendentry{\(\tfrac{1}{\tau}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {Moment of Inertia Vs. Inverse Angular Velocity}
+\end {figure}
+
+\noindent
+Figure 2 shows the total moment of inertia (using the rail moment of inertia calculated in Experiment 1 and the Parallel Axis Theorem) and the inverse of the angular acceleration. The slope of the graph represents the inverse of the torque. As calculated, the average inverse of the torque is 43.7 kg\(\tfrac{\text{m}^2}{\text{s}^2}\), while the slope in the graph is 46.1. \\ %9274623 (LDR) %5681714 (LDR)
+Note that this graph was created using the \textit{calculated} values of the moment of inertia, otherwise the regression line would verify the relationship between torque, angular velocity and moment of inertia.
+
+\subsection* {DISCUSSION OF RESULTS}
+For the first experiment, we looked at the relationship between the torque and the angular acceleration. We saw that the lever arm is the radius of the spool, as the force being applied to the rail is directly tangent to the spool. As for our results for Experiment 1, while the trial results are consistent with one another, the slope of the best-fit line does not fit the average inverse of the moment of inertia very closely. \\\\
+For the second experiment, we see in Figure 2 that the moment of inertia of the rail fits very closely with the inverse of the angular acceleration. Additionally, the slope of the best-fit line is also very close to the inverse of the torque, verifying the relationship between these factors as defined in Equation 1. 
+
+\subsection* {FURTHER STUDY}
+Were we to conduct these experiments again, it would be beneficial to take into account the moment of inertia of the pulley and the friction the rail experiences as it rotates. However, both of these components are negligible, and it is likely our sources of error came from errors in measuring the radii or masses. Thus, next time it would be beneficial to take more trial measurements.
+
+\subsection* {SUPPLEMENTAL QUESTIONS}
+1. As shown in Table 6, while the moment of inertia in both the experimental and calculated match in terms of decreasing, they are not very close compared to each other. Errors could be from the reasons listed in FURTHER STUDY. \\\\
+\begin {table}[h!]
+  \centering
+  \begin {tabular} {| l | c | r | r |}
+    \hline\hline
+    & Trial & Experimental & Calculated \\
+    \hline
+    \multirow{3}{*}{\(I_{\text{total}}\) (kg\(\cdot\text{m}^2\))} & 1 & 0.102 & 0.0432 \\ %808153 (LDR) %65779 (LDR)
+    & 2 & 0.0860 & 0.0356 \\ %18387 %71795 (LDR)
+    & 3 & 0.0654 & 0.0260 \\ %85232 (LDR) %58462 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Experimental Vs. Calculated Moments of Inertia}
+\end {table}
+
+\noindent
+2. While it is difficult to determine the exact sources of error in our experiments, it would be beneficial to take into account friction as the rail rotates and would likely give better results. As discussed in the first supplemental question, the differences between the experimental and the calculated moments of inertia are large enough that taking into account friction would be beneficial.
+\end {document}

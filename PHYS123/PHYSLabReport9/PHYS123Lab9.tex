@@ -1,0 +1,257 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For keeping time
+\usepackage {datetime}
+% For pictures/graphs
+\usepackage {tikz}
+% The essential math library
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% To add multiple rows or columns per table column/row
+\usepackage {multirow}
+% To add horizontal lines spanning only some columns in tables
+\usepackage {array}
+\usepackage {verbatim}
+% To add captions to tables
+\usepackage {caption}
+\usepackage {float}
+% For the degree symbol
+\usepackage {gensymb}
+% To make graphs
+\usepackage {pgfplots}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Momentum}
+\vspace {0.35cm}
+
+\normalsize
+Lab 9
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 24 Oct 2019\\
+Due date: 31 Oct 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {DATA}
+  \begin {table}[h]
+    \centering
+    \begin {tabular} {| l | r | r | r | r | r |}
+      \hline\hline
+      Trial & Mass & Measurement 1 & Measurement 2 & Measurement 3 & Average \\
+      \hline
+      \multirow {2}{*}{1} & \(m_{1}\) & 0.2037 & 0.2036 & 0.2036 & 0.2036 \\ %33333
+      & \(m_{2}\) & 0.1965 & 0.1965 & 0.1966 & 0.1965 \\ %33333
+      \hline
+      2 & \(m_{1}\) & 0.2435 & 0.2436 & 0.2435 & 0.2435 \\ %33333
+      \hline
+      3 & \(m_{1}\) & 0.2836 & 0.2837 & 0.2836 & 0.2836 \\ %33333
+      \hline
+      4 & \(m_{1}\) & 0.3238 & 0.3237 & 0.3238 & 0.3238 \\ %66667 (LDR)
+      \hline
+      5 & \(m_{1}\) & 0.3639 & 0.3638 & 0.3638 & 0.3638 \\ %33333
+      \hline\hline
+    \end {tabular}
+    \caption {Experiment 1 Masses (in kg)}
+  \end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r |}
+    \hline\hline
+    Trial & \(\Delta{p}\) & \(\Delta{KE}\) \\
+    \hline
+    \multirow {3}{*}{1} & -0.01 & -0.0065 \\ %9971667 (LDR) %47862 
+    & -0.020 & -0.017 \\ %704667 (LDR) %059093
+    & -0.0087 & -0.019 \\ %42 %50028  (LDR)
+    \hline
+    \multirow {3}{*}{2} & -0.012 & -0.013 \\ %344665 %094957
+    & -0.0069 & -0.024 \\ %75333 (LDR) %874137 (LDR)
+    & -0.014 & -0.021 \\ %096 %7834 (LDR)
+    \hline
+    \multirow {3}{*}{3} & -0.0092 & -0.010 \\ %55666 (LDR) %237153
+    & -0.010 & -0.014 \\ %049999 %6881 (LDR)
+    & -0.0096 & -0.011 \\ %03332 %928593 (LDR)
+    \hline
+    \multirow {3}{*}{4} & -0.0057 & -0.013 \\ %27332 %816247 (LDR)
+    & -0.0027 & -0.019 \\ %16999 %539712 (LDR)
+    & -0.0065 & -0.0084 \\ %45 %45085
+    \hline
+    \multirow {3}{*}{5} & -0.0044 & -0.0075 \\ %67332 (LDR) %80287  (LDR)
+    & -0.011 & -0.0031 \\ %978333 (LDR) %01908
+    & -0.0060 & -0.0069 \\ %40333 %61792 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Changes in Momentum and Kinetic Energy}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r | r |}
+    \hline\hline
+    Trial & Mass & Measurement 1 & Measurement 2 & Measurement 3 & Average \\
+    \hline
+    \multirow {2}{*}{1} & \(m_{1}\) & 0.2036 & 0.2036 & 0.2036 & 0.2036 \\
+    & \(m_{2}\) & 0.1964 & 0.1965 & 0.1966 & 0.1965 \\
+    \hline
+    2 & \(m_{1}\) & 0.2436 & 0.2437 & 0.2437 & 0.2437 \\ %66667 (LDR)
+    \hline
+    3 & \(m_{1}\) & 0.2838 & 0.2837 & 0.2838 & 0.2838 \\ %66667 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Masses (in kg)}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| c | c | r | r | r | r | r | r |}
+    \hline\hline
+    Trial & Cart & \(v_{i}\) (\(\tfrac{\text{m}}{\text{s}}\)) & \(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) & \(p_{i}\) (kg\(\tfrac{\text{m}}{\text{s}}\)) & \(p_{f}\) (kg\(\tfrac{\text{m}}{\text{s}}\)) & \(KE_{i}\) (J) & \(KE_{f}\) (J) \\
+    \hline
+    \multirow {6}{*}{1} & \multirow {3}{*}{\(m_{1}\)} & -0.60 & -0.04 & -0.12 & -0.016 & 0.037 & 0.00032 \\ %216 %004 %648 %008 
+    & & -0.94 & -0.17 & -0.19 & -0.068 & 0.090 & 0.0058 \\ %1384 %017 %95048 (LDR) %81445 (LDR)
+    & & -0.66 & -0.19 & -0.13 & -0.076 & 0.044 & 0.0072 \\ %4376 %019 %34408 %21805
+    \cline{2-8}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.52 & -0.04 & 0.10 & -0.016 & 0.027 & 0.00032 \\ %218 %004 %5668 (LDR) %008
+    & & 0.32 & -0.17 & 0.063 & -0.068 & 0.010 & 0.0058 \\ %88 (LDR) %017 %0608 %81445 (LDR)
+    & & 0.22 & -0.19 & 0.043 & -0.076 & 0.0048 & 0.0072 \\ %23 %019 %553 (LDR) %21805
+    \hline
+    \multirow {6}{*}{2} & \multirow {3}{*}{\(m_{1}\)} & -0.62 & -0.18 & -0.15 & -0.079 & 0.047 & 0.0071 \\ %1073334 %23 %832733 (LDR) %307 (LDR)
+    & & -0.75 & -0.19 & -0.18 & -0.084 & 0.069 & 0.0079 \\ %275 %631667 (LDR) %53125 (LDR) %45008
+    & & -0.84 & -0.22 & -0.20 & -0.097 & 0.086 & 0.011 \\ %468 %836667 (LDR) %9656 (LDR) %652033 (LDR)
+    \cline{2-8}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.28 & -0.18 & 0.055 & -0.079 & 0.0032 & 0.0071 \\ %02 %23 %833 (LDR) %307
+    & & 0.40 & -0.19 & 0.079 & -0.084 & 0.0077 & 0.0079 \\ %6 (LDR) %631667 (LDR) %028 %45008
+    & & 0.45 & -0.22 & 0.088 & -0.097 & 0.020 & 0.011 \\ %425 %836667 (LDR) %895625 (LDR) %652033 (LDR)
+    \hline
+    \multirow {6}{*}{3} & \multirow {3}{*}{\(m_{1}\)} & -0.92 & -0.30 & -0.26 & -0.14 & 0.12 & 0.022 \\ %1065334 %408 %0090053 %612 (LDR)
+    & & -0.74 & -0.24 & -0.21 & -0.12 & 0.078 & 0.014 \\ %9987334 (LDR) %5264 (LDR) %695313 (LDR) %83168 (LDR)
+    & & -0.84 & -0.23 & -0.24 & -0.11 & 0.10 & 0.013 \\ %8364 (LDR) %0461333 %011288 %703053 (LDR)
+    \cline{2-8}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.43 & -0.30 & 0.084 & -0.14 & 0.018 & 0.022 \\ %495 %408 %166425 %612 (LDR)
+    & & 0.37 & -0.24 & 0.073 & -0.12 & 0.013 & 0.014 \\ %705 (LDR) %5264 (LDR) %450425 %83168 (LDR)
+    & & 0.52 & -0.23 & 0.10 & -0.11 & 0.027 & 0.013 \\ %218 %0461333 (LDR) %5668 (LDR) %703053 (LDR_
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Velocities, Momentums, and Kinetic Energies}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r |}
+    \hline\hline
+    Trial & \(\Delta{p}\) & \(\Delta{KE}\) \\
+    \hline
+    \multirow {3}{*}{1} & 0.0040 & -0.063 \\ %76 (LDR) %57464 (LDR)
+    & 0.060 & -0.094 \\ %487 %229835
+    & 0.060 & -0.042 \\ %487 %877575 (LDR)
+    \hline
+    \multirow {3}{*}{2} & 0.017 & -0.043 \\ %823334 (LDR) %885333 (LDR)
+    & 0.021 & -0.068 \\ %518333 (LDR) %289042 
+    & 0.019 & -0.095 \\ %418333 %209192
+    \hline
+    \multirow {3}{*}{3} & 0.032 & -0.12 \\ %490334 %6644478 (LDR)
+    & 0.022 & -0.077 \\ %018334 %314058 
+    & 0.026 & -0.11 \\ %722667 (LDR) %3976627
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Changes in Momentum and Kinetic Energy}
+\end {table}
+
+\noindent
+Our lab consisted of an airtrack, two carts, two photogates, and varying masses. For the first experiment, the conservation of momentum and the conservation of energy were observed in an elastic collision. The second experimented examined the conservation of energy in an inelastic collision.
+
+\subsection* {Question 1}
+
+PART A \\\\
+The data and calculations for the first and second experiment are shown in Tables 1, 3, 4, and 6. For Experiment 1, the carts modeled an elastic collision, with rubber bands being used for the carts to deflect upon colliding. For the second experiment, an inelastic collision was modeled, with the two carts sticking together using a pin. \\
+
+\noindent
+PART B \\\\
+In order to determine whether momentum and kinetic energy were conserved in each of the collisions, the difference in momentum at the start and finish of the experiment were calculated. These results for Experiment 1 are shown in Table 3. As referenced by the table, the values for the change in momentum are very close to the value of 0, giving evidence for the momentum and kinetic energy being conserved in elastic collisions. Additionally, the average \(\Delta{p}\) was 0.0091 and the average \(\Delta{KE}\) was 0.013. \\\\ %27911 %79724 (LDR)
+Experiment 2's results for change in momentum and kinetic energy are shown in Table 6. The average \(\Delta{p}\) was 0.027 and the average \(\Delta{KE}\) was 0.079. Compared to Experiment 1, the average momentums and kinetic energies Experiment 2 are significantly more. While Experiment 2's results support that the kinetic energy is not conserved, the results in the average change in momentum do not seem to support that momentum is conserved in inelastic collisions. Some errors could be due to the difficulty in ensuring the carts collided correctly (i.e. weren't passing through the speed sensors as they collided). \\ %824778 (LDR) %222309 %
+
+\noindent
+PART C \\\\
+For Experiment 1, the coefficients of restitution are shown in Table 6. These values range from 0.88 to 0.94, which is fairly close to the expected 1 for perfectly elastic collisions. On average, the coefficient of restitution was 0.91, which is also fairly close to 1. Some factors that could contribute to these collisions not being closer to 1 could include the friction between the carts' rubber bands as they collided, or the friction from the differing distances (and thus the time friction acts on the carts during the experiment). \\\\ %7356271 (LDR)
+For Experiment 2, the velocities for \(v_{1,f}\) and \(v_{2,f}\) are equal, meaning that the coefficient of restitution for these collisions will always equal zero. 
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| c | c | r | r | r | r | r | r | r |}
+    \hline\hline
+    Trial & Cart & \(v_{i}\) (\(\tfrac{\text{m}}{\text{s}}\)) & \(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) & \(p_{i}\) (kg\(\tfrac{\text{m}}{\text{s}}\)) & \(p_{f}\) (kg\(\tfrac{\text{m}}{\text{s}}\)) & \(KE_{i}\) (J) & \(KE_{f}\) (J) & e \\
+    \hline
+    \multirow {6}{*}{1} & \multirow {3}{*}{\(m_{1}\)} & -0.45 & 0.36 & -0.092 & 0.073 & 0.021 & 0.013 & 0.91 \\ %635 (LDR) %308 %617875 (LDR) %19544 %011236
+    & & -0.55 & 0.55 & -0.11 & 0.11 & 0.031 & 0.031 & 0.89 \\ %1998333 %1998333 %799542 (LDR) %799542 (LDR) %7096774 (LDR)
+    & & -0.79 & 0.47 & -0.16 & 0.096 & 0.064 & 0.022 & 0.89 \\ %0870333 %707667 (LDR) %543782 (LDR) %491302 %1304348
+    \cline{2-9}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.44 & -0.45 & 0.086 & -0.088 & 0.019 & 0.020 & 0.91 \\ %474667 %44 %024427 %899 (LDR) %011236
+    & & 0.69 & -0.55 & 0.14 & -0.11 & 0.047 & 0.030 & 0.89 \\ %5608 (LDR) %8093333 (LDR) %78476 (LDR) %725667 (LDR) %7096774 (LDR)
+    & & 0.59 & -0.76 & 0.12 & -0.15 & 0.034 & 0.057 & 0.89 \\ %59546666 (LDR) %9365333 (LDR) %206627 %758827 (LDR) %1304348
+    \hline
+    \multirow {6}{*}{2} & \multirow {3}{*}{\(m_{1}\)} & -0.50 & 0.45 & -0.12 & 0.11 & 0.030 & 0.025 & 0.90 \\ %1766667 %959 (LDR) %441667 %65775 (LDR) %4347826
+    & & -0.65 & 0.50 & -0.16 & 0.12 & 0.051 & 0.030 & 0.88 \\ %8296666 (LDR) %1766667 %446417 %441667 %7697842 (LDR)
+    & & -0.54 & 0.54 & -0.13 & 0.13 & 0.036 & 0.036 & 0.89 \\ %1508 %1508 %50716 (LDR) %50716 (LDR) %6363636 (LDR)
+    \cline{2-9}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.65 & -0.59 & 0.13 & -0.12 & 0.042 & 0.034 & 0.90 \\ %7746666 (LDR) %5954666 (LDR) %517667 (LDR) %206627 %4347826
+    & & 0.74 & -0.72 & 0.15 & -0.14 & 0.054 & 0.051 & 0.88 \\ %5434666 (LDR) %1504 (LDR) %810827 (LDR) %94144 (LDR) %7697842 (LDR)
+    & & 0.78 & -0.63 & 0.15 & -0.12 & 0.060 & 0.039 & 0.89 \\ %3296 %3816 %78544 (LDR) %00204 %6363636 (LDR)
+    \hline 
+    \multirow {6}{*}{3} & \multirow {3}{*}{\(m_{1}\)} & -0.48 & 0.34 & -0.14 & 0.096 & 0.033 & 0.016 & 0.92 \\ %6144 (LDR) %435333 %67456 (LDR) %394007 %588785 (LDR)
+    & & -0.54 & 0.36 & -0.15 & 0.10 & 0.041 & 0.018 & 0.91 \\ %3162 %2108 %35374 %37944 %6779661 (LDR)
+    & & -0.48 & 0.38 & -0.14 & 0.11 & 0.033 & 0.020 & 0.92 \\ %6144 (LDR) %7780667 (LDR) %67456 (LDR) %478327 %9642857 (LDR)
+    \cline{2-9}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.59 & -0.64 & 0.12 & -0.13 & 0.034 & 0.040 & 0.92 \\ %5954666 (LDR) %5781333 (LDR) %206627 %250027 %588785 (LDR)
+    & & 0.64 & -0.71 & 0.13 & -0.14 & 0.040 & 0.050 & 0.91 \\ %5781333 (LDR) %9538666 (LDR) %250027 %536227 (LDR) %6779661 (LDR)
+    & & 0.64 & -0.65 & 0.13 & -0.13 & 0.040 & 0.042 & 0.92 \\ %5781333 (LDR) %7746666 (LDR) %250027 %517667 (LDR) %9642857 (LDR)
+    \hline
+    \multirow {6}{*}{4} & \multirow {3}{*}{\(m_{1}\)} & -0.54 & 0.28 & -0.17 & 0.091 & 0.047 & 0.013 & 0.91 \\ %4834 %654667 (LDR) %20518 %691653 (LDR) %3043478
+    & & -0.58 & 0.31 & -0.19 & 0.10 & 0.054 & 0.016 & 0.90 \\ %7784667 (LDR) %0367667 %457553 %556988 (LDR) %6 (LDR)
+    & & -0.46 & 0.23 & -0.15 & 0.074 & 0.034 & 0.0086 & 0.92 \\ %8932667 (LDR) %466333 %254513 %63628 (LDR) %7525773 (LDR)
+    \cline{2-9}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.61 & -0.77 & 0.12 & -0.15 & 0.037 & 0.058 & 0.91 \\ %9885333 (LDR) %1330666 (LDR) %565027 (LDR) %262307 %3043478
+    & & 0.67 & -0.81 & 0.13 & -0.16 & 0.044 & 0.064 & 0.90 \\ %1677333 %9192 (LDR) %111907 %47276 %6 (LDR)
+    & & 0.51 & -0.66 & 0.10 & -0.13 & 0.026 & 0.043 & 0.92 \\ %0232 %9712 (LDR) %55916 (LDR) %80496 (LDR) %7525773 (LDR)
+    \hline
+    \multirow {6}{*}{5} & \multirow {3}{*}{\(m_{1}\)} & -0.44 & 0.18 & -0.16 & 0.065 & 0.035 & 0.0059 & 0.92 \\ %0086667 %49 %219067 %941 (LDR) %4731183
+    & & -0.42 & 0.09 & -0.15 & 0.033 & 0.032 & 0.0015 & 0.94 \\ %281 %745 (LDR) %0901 %73525 (LDR) %5897436 (LDR)
+    & & -0.49 & 0.12 & -0.18 & 0.044 & 0.044 & 0.0026 & 0.92 \\ %8278333 (LDR) %66 (LDR) %678192 (LDR) %196 %3913043 
+    \cline{2-9}
+    & \multirow {3}{*}{\(m_{2}\)} & 0.49 & -0.68 & 0.096 & -0.13 & 0.024 & 0.045 & 0.92 \\ %301333 %3642666 %593827 (LDR) %438507 %4731183
+    & & 0.36 & -0.64 & 0.071 & -0.13 & 0.013 & 0.040 & 0.94 \\ %752 (LDR) %5781333 (LDR) %73536 (LDR) %250027 %5897436 (LDR)
+    & & 0.43 & -0.73 & 0.085 & -0.14 & 0.018 & 0.052 & 0.92 \\ %509333 (LDR) %3469333 %169507 (LDR) %366307 %3913043
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Velocities, Momentums, and Kinetic Energies}
+\end {table}
+
+
+\end {document}

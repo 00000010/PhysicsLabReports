@@ -1,0 +1,317 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+\usepackage {datetime}
+\usepackage {tikz}
+\usepackage {caption}
+\usepackage {amsmath}
+\usepackage {tabu}
+\usepackage {multirow}
+\usepackage {verbatim}
+\usepackage {caption}
+\usepackage {float}
+\usepackage {cancel}
+\usepackage {pgfplots}
+\usepackage {siunitx}
+
+\usetikzlibrary {shapes.geometric, arrows}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Conservation of Energy}
+\vspace {0.35cm}
+
+\normalsize
+Lab 7
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 10 Oct 2019\\
+Due date: 17 Oct 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+\pgfplotsset{compat=1.7}
+\subsection* {STATEMENT OF OBJECTIVE}
+The objective of this lab was to devise and conduct experiments that observed the transformation of energy from spring potential to kinetic energy and spring potential to gravitational potential energy.
+
+\subsection* {THEORY}
+\noindent
+In order to measure the transformation from spring potential to kinetic energy, we start with the Conservation of Energy, which states:
+\begin {equation}
+  \begin {split}
+    \Delta{K} + \Delta{U} & = 0 \\
+  \end {split}
+\end {equation}
+Since we are ignoring any work done by friction or air, we also take this equation to be true:
+\begin {equation}
+  \begin {split}
+    \Delta{E} & = 0 \\
+    E_{f} - E_{i} & = 0 \\
+    E_{i} & = E_{f} \\
+  \end {split}
+\end {equation}
+
+\noindent
+Combining these equations, we can see the relationship between the spring potential and kinetic energy by starting with only potential energy from the spring and observing the transformation into kinetic energy. We then have the following equation to represent the energy transformation:
+\begin {equation}
+  \begin {split}
+    \dfrac{1}{2}kx^{2} & = \dfrac{1}{2}mv^{2} \\
+  \end {split}
+\end {equation}
+
+\noindent
+For the second experiment, we use our previous equations, but instead look at the transformation of spring potential energy to kinetic and gravitational kinetic energy. Thus, the resulting equation for this experiment is as follows:
+\begin {equation}
+  \begin {split}
+    \dfrac{1}{2}kx^{2} = \dfrac{1}{2}mv^{2} + mgh \\
+  \end {split}
+\end {equation}
+ 
+
+\subsection* {EQUIPMENT}
+  \noindent
+  \begin {itemize}
+    \itemsep0em
+    \item {one PASCO Capstone software}
+    \item {one scale}
+    \item {one airtrack}
+    \item {one cart (for airtrack)}
+    \item {four masses}
+    \item {one photogate}
+    \item {one meter stick}
+    \item {one dial caliper}
+    \item {one spring}
+  \end {itemize}
+
+\subsection* {PROCEDURE}
+For the first experiment, the airtrack will be leveled so as to ensure the cart does not move while at rest. The \(x\) value of the spring (the compression distance) will be measured, as well as the mass of the cart and the velocity of the cart as it passes the photogate. The spring constant will also be recorded by measuring the force needed to move the spring at the previously specified compression distance. The first experiment will consist of two different compression distances and three different masses for each distance. \\
+
+\noindent
+For the second experiment, the airtrack will be tilted at three different heights with a constant cart mass and spring \(x\) distance. The velocity for each height of the cart as it climbs the incline will be recorded, as well as the height of the cart when it passes the photogate. 
+
+\subsection* {DATA}
+
+Three different masses were used for Experiment 1, with the raw data and averages shown in Table 1. Velocities obtained by each mass in Experiment 1 were also recorded in Table 2. In Experiment 2, the heights of the photogate were recorded as well as velocities for each height. Neither the mass (using \(m_{1}\)) nor the spring were changed in Experiment 2. The results are shown in Table 3. Lastly, Table 4 shows the forces from the spring at different distances from equilibrium. Since this spring was the same spring used throughout both experiments, the spring constant stays the same. \\\\
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline
+    & \(m_{1}\) & \(m_{2}\) & \(m_{3}\) \\
+    \hline
+    \multirow{3}{*}{Mass} & 0.1980 & 0.2383 & 0.2782 \\
+    & 0.1976 & 0.2382 & 0.2781 \\
+    & 0.1978 & 0.2381 & 0.2781 \\
+    \hline
+    Average & 0.1978 & 0.2382 & 0.278133333 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Masses}
+\end {table}
+
+\begin {table}[h]
+  \centering
+    \begin {tabular} {| l | r | r |}
+      \hline\hline
+      Mass & Compression 1 Velocity (\(\tfrac{\text{m}}{\text{s}^2}\)) & Compression 2 Velocity (\(\tfrac{\text{m}}{\text{s}^2}\)) \\
+      \hline
+      \multirow{3}{*}{\(m_{1}\)} & 0.50 & 0.90 \\
+      & 0.50 & 0.91 \\
+      & 0.50 & 0.91 \\
+      \hline
+      Average & 0.50 & 0.906666667 \\
+      \hline
+      \multirow{3}{*}{\(m_{2}\)} & 0.48 & 0.83 \\
+      & 0.48 & 0.83 \\
+      & 0.48 & 0.83 \\
+      \hline
+      Average & 0.48 & 0.83 \\
+      \hline
+      \multirow{3}{*}{\(m_{3}\)} & 0.45 & 0.78 \\
+      & 0.45 & 0.78 \\
+      & 0.45 & 0.78 \\
+      \hline
+      Average & 0.45 & 0.78 \\
+      \hline\hline
+    \end {tabular}
+  \caption {Experiment 1 Velocities}
+\end {table}
+      
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r |}
+    \hline\hline
+    & Height (m) & Velocity (\(\tfrac{\text{m}}{\text{s}}\)) \\
+    \hline
+    \multirow{3}{*}{Height 1} & 0.0192 & 0.81 \\
+    & 0.0185 & 0.81 \\
+    & 0.0210 & 0.82 \\
+    \hline
+    Average & 0.019566667 & 0.813333333 \\
+    \hline
+    \multirow{3}{*}{Height 2} & 0.0370 & 0.68 \\
+    & 0.0375 & 0.68 \\
+    & 0.0386 & 0.69 \\
+    \hline
+    Average & 0.0377 & 0.683333333 \\
+    \hline
+    \multirow{3}{*}{Height 3} & 0.0698 & 0.41 \\
+    & 0.0675 & 0.40 \\
+    & 0.0707 & 0.42 \\
+    \hline
+    Average & 0.069333333 & 0.41 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Heights and Velocities}
+\end {table}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r |}
+    \hline\hline
+    Distance & 0.01 m & 0.02 m & Average \\
+    \hline
+    \multirow{3}{*}{Force (N)} & 8.57 & 13.9 & \\
+    & 8.65 & 15.4 & \\
+    & 8.74 & 16.6 & \\
+    \hline
+    Average & 8.653333333 & 15.3 & \\
+    \hline
+    Calculated \(k\) Spring Constant & 865.3333333 & 765 & 815.1666667 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Compression Distances and Spring Forces}
+\end {table}
+
+\subsection* {ANALYSIS OF DATA}
+
+The spring constant (\(k\)) was calculated using the equation for spring energy and isolating \(k\):
+\begin {equation*}
+  \begin {split}
+    F_{spring} & = -kx \\
+    k & = \dfrac{-F_{spring}}{x} \\
+  \end {split}
+\end {equation*}
+
+\noindent
+The results of these calculations are in Table 4. \\
+
+\noindent
+For the first experiment, the spring potential energy was calculated using the spring potential energy formula, where:
+\begin {equation*}
+  \begin {split}
+    U_{spring} & = \dfrac{1}{2}kx^2 \\
+  \end {split}
+\end {equation*}
+The kinetic energy was then calculated using the kinetic energy formula, where:
+\begin {equation*}
+  \begin {split}
+    K & = \dfrac{1}{2}mv^2 \\
+  \end {split}
+\end {equation*}
+The difference between the two calculations was then taken and represented by \(\Delta{E}\) in Table 5. \\
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    Compression & Mass & \(U_{spring}\) (J) & \(K\) (J) & \(\Delta{E}\) (J) \\
+    \hline
+    \multirow{3}{*}{Compression 1} & \(m_{1}\) & 0.040758333 & 0.024725 & -0.016033333 \\
+    & \(m_{2}\) & 0.040758333 & 0.02744064 & -0.013317693 \\
+    & \(m_{3}\) & 0.040758333 & 0.028161 & -0.012597333 \\
+    \hline
+    \multirow{3}{*}{Compression 2} & \(m_{1}\) & 0.163033333 & 0.081300196 & -0.081733137 \\
+    & \(m_{2}\) & 0.163033333 & 0.08204799 & -0.080985343 \\
+    & \(m_{3}\) & 0.163033333 & 0.08460816 & -0.078425173 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 1 Energy Data}
+\end {table}
+     
+\noindent
+For the second experiment, the spring potential energy and kinetic energy of the cart were calculated using the same processes as Experiment 1. The gravitational potential energy was calculated using the equation:
+\begin {equation*}
+  \begin {split}
+    U_{gravity} & = mgh \\
+  \end {split}
+\end {equation*}
+The results for the energy calculations in Experiment 2 are shown in Table 6. Figure 1 shows the height versus the change in energy. \\
+
+\noindent
+Note: The error bars in Figure 1 are too small to be registered.
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    & \(U_{spring}\) (J) & \(K\) (J) & \(U_{gravity}\) (J) & \(\Delta{E}\) (J) \\
+    \hline
+    Height 1 & 0.163033333 & 0.065423449 & 0.03792881 & -0.059681074 \\
+    \hline
+    Height 2 & 0.163033333 & 0.046180806 & 0.073079188 & -0.043773339 \\
+    \hline
+    Height 3 & 0.163033333 & 0.01662509 & 0.134398506 & -0.012009737 \\
+    \hline\hline
+  \end {tabular}
+  \caption {Experiment 2 Energy Data}
+\end {table}
+
+\begin {figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin{axis}[
+      title = {Height Vs. Absolute Change in Energy},
+      xlabel = {Height (m)},
+      ylabel = {\(|\Delta{E}|\) (J)},
+    ]
+    \addplot+[error bars/.cd,
+    y dir=both,
+    x dir=both,]
+    coordinates {
+      (0.019566667,0.059681074) +- (0,0)
+      (0.0377,0.043773339) +- (0,0)
+      (0.069333333,0.012009737) +- (0,0)
+    };
+    \end{axis}
+  \end {tikzpicture}
+  \caption {Experiment 2 Height and Absolute Change in Energy}
+\end {figure}
+
+\subsection* {DISCUSSION OF RESULTS}
+As our goal for Experiment 1 was to observe the transformation of spring potential to kinetic energy, Table 5 shows that the change in energy was negative, which is consistent with the idea that friction would do work on the cart. This observation was true for both compressions. \\
+
+\noindent
+Experiment 2 observed the transformation from spring potential force to kinetic and gravitational potential energy. From Table 6, the change in energy is very minimal, showing strong proof for energy conservation. Similar to Experiment 1, the change in energy is not zero, likely due to friction between the cart and the airtrack. Again, the change in energy is negative, which is consistent with the idea that the friction force would exert negative work on the system. Additionally, the absolute change in energy decreases as the mass increases (see Figure 1), further showing the effects of friction. As the angle of the ramp increases, the cart gets a vertical gravitational force closer to \(mg\) and the force of friction decreases.
+
+\subsection* {FURTHER STUDY}
+Were we to conduct these experiments again, it would be beneficial to consider friction; however, our results were quite satisfactory using the airtrack, and friction seemed to be quite minimal.
+
+\end {document}

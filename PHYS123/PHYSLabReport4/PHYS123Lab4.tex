@@ -1,0 +1,234 @@
+% TODO
+% Add footnotes
+% Print this pdf
+
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For keeping time
+\usepackage {datetime}
+% For pictures/graphs
+\usepackage {tikz}
+% The essential math library
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% To add multiple rows or columns per table column/row
+\usepackage {multirow}
+\usepackage {verbatim}
+% To add captions to tables
+\usepackage {caption}
+\usepackage {float}
+% For the degree symbol
+\usepackage {gensymb}
+% To make graphs
+\usepackage {pgfplots}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics I: Mechanics (PHYS 123-02)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Newton's 2nd Law: Incline Plane and Pulley}
+\vspace {0.35cm}
+
+\normalsize
+Lab 4
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Coby Schencker (lab partner)\\
+Date of experiment: 19 Sept 2019\\
+Due date: 26 Sept 2019\\
+Lab section L04\\
+TA: Mithila Mangedarage\\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {UNPROCESSED DATA}
+  \begin {table}[h]
+   \centering
+    \begin {tabular} {| l | r | r | r |}
+      \hline\hline
+      Angle & Adjacent (m) & Opposite (m) & Resulting \(\theta\) (\(\degree\)) \\
+      \hline
+      1 & & & 0 \\
+      \hline
+      \multirow {3}{*}{2} & 1.2970 & 0.0128 & 0.57 \\ %5429583 (LDR) 
+      & 1.2961 & 0.0124 & 0.55 \\ %814134 (LDR)
+      & 1.2964 & 0.0137 & 0.61 \\ %5463561 (LDR)
+      \hline
+      Avg. Calculations of Angle 2 & 1.2965 & 0.0130 & 0.57 \\ %66667 (LDR) %3011495
+      \hline
+      \multirow {3}{*}{3} & 1.2950 & 0.0409 & 1.81 \\ %8971953 (LDR)
+      & 1.2920 & 0.0396 & 1.76 \\ %5574901 (LDR)
+      & 1.2940 & 0.0418 & 1.85 \\ %0178573
+      \hline
+      Avg. Calculations of Angle 3 & 1.2937 & 0.0408 & 1.80 \\ %666667 (LDR) %66667 (LDR) %4908476
+      \hline\hline
+    \end {tabular}
+    \caption {Calculated Angles}
+  \end {table}
+
+  \begin {table}[h]
+   \centering
+    \begin {tabular} {| l | r | r | r | r |}
+      \hline\hline
+      & \(m_{1}\) & \(m_{2A}\) & \(m_{2B}\) & \(m_{2C}\) \\
+      \hline
+      \multirow {3}{*}{Mass (kg)} & 0.1960 & 0.0051 & 0.0251 & 0.0452 \\ 
+      & 0.1960 & 0.0049 & 0.0249 & 0.0452 \\
+      & 0.1960 & 0.0050 & 0.0250 & 0.0452 \\
+      \hline
+      Avg Mass (kg) & 0.1960 & 0.0050 & 0.0250 & 0.0452 \\
+      \hline
+      \multirow {3}{*}{\(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) for Angle 0\(\degree\)} & & 0.20 & 0.43 & 0.54 \\
+      & & 0.19 & 0.43 & 0.54 \\
+      & & 0.20 & 0.43 & 0.54 \\
+      \hline
+      Avg. \(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) & & 0.20 & 0.43 & 0.54 \\ %6666667 (LDR)
+      \hline
+      \multirow {3}{*}{\(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) for Angle 0.57\(\degree\)} & & 0.11 & 0.41 & 0.54 \\
+      & & 0.10 & 0.41 & 0.54 \\
+      & & 0.11 & 0.41 & 0.54 \\
+      \hline
+      Avg. \(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) & & 0.11 & 0.41 & 0.54 \\ %6666667 (LDR)
+      \hline
+      \multirow {3}{*}{\(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) for Angle 1.80\(\degree\)} & & 0 & 0.36 & 0.51 \\
+      & & 0 & 0.36 & 0.51 \\
+      & & 0 & 0.36 & 0.51 \\
+      \hline
+      Avg. \(v_{f}\) (\(\tfrac{\text{m}}{\text{s}}\)) & & 0 & 0.36 & 0.51 \\
+      \hline\hline
+    \end {tabular}
+    \caption {Mass Measurements}
+  \end {table}
+
+\noindent
+Table 2 shows the raw data for \(m_{1}\), which was the glider, and \(m_{2A}\), \(m_{2B}\), and \(m_{2C}\), which were the varying masses of the hanging mass. The glider mass stayed constant throughout the entire lab.
+
+\subsection* {Question 1}
+PART A \\\\
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    \(\theta\) & \(m_{2}\) & \(v_{f}\) & Calc. Acceleration (\(\tfrac{\text{m}}{\text{s}^2}\)) & Theo. Acceleration (\(\tfrac{\text{m}}{\text{s}^2}\)) \\
+    \hline
+    \multirow {3}{*}{0\(\degree\)} & 0.0050 & 0.20 & 0.17 & 0.24 \\ %1292196 %3781095
+    & 0.0250 & 0.43 & 0.81 & 1.11 \\ %8866252 (LDR) %8597285 (LDR)
+    & 0.0452 & 0.54 & 1.29 & 1.45 \\ %1408326 %260832
+    \hline
+    \multirow {3}{*}{0.57\(\degree\)} & 0.0050 & 0.11 & 0.05 & 0.15 \\ %0388741 %8211542 (LDR)
+    & 0.0250 & 0.41 & 0.74 & 1.02 \\ %4464128 %1676561
+    & 0.0452 & 0.54 & 1.29 & 1.76 \\ %1408326 %6842952 (LDR)
+    \hline
+    \multirow {3}{*}{1.80\(\degree\)} & 0.0050 & 0 & 0 & 0.21 \\ %3682459
+    & 0.0250 & 0.36 & 0.57 & 0.83 \\ %3959256 %4849512
+    & 0.0452 & 0.51 & 1.15 & 1.59 \\ %190434 %5662281 (LDR)
+    \hline\hline
+  \end {tabular}
+  \caption {Velocity Measurements}
+\end {table}
+
+\noindent
+PART B \\\\
+Our measurements are fairly close to the theoretical calculations. In one case, the glider did not move and probably would have moved backwards had it not started at the bottom of the incline for when we measured a velocity of zero. For the other negative theoretical acceleration, the acceleration was close to our measured, but it shows quite clearly that our measurement for the incline's angle was not close enough. \\\\
+
+\noindent
+PART C \\
+
+\begin{figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin{axis}[
+      title = {Experimental Vs. Theoretical Acceleration},
+      xlabel = {\(a_{exp}\text{ }(\tfrac{\text{m}}{\text{s}^s})\)},
+      ylabel = {\(\dfrac{M_{2}-M_{1}\sin(\theta)}{M_{1}+M_{2}}\text{ }(\tfrac{\text{m}}{\text{s}^s})\)},
+      axis equal,
+      %xtick=data,
+      legend style={at={(0.5,-0.22)},
+        anchor=north,legend columns=-1},
+      %symbolic x coords={0.330,1.48,2.72,3.72},
+    ]
+    \addplot coordinates {(0.171292196,0.243781095) (0.818866253,1.108597285) (1.291408326,1.45260832)};
+    \addplot coordinates {(0.050388741,0.148211542) (0.744464128,1.021676561) (1.291408326,1.756842952)};
+    \addplot coordinates {(0,0.213682459) (0.573959256,0.834849512) (1.15190434,1.585662281)};
+    \legend {\(0\degree\),\(0.57\degree\),\(1.80\degree\)}
+    \end {axis}
+  \end {tikzpicture}
+\end{figure}
+
+\begin {table}[h]
+  \centering
+  \begin {tabular} {| l | r | r | r | r |}
+    \hline\hline
+    Angle & Correlation & \(S_{y}\) & \(S_{x}\) & Regression Line Slope \\
+    \hline
+    0\(\degree\) & 0.99 & 0.62 & 0.56 & 1.09 \\ %81929378 (LDR) %28314238 %23326884 %4507979
+    \hline
+    0.57\(\degree\) & 1.00 & 0.81 & 0.62 & 1.29 \\ %98242914 (LDR) %53059227 (LDR) %19617096 %4556258
+    \hline
+    1.80\(\degree\) & 1.00 & 0.69 & 0.58 & 1.19 \\ %8621922 (LDR) %70100623 (LDR) %59533193 (LDR) %117867
+    \hline\hline
+  \end {tabular}
+  \caption {Regression Calculations}
+\end {table}
+
+\noindent
+The slope of the lines as shown in Table 4 were calculated using the correlations and the standard deviations for all angles. We would expect all the slopes to be close to one, indicating a close relationship between the accelerations from the experiment and the theoretical accelerations. However, for angle \(\theta = 0.57\) and \(\theta = 1.80\), the slope is much higher than one. \\\\
+
+\noindent
+PART D \\
+
+\begin{figure}[h!]
+  \centering
+  \begin {tikzpicture}
+    \begin{axis}[
+      title = {Acceleration Vs. Suppositional Glider Mass},
+      xlabel = {Suppositional Glider Mass (m)},
+      ylabel = {Acceleration (\(\tfrac{\text{m}}{\text{s}^2}\))},
+      %axis equal,
+      %xtick=data,
+      legend style={at={(0.5,-0.22)},
+        anchor=north,legend columns=-1},
+      %symbolic x coords={0.330,1.48,2.72,3.72},
+    ]
+    \addplot coordinates {(0, 0.171292196) (0.001960151,0.050388741) (0.006173292,0)};
+    \addplot coordinates {(0,0.818866253) (0.001960151,0.744464128) (0.006173292,0.573959256)};
+    \addplot coordinates {(0,1.291408326) (0.001960151,1.291408326) (0.006173292,1.15190434)};
+
+    \legend {\(m_{2A}\),\(m_{2B}\),\(m_{2C}\)}
+    \end {axis}
+  \end {tikzpicture}
+\end{figure}
+ 
+\noindent
+In order to demonstrate the inverse relationship between the mass and acceleration, the glider, which would have equaled 0.196 kg, was instead measured as its mass times the sine of the incline plane's angle. We can only think of the system in this way because we assume the incline plane is friction-less. Thus, the glider's mass "decreases" as the angle increases, showing that as the glider's mass increases (approaches its original mass), the acceleration decreases. This relationship is apparent in the negative slopes in the graph above. \\\\
+
+\noindent
+PART E \\\\
+Friction cannot truly be ignored in this experiment, just as people cannot ignore friction in everyday life. The consequences of ignoring friction can be seen in Table 3, where the calculated accelerations varied from the theoretical accelerations, sometimes showing a regression slope of 1.3. If we had taken into account friction in our theoretical calculations, we would predict a smaller gap between the experimental and theoretical calculations.
+
+\subsection*{Question 2}
+  It is important that the string connecting the two masses be parallel, otherwise the glider will have less force acting on it from the hanging mass, thus changing its acceleration. In our experiment, we realized the importance of this idea when we did the first trial of experiments with \(\theta\) equaling zero. Although we couldn't see the difference visually, a non-parallel tension would've changed the normal force of the glider along with the acceleration. \\
+
+\subsection* {Question 3}
+  This question is similar to thinking about the "changing" glider mass of the incline plane in the Acceleration Vs. Suppositional Glider Mass graph. If we were to increase \(\theta\) to 90\(\degree\), then the mass of the glider times the force of gravity would be the total force of gravity on the glider instead of multiplying it by \(\sin(\theta)\). The normal force, in consequence, would also equal zero, as there are no other forces besides the gravity force acting on the glider. In other words, the glider's acceleration would've been less than gravity, since there was the normal force from the plane acting on it. \\\\
+When you add an applied force, such as the tension force in our experiments, then the acceleration will be even less given the same angle in the incline plane. It also has the potential to move the glider in the opposite direction, causing an acceleration in the other direction.
+
+\end {document}
