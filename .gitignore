@@ -1,0 +1,12 @@
+# Generated files #
+###################
+*.aux
+*.dvi
+*.fdb_latexm
+*.fls
+*.log
+*.pdf
+
+# Other files #
+###################
+*.swp
