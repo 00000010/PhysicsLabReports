@@ -22,6 +22,8 @@
 %\usepackage {pstricks}
 % To make electric field diagrams
 %\usepackage {pst-electricfield}
+% For canceling out parts of equations
+\usepackage[makeroom]{cancel}
 
 \usetikzlibrary{patterns, petri,positioning}
 
@@ -30,7 +32,7 @@
 \begin {document}
 \begin {titlepage}
 \begin {center}
-Department of Biological, Chemical, and Physical Science\\
+College of Science: Physics Department \\
 \vspace {0.1cm}
 Illinois Institute of Technology\\
 \vspace {0.1cm}
@@ -40,7 +42,6 @@ General Physics II: Electromagnetism (PHYS 221-01)\\
 \Large
 \textbf {Electric Fields and Electric Potential}
 \vspace {0.35cm}
-
 \normalsize
 Lab 3
 \vspace {1.5cm}
@@ -69,7 +70,16 @@ Voltage is defined as the electric potential, which is defined as
     V - V_{0} = -\int_{P_{0}}^{P}E\cos(\theta)ds \\
   \end{split}
 \end{equation}
-where the voltage difference is measured in Volts and is the summation of the electric field from the points which you are calculating to (i.e. \(P\) to \(P_{0}\)).\cite{labManual} When examining the voltage between two charges, these values can be mapped to create equipotential lines, or areas where the potential is the same. Electric field lines are drawn from charges to show the direction of the charge's force. Additionally, these lines are always perpendicular to equipotential lines.
+where the voltage difference is measured in Volts and is the summation of the electric field from the points which you are calculating to (i.e. \(P\) to \(P_{0}\)).\cite{labManual} When examining the voltage between two charges, these values can be mapped to create equipotential lines, or areas where the potential is the same. 
+
+Electric field lines are drawn from charges to show the direction of the charge's force. Additionally, these lines are always perpendicular to equipotential lines.
+Electric field can also be represented as how fast the voltage changes with respect to location, as shown:
+\begin{equation}
+  \begin{split}
+    \vec{E} = \left(\dfrac{\delta{V}}{\delta{x}}\hat{i} + \dfrac{\delta{V}}{\delta{y}}\hat{j} + \dfrac{\delta{V}}{\delta{z}}\hat{k}\right) \\
+  \end{split}
+\end{equation}
+It is also known that electric field in a charge depends on its material. For conductors, the electrons are free to move, and thus the electric field is zero inside conductors. However, this is not necessarily true for insulators, where electrons are not free to move and would depend on the charge enclosed by a Gaussian surface when calculating electric field.
 
 \subsection* {EQUIPMENT}
   \noindent
@@ -88,20 +98,81 @@ where the voltage difference is measured in Volts and is the summation of the el
 \subsection* {PROCEDURE}
 First the conductive ink was drawn onto the conductive paper for two charges. For the first experiment, the charges were two dipolar points, while the second was any shape of two charges. The conductive paper was then placed onto the cork board and secured with the push pins so that the pins were in directly contact with the ink. Figure 1 shows the configuration for the first experiment.
 
+The conductive paper consisted of dots in a grid pattern that were used to more accurately measure the voltage at different points. For this lab, four equipotential lines were marked at various locations on the grid paper at 2 V, 4 V, 6 V, and 8 V. Using the data on the grid paper, the equipotential lines could be drawn for points with equal voltage values.
+
 \begin {figure}
   \centering
   \begin {tikzpicture}
+    % Cork board
     \draw[pattern=north west lines, pattern color=black] (0,0) rectangle (7.5,0.5);
     \draw[pattern=north west lines, pattern color=black] (0,6.5) rectangle (7.5,7);
+    % Conductive paper
     \draw[pattern=dots, pattern color=black] (0,0.5) rectangle (7.5,6.5);
-    (2,3.5) circle (3,4);
+    % Wires to power supply
+    \draw[style=thick] (1.2,3.5) -- (-0.5,3.5) -- (-0.5,7.5) -- (8,7.5) -- (8,4.2) -- (10.3,4.2) -- (10.3,5.5);
+    \draw[style=thick] (6.3,3.5) -- (10.9,3.5) -- (10.9,5.5);
+    % Push pins
+    \fill (1.2,3.5) circle (0.1cm);
+    \fill (6.3,3.5) circle (0.1cm);
+    % Power supply
+    \draw (10,5) rectangle (12,7);
+    % Buttons
+    \draw (10.1,6.0) rectangle (10.5,6.1);
+    \draw (10.75,6.0) rectangle (10.95,6.1);
+    \draw (11.15,6.0) rectangle (11.35,6.1);
+    \draw (11.55,6.0) rectangle (11.75,6.1);
+    % Voltage supply 
+    \draw (10.3,5.5) circle (0.1cm);
+    \draw (10.3,5.5) circle (0.06cm);
+    \draw (10.6,5.5) circle (0.1cm);
+    \draw (10.6,5.5) circle (0.06cm);
+    \draw (10.9,5.5) circle (0.1cm);
+    \draw (10.9,5.5) circle (0.06cm);
+    % Dial
+    \draw (11.5,5.5) circle (0.2cm);
+    % Screen
+    \draw (10.1,6.25) rectangle (11.9,6.9);
+    \draw (11,6.6) node {10.0 V};
+    % Multimeter
+    \draw (10,1) rectangle (11,2.75);
+    \draw (10.1,2.15) rectangle (10.9,2.65);
+    \draw (10.5,1.7) circle (0.3cm);
+    \draw (10.25,1.2) circle (0.1cm);
+    \draw (10.25,1.2) circle (0.06cm);
+    \draw (10.55,1.2) circle (0.1cm);
+    \draw (10.55,1.2) circle (0.06cm);
+    \draw (10.85,1.15) circle (0.1cm);
+    \draw (10.85,1.15) circle (0.06cm);
+    \draw (10.85,1.4) circle (0.1cm);
+    \draw (10.85,1.4) circle (0.06cm);
+    % Wires to multimeter
+    \draw [style=thick] (1.2,3.5) -- (1.2,0.75) -- (10.85,0.75) -- (10.85,1.15);
+    % Voltage sampler
+    \draw [rotate=30,fill] (5,2) rectangle (5.2,3.5);
+    \draw [fill,color=white,draw=black] (2.57,5.5) -- (2.8,5.6) -- (2.4,6) -- cycle;
+    \draw [fill] (3.45,4.23) circle (0.1cm);
+    \draw [style=thick] (3.45,4.23) -- (3.45,3.0) -- (11.5,3.0) -- (11.5,1.4) -- (10.85,1.4);
   \end {tikzpicture}   
   \caption {First experiment setup}
 \end {figure}
 
 \subsection* {DATA}
+\begin{comment}
+\begin{figure}[h]
+  \centering
+  \begin{tabular}{| l | 
+\end{comment}
 
 \subsection* {ANALYSIS OF DATA}
+Depending on the sign of the charges, the field lines will point either away or toward the charge. The setup of this lab consisted of two dipole charges, either as points or as lines. Positive charges have field lines pointing away, while for negative charges the opposite is true. Specifically, the field lines start directly from each charge, as both push pins are conductors.
+
+The electric field is defined in Equation 2. If the voltage were doubled (which would be in both the \(x\) and \(y\) direction), then the overall electric field would double:
+\begin{equation*}
+  \begin{split}
+    \vec{E} &= \left(\dfrac{\delta{V}}{\delta{x}}\hat{i} + \dfrac{\delta{V}}{\delta{y}}\hat{j} + \dfrac{\delta{V}}{\delta{z}}\hat{k}\right) \\
+    \vec{E} &= \left(\dfrac{\delta{V}}{\delta{x}}\hat{i} + \dfrac{\delta{V}}{\delta{y}}\hat{j} + \cancelto{0}{\dfrac{\delta{V}}{\delta{z}}\hat{k}}\right) \\
+  \end{split}
+\end{equation*}
 
 \subsection* {DISCUSSION OF RESULTS}
 
@@ -113,10 +184,11 @@ First the conductive ink was drawn onto the conductive paper for two charges. Fo
 
 The greater the distance between a point on the conductive paper and a charge in a circuit, the greater the potential, or voltage. This is supported by Equation 
   \item Calculate the electric field strength at a few places with different characteristics using Eq. 2. Do your results agree with the idea that electric field line density is proportional electric field strength? Sketch neatly and clearly an appropriate amount of lines on your grid paper. You may want to use a different color.
+
+Equation 2 (from the lab manual) \cite{labManual} is the same as Equation 2 in this lab report. Since the cork board is a plane on which the voltage was measured, the \(z\) component can be disregarded.
   \item Consider the following situation: An object with charge \(q_{0} = 1.5\mu\) C and mass 0.7 g starts from rest at the +6V equipotential line. Calculate its change in potential energy and speed when it reaches the +2V line.
 \end {enumerate}
 
-\subsection* {REFERENCES}
 \thebibliography{3}
   \bibitem{labManual}
   Illinois Institute of Technology. (n.d.). Experiment 3: Electric Fields and Electric Potential. PDF. Chicago.

@@ -1,0 +1,1 @@
+unset surface; set cntrparam levels 50; set contour; set table "PHYS221Lab3_contourtmp0.table"; splot "PHYS221Lab3_contourtmp0.dat";
