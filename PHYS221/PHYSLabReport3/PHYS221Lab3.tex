@@ -10,6 +10,7 @@
 \usepackage {tabu}
 % For multiple rows in table slot
 \usepackage {multirow}
+% To use multi line comments
 \usepackage {verbatim}
 % To add captions
 \usepackage {caption}
@@ -24,7 +25,14 @@
 %\usepackage {pst-electricfield}
 % For canceling out parts of equations
 \usepackage[makeroom]{cancel}
-
+\usepackage[pdf]{pstricks}
+\usepackage {pst-electricfield}
+\usepackage[off]{auto-pst-pdf}
+%\ifpdf
+%  \usepackage{tikz}
+%\else
+%  \usepackage{pst-plot}
+%\fi
 \usetikzlibrary{patterns, petri,positioning}
 
 \raggedbottom
@@ -166,14 +174,35 @@ The conductive paper consisted of dots in a grid pattern that were used to more 
 \subsection* {ANALYSIS OF DATA}
 Depending on the sign of the charges, the field lines will point either away or toward the charge. The setup of this lab consisted of two dipole charges, either as points or as lines. Positive charges have field lines pointing away, while for negative charges the opposite is true. Specifically, the field lines start directly from each charge, as both push pins are conductors.
 
-The electric field is defined in Equation 2. If the voltage were doubled (which would be in both the \(x\) and \(y\) direction), then the overall electric field would double:
+The electric field is defined in Equation 2. If the voltage were doubled (which would be in both the \(x\) and \(y\) direction), then the change in voltage would double, meaning the overall electric field would also double.
+Starting equation:
 \begin{equation*}
   \begin{split}
     \vec{E} &= \left(\dfrac{\delta{V}}{\delta{x}}\hat{i} + \dfrac{\delta{V}}{\delta{y}}\hat{j} + \dfrac{\delta{V}}{\delta{z}}\hat{k}\right) \\
-    \vec{E} &= \left(\dfrac{\delta{V}}{\delta{x}}\hat{i} + \dfrac{\delta{V}}{\delta{y}}\hat{j} + \cancelto{0}{\dfrac{\delta{V}}{\delta{z}}\hat{k}}\right) \\
+  \end{split}
+\end{equation*}
+Double the voltage:
+\begin{equation*}
+  \begin{split}
+    \vec{E} &= \left(\dfrac{2V-2V_{0}}{\delta{x}}\hat{i} + \dfrac{2V-2V_{0}}{\delta{y}}\hat{j} + \cancelto{0}{\dfrac{2V-2V_{0}}{\delta{z}}\hat{k}}\right) \\
+    \vec{E} &= \left(\dfrac{2(V-V_{0})}{\delta{x}}\hat{i} + \dfrac{2(V-V_{0})}{\delta{y}}\hat{j}\right) \\
+    \vec{E} &= 2\left(\dfrac{(V-V_{0})}{\delta{x}}\hat{i} + \dfrac{(V-V_{0})}{\delta{y}}\hat{j}\right) \\
   \end{split}
 \end{equation*}
 
+\begin{figure}
+  \centering
+  \begin{pspicture*}(0,0)(14,10)
+    \psgrid[subgriddiv=0,gridcolor=lightgray,griddots=20] 
+    %Q={[charge, x-coordinate, y-coordinate][other charge, other x-coordinate, other y-coordinate]}
+    \psElectricfield[Q={[1 2 5][-1 12 5]},linecolor=red]
+    \psEquipotential[Q={[1 2 5][-1 12 5]},linecolor=blue](0,0)(14,10)
+    \psEquipotential[Q={[1 2 5][-1 12 5]},linecolor=green,Vmin=0,Vmax=0](0,0)(14,10)
+  \end{pspicture*}
+  \caption{Sample view of two dipolar charges \cite{dipolarpstelectric}}
+\end{figure}
+
+Changing the shape of the conductors yields different equipotential lines, and thus, electric field lines. This illustration was apparent when looking at the two 
 \subsection* {DISCUSSION OF RESULTS}
 
 \subsection* {FURTHER STUDY}
@@ -192,4 +221,6 @@ Equation 2 (from the lab manual) \cite{labManual} is the same as Equation 2 in t
 \thebibliography{3}
   \bibitem{labManual}
   Illinois Institute of Technology. (n.d.). Experiment 3: Electric Fields and Electric Potential. PDF. Chicago.
+  \bibitem{dipolarpstelectric}
+  Gilg, J., Luque, M., Megret, P., \& Voß, H. (2010, July 2). PDF.
 \end {document}
