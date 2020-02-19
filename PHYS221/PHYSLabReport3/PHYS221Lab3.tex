@@ -48,7 +48,7 @@ General Physics II: Electromagnetism (PHYS 221-01)\\
 \vspace* {\fill}
 \begingroup
 \Large
-\textbf {Electric Fields and Electric Potential}
+\textbf {Electric Fields and Electric Potential} \\
 \vspace {0.35cm}
 \normalsize
 Lab 3
@@ -89,6 +89,14 @@ Electric field can also be represented as how fast the voltage changes with resp
 \end{equation}
 It is also known that electric field in a charge depends on its material. For conductors, the electrons are free to move, and thus the electric field is zero inside conductors. However, this is not necessarily true for insulators, where electrons are not free to move and would depend on the charge enclosed by a Gaussian surface when calculating electric field.
 
+Furthermore, the electric potential energy is defined as the energy to keep a charge in a certain place. Mathematically, this looks like:
+\begin{equation}
+  \begin{split}
+    U &= qV \\
+  \end{split}
+\end{equation}
+where \(q\) is the charge of the point charge and \(V\) is the voltage at the point.
+
 \subsection* {EQUIPMENT}
   \noindent
   \begin {itemize}
@@ -104,9 +112,9 @@ It is also known that electric field in a charge depends on its material. For co
   \end {itemize}
 
 \subsection* {PROCEDURE}
-First the conductive ink was drawn onto the conductive paper for two charges. For the first experiment, the charges were two dipolar points, while the second was any shape of two charges. The conductive paper was then placed onto the cork board and secured with the push pins so that the pins were in directly contact with the ink. Figure 1 shows the configuration for the first experiment.
+First the conductive ink was drawn onto the conductive paper for two charges. For the first experiment, the charges were two dipolar points, while the second was any shape of two charges. In this lab, these were in the form of two parallel plates. The conductive paper was then placed onto the cork board and secured with the push pins so that the pins were in direct contact with the ink. Figure 1 shows the configuration for the first experiment.
 
-The conductive paper consisted of dots in a grid pattern that were used to more accurately measure the voltage at different points. For this lab, four equipotential lines were marked at various locations on the grid paper at 2 V, 4 V, 6 V, and 8 V. Using the data on the grid paper, the equipotential lines could be drawn for points with equal voltage values.
+The conductive paper consisted of dots in a grid pattern that were used to more accurately measure the voltage at different points. Voltage was recorded on the grid paper by sampling the voltage for various points on the conductive paper. For this lab, four equipotential lines were marked at various locations on the grid paper at 2 V, 4 V, 6 V, and 8 V. Using the data on the grid paper, the equipotential lines could be drawn for points with equal voltage values.
 
 \begin {figure}
   \centering
@@ -165,23 +173,19 @@ The conductive paper consisted of dots in a grid pattern that were used to more 
 \end {figure}
 
 \subsection* {DATA}
-\begin{comment}
-\begin{figure}[h]
-  \centering
-  \begin{tabular}{| l | 
-\end{comment}
+The data for this experiment is found on the grid sheets attached. The equipotential lines are marked in black ink, while the electric field lines are marked with red ink.
 
 \subsection* {ANALYSIS OF DATA}
-Depending on the sign of the charges, the field lines will point either away or toward the charge. The setup of this lab consisted of two dipole charges, either as points or as lines. Positive charges have field lines pointing away, while for negative charges the opposite is true. Specifically, the field lines start directly from each charge, as both push pins are conductors.
+Depending on the sign of the charges, the field lines will point either away or toward the charge. The setup of the lab consisted of two dipole charges, either as points or as lines. Positive charges have field lines pointing away, while for negative charges the opposite is true. Specifically, the field lines start directly from each charge, as both push pins are metals, and therefore, conductors.
 
 The electric field is defined in Equation 2. If the voltage were doubled (which would be in both the \(x\) and \(y\) direction), then the change in voltage would double, meaning the overall electric field would also double.
-Starting equation:
+The starting equation:
 \begin{equation*}
   \begin{split}
     \vec{E} &= \left(\dfrac{\delta{V}}{\delta{x}}\hat{i} + \dfrac{\delta{V}}{\delta{y}}\hat{j} + \dfrac{\delta{V}}{\delta{z}}\hat{k}\right) \\
   \end{split}
 \end{equation*}
-Double the voltage:
+The result of doubling the voltage:
 \begin{equation*}
   \begin{split}
     \vec{E} &= \left(\dfrac{2V-2V_{0}}{\delta{x}}\hat{i} + \dfrac{2V-2V_{0}}{\delta{y}}\hat{j} + \cancelto{0}{\dfrac{2V-2V_{0}}{\delta{z}}\hat{k}}\right) \\
@@ -202,15 +206,21 @@ Double the voltage:
   \caption{Sample view of two dipolar charges \cite{dipolarpstelectric}}
 \end{figure}
 
-Changing the shape of the conductors yields different equipotential lines, and thus, electric field lines. This illustration was apparent when looking at the two grid papers from the experiments.
+Changing the shape of the conductors yields different equipotential lines, and thus, electric field lines. This illustration was apparent when looking at the two grid papers from the experiments. Regardless of the shape, the equipotential and electric field lines are always the most dense near the charges.
+
 It is also known that in electric field and equipotential diagrams, the more dense the lines are in an area, the stronger the electric force is (electric field lines) and the more work it takes to move a charge the same distance as from a less dense area of line (for equipotential lines). Therefore, the less dense the electric field lines are, the less electric force there is and for equipotential lines, there is then also less work required to move a charge.
 
 \subsection* {DISCUSSION OF RESULTS}
+This lab effectively demonstrated the presence of equipotential lines, and as a result, electric field lines were also able to be drawn. 
 
 \subsection* {FURTHER STUDY}
 If this lab were to be performed again, more samples from the conductive paper could be taken. One of the main obstacles in gathering accurate data was ensuring the multimeter was correctly measuring the voltage, as often the push pins would be shifted inadvertently and disrupt the measurement. A better system would be one in which conductive did not have to be used.
 
 Additionally, while there was substantial data taken for the first experiment (two charges) there was not enough time to recreate the equipotential and electric field lines from the data.
+
+Another interesting experiment to explore the charges could be examining equipotential and electric field lines around same charges as opposed to dipolar charges.
+
+Lastly, an alternate visual representation of the voltage versus the distance could be seen in a data plot had the lab experimenters had access to a measuring tool.
 
 \subsection* {SUPPLEMENTARY QUESTIONS}
 \begin{enumerate}
@@ -246,36 +256,55 @@ The units can be verified with a quick analysis, where the following is true:
     [\text{A}] &= \dfrac{\text{C}}{\text{s}} \\
   \end{split}
 \end{equation}
+
 Thus, using Equation 3:
 \begin{equation*}
   \begin{split}
     \dfrac{[\text{V}]}{[\text{m}]} &= \dfrac{[\text{kg}]\cdot{[\text{m}]}}{[\text{s}]^3\cdot{[\text{A}]}} \\
   \end{split}
 \end{equation*}
+
 Using Equation 4:
 \begin{equation*}
   \begin{split} 
     \dfrac{[\text{kg}]\cdot{[\text{m}]}}{[\text{s}]^3\cdot{[\text{A}]}} &= \dfrac{[\text{N}]}{[\text{s}]\cdot[\text{A}]} \\
   \end{split}
 \end{equation*}
+
 Lastly, using Equation 5, the units are verified and equal to the known units of the electric field:
 \begin{equation*}
   \begin{split}
     \dfrac{[\text{N}]}{[\text{s}]\cdot[\text{A}]} &= \dfrac{[\text{N}]}{[\text{C}]\cdot\tfrac{[\text{C}]}{[\text{s}]}} = \dfrac{[\text{N}]}{[\text{C}]} \\
   \end{split}
 \end{equation*}
+
 Another electric field calculation is at point (11, 16) with a voltage of 6.22 V and at point (16,18) with a voltage of 4.90 V. Thus, the following equation is shown:
 \begin{equation*}
   \begin{split} 
     \vec{E} = \left(\dfrac{6.22\text{V}-4.90\text{V}}{0.05\text{m}}\hat{i}+\dfrac{6.22\text{V}-4.90\text{V}}{0.02\text{m}}\hat{j}\right) = 40.4\hat{i}\dfrac{\text{V}}{\text{m}} + 101.1\hat{j}\dfrac{\text{N}}{\text{C}} \\
   \end{split}
 \end{equation*}
-Both calculations, along with unit analysis, make sense. It is expected that it would take more work to move 
+
+Both calculations, along with the unit analysis, make sense. The larger the distance, the less the electric field would be, by Equation 3 of the lab manual \cite{labManual}.
 
   \item Consider the following situation: An object with charge \(q_{0} = 1.5\mu\) C and mass 0.7 g starts from rest at the +6V equipotential line. Calculate its change in potential energy and speed when it reaches the +2V line.
+
+Using Equation 3, the difference in potential energy for the above scenario can be represented as:
+\begin{equation*}
+  \begin{split}
+    \Delta{U} &= qV-qV_{0} \\
+    \Delta{U} &= q(V-V_{0}) \\
+    \Delta{U} &= (1.5\times{10^{-6}})(6\text{V}-2\text{V}) \\
+    \Delta{U} &= 6\times{10^{-6}} \text{CV} \\
+  \end{split}
+\end{equation*}
+A quick unit analysis shows that Coulomb Volts are equal to Joules \cite{quiz2}.
+
 \end {enumerate}
 
 \thebibliography{3}
+  \bibitem{quiz2}
+  Illinois Institute of Technology College of Science, Physics Department. (n.d.). Week 4 recitation's quiz. Chicago.
   \bibitem{labManual}
   Illinois Institute of Technology. (n.d.). Experiment 3: Electric Fields and Electric Potential. PDF. Chicago.
   \bibitem{dipolarpstelectric}
