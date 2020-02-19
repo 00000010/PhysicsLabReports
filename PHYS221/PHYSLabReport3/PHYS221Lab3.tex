@@ -72,7 +72,7 @@ Updated \usdate\today~(\currenttime)
 The objective of this lab was to understand the relationship between field lines and equipotential lines using concepts of electricity, including Coulomb's Law and electric potential.
 
 \subsection* {THEORY}
-Voltage is defined as the electric potential, which is defined as
+Voltage, or the electric potential, which is defined as
 \begin{equation}
   \begin{split}
     V - V_{0} = -\int_{P_{0}}^{P}E\cos(\theta)ds \\
@@ -202,10 +202,15 @@ Double the voltage:
   \caption{Sample view of two dipolar charges \cite{dipolarpstelectric}}
 \end{figure}
 
-Changing the shape of the conductors yields different equipotential lines, and thus, electric field lines. This illustration was apparent when looking at the two 
+Changing the shape of the conductors yields different equipotential lines, and thus, electric field lines. This illustration was apparent when looking at the two grid papers from the experiments.
+It is also known that in electric field and equipotential diagrams, the more dense the lines are in an area, the stronger the electric force is (electric field lines) and the more work it takes to move a charge the same distance as from a less dense area of line (for equipotential lines). Therefore, the less dense the electric field lines are, the less electric force there is and for equipotential lines, there is then also less work required to move a charge.
+
 \subsection* {DISCUSSION OF RESULTS}
 
 \subsection* {FURTHER STUDY}
+If this lab were to be performed again, more samples from the conductive paper could be taken. One of the main obstacles in gathering accurate data was ensuring the multimeter was correctly measuring the voltage, as often the push pins would be shifted inadvertently and disrupt the measurement. A better system would be one in which conductive did not have to be used.
+
+Additionally, while there was substantial data taken for the first experiment (two charges) there was not enough time to recreate the equipotential and electric field lines from the data.
 
 \subsection* {SUPPLEMENTARY QUESTIONS}
 \begin{enumerate}
@@ -214,7 +219,59 @@ Changing the shape of the conductors yields different equipotential lines, and t
 The greater the distance between a point on the conductive paper and a charge in a circuit, the greater the potential, or voltage. This is supported by Equation 
   \item Calculate the electric field strength at a few places with different characteristics using Eq. 2. Do your results agree with the idea that electric field line density is proportional electric field strength? Sketch neatly and clearly an appropriate amount of lines on your grid paper. You may want to use a different color.
 
-Equation 2 (from the lab manual) \cite{labManual} is the same as Equation 2 in this lab report. Since the cork board is a plane on which the voltage was measured, the \(z\) component can be disregarded.
+Equation 2 (from the lab manual) \cite{labManual} is the same as Equation 2 in this lab report. Since the cork board is a plane on which the voltage was measured, the \(z\)-component can be disregarded. We calculate the electric field first in a simple example, looking at the two charges at the pins:
+\begin{equation*}
+  \begin{split}
+    \vec{E} &= \dfrac{V-V_{0}}{\delta{x}} \\
+    \vec{E} &= \dfrac{10\text{V}-0\text{V}}{0.20\text{m}} \\
+    \vec{E} &= 50\hat{i}\dfrac{\text{V}}{\text{m}} \\
+  \end{split}
+\end{equation*}
+The units can be verified with a quick analysis, where the following is true:
+
+\begin{equation}
+  \begin{split} 
+    [\text{V}] &= \dfrac{[\text{kg}]\cdot{[\text{m}]^2}}{[\text{s}]^3\cdot{[\text{A}]}} \\
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    [N] = \dfrac{[\text{kg}]\cdot{[\text{m}]}}{[\text{s}]^2}\\
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    [\text{A}] &= \dfrac{\text{C}}{\text{s}} \\
+  \end{split}
+\end{equation}
+Thus, using Equation 3:
+\begin{equation*}
+  \begin{split}
+    \dfrac{[\text{V}]}{[\text{m}]} &= \dfrac{[\text{kg}]\cdot{[\text{m}]}}{[\text{s}]^3\cdot{[\text{A}]}} \\
+  \end{split}
+\end{equation*}
+Using Equation 4:
+\begin{equation*}
+  \begin{split} 
+    \dfrac{[\text{kg}]\cdot{[\text{m}]}}{[\text{s}]^3\cdot{[\text{A}]}} &= \dfrac{[\text{N}]}{[\text{s}]\cdot[\text{A}]} \\
+  \end{split}
+\end{equation*}
+Lastly, using Equation 5, the units are verified and equal to the known units of the electric field:
+\begin{equation*}
+  \begin{split}
+    \dfrac{[\text{N}]}{[\text{s}]\cdot[\text{A}]} &= \dfrac{[\text{N}]}{[\text{C}]\cdot\tfrac{[\text{C}]}{[\text{s}]}} = \dfrac{[\text{N}]}{[\text{C}]} \\
+  \end{split}
+\end{equation*}
+Another electric field calculation is at point (11, 16) with a voltage of 6.22 V and at point (16,18) with a voltage of 4.90 V. Thus, the following equation is shown:
+\begin{equation*}
+  \begin{split} 
+    \vec{E} = \left(\dfrac{6.22\text{V}-4.90\text{V}}{0.05\text{m}}\hat{i}+\dfrac{6.22\text{V}-4.90\text{V}}{0.02\text{m}}\hat{j}\right) = 40.4\hat{i}\dfrac{\text{V}}{\text{m}} + 101.1\hat{j}\dfrac{\text{N}}{\text{C}} \\
+  \end{split}
+\end{equation*}
+Both calculations, along with unit analysis, make sense. It is expected that it would take more work to move 
+
   \item Consider the following situation: An object with charge \(q_{0} = 1.5\mu\) C and mass 0.7 g starts from rest at the +6V equipotential line. Calculate its change in potential energy and speed when it reaches the +2V line.
 \end {enumerate}
 
