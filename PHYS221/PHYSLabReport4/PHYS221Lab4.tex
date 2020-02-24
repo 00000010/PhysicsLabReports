@@ -1,0 +1,434 @@
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For drawing pictures
+\usepackage {tikz}
+% For equations
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% For multiple rows in table slot
+\usepackage {multirow}
+\usepackage {verbatim}
+% To add captions
+\usepackage {caption}
+\usepackage {float}
+% To make graphs
+\usepackage {pgfplots}
+% To make scatter plots
+\usepackage{pgfplotstable}
+
+\usetikzlibrary {shapes.geometric, arrows, angles}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+College of Science: Physics Department \\
+\vspace {0.1cm}
+Illinois Institute of Technology \\
+\vspace {0.1cm}
+General Physics II: Electromagnetism (PHYS 221-01) \\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Capacitors}
+\vspace {0.35cm}
+
+\normalsize
+Lab 4
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Lavanya Roy (lab partner) \\
+Date of experiment: 19 Feb 2020 \\
+Due date: 26 Feb 2020 \\
+Lab section L06 \\
+TA: Will Limestall \\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {Part 1 Questions}
+Step 1:
+The capacitance for the three capacitors was as follows:
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r |}
+    \hline\hline
+    Capacitor & Capacitance (F) \\
+    \hline
+    \multirow {3}{*}{\(C_{1}\)} & 3.62 \(\times{10}^{-8}\) \\
+    & 3.63 \(\times{10}^{-8}\) \\
+    & 3.62 \(\times{10}^{-8}\) \\
+    \hline
+    Average & 3.623333333 \(\times{10}^{-8}\) \\
+    \hline
+    \multirow {3}{*}{\(C_{2}\)} & 2.13 \(\times{10}^{-8}\) \\
+    & 2.13 \(\times{10}^{-8}\) \\
+    & 2.13 \(\times{10}^{-8}\) \\
+    \hline
+    Average & 2.13 \(\times{10}^{-8}\) \\
+    \hline
+    \multirow {3}{*}{\(C_{3}\)} & 8.1 \(\times{10}^{-9}\) \\
+    & 8.1 \(\times{10}^{-9}\) \\
+    & 8.1 \(\times{10}^{-9}\) \\
+    \hline
+    Average & 8.1 \(\times{10}^{-9}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Capacitor capacitance values}
+\end{table}
+
+\noindent
+Step 2:
+The effective (total) capacitance for the capacitors in series was recorded as:
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r |}
+    \hline\hline
+    Setup & \(C_{\text{total}}\) (F) \\
+    \hline
+    \multirow {3}{*}{Series} & 4.9 \(\times{10}^{-9}\) \\
+    & 4.9 \(\times{10}^{-9}\) \\
+    & 4.9 \(\times{10}^{-9}\) \\
+    \hline
+    Average & 4.9 \(\times{10}^{-9}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Total capacitance for the capacitors in series}
+\end{table}
+
+\noindent
+The effective (total) capacitance for the capacitors in parallel was recorded as:
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r |}
+    \hline\hline
+    Setup & \(C_{\text{total}}\) (F) \\
+    \hline
+    \multirow {3}{*}{Parallel} & 6.57 \(\times{10}^{-8}\) \\
+    & 6.56 \(\times{10}^{-8}\) \\
+    & 6.57 \(\times{10}^{-8}\) \\
+    \hline
+    Average & 6.566666667 \(\times{10}^{-8}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Total capacitance for the capacitors in series}
+\end{table}
+
+Comparing the average values in Tables 1 and 2, it is shown that the capacitance in the parallel circuit was higher than in the series circuit. These values are corroborated with Equations . For instance, for the series circuit, \(C_{\text{total}}\) is:
+\begin{equation*}
+  \begin{split}
+    C_{\text{total}} &= \dfrac{1}{\tfrac{1}{3.62\times10^{-8}C} + \tfrac{1}{2.13\times10^{-8}C} + \tfrac{1}{8.1\times10^{-9}C}} \\
+    C_{\text{total}} &= 5.0497538\times10^{-9}C \\
+  \end{split}
+\end{equation*}
+The parallel circuit was calculated as:
+\begin{equation*}
+  \begin{split}
+    C_{\text{parallel}} &= 3.62\times10^{-8} + 2.13\times10^{-8} + 8.1\times10^{-9} \\
+    C_{\text{parallel}} &= 6.56\times10^{-8} \\
+  \end{split}
+\end{equation*}
+
+\noindent
+Thus, it is shown that the capacitance is higher in a parallel rather than series circuit using equations and the experiment data.
+
+\subsection* {Part 2a Questions}
+Step 1:
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r |}
+    \hline\hline
+    Trial & Diameter of plate (m) \\
+    \hline
+    1 & 0.1985 \\
+    \hline
+    2 & 0.2011 \\
+    \hline
+    3 & 0.2005 \\
+    \hline
+    Average & 0.200033333 \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r | r | r | r | r | r |}
+    \hline\hline
+    Distance (m) & 0.01 & 0.03 & 0.05 & 0.07 & 0.09 & 0.11 \\
+    \hline
+    \multirow {3}{*}{Capacitance (F)} & 3.94\(\times10^{-11}\) & 1.98\(\times10^{-11}\) & 1.58\(\times10^{-11}\) & 1.40\(\times10^{-11}\) & 1.31\(\times10^{-11}\) & 1.26\(\times10^{-11}\) \\
+    & 3.95\(\times10^{-11}\) & 1.98\(\times10^{-11}\) & 1.58\(\times10^{-11}\) & 1.40\(\times10^{-11}\) & 1.32\(\times10^{-11}\) & 1.25\(\times10^{-11}\) \\
+    & 3.93\(\times10^{-11}\) & 1.97\(\times10^{-11}\) & 1.58\(\times10^{-11}\) & 1.40\(\times10^{-11}\) & 1.32\(\times10^{-11}\) & 1.25\(\times10^{-11}\) \\
+    \hline
+    Average & 3.94\(\times10^{-11}\) & 1.98\(\times10^{-11}\) & 1.58\(\times10^{-11}\) & 1.40\(\times10^{-11}\) & 1.32\(\times10^{-11}\) & 1.25\(\times10^{-11}\) \\ % %6666667 (LDR) % % %6666667 (LDR) %3333333 (LDR)
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and the resulting capacitance using air as a dialectric}
+\end{table}
+
+Step 2:
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r | r | r | r | r |}
+    \hline\hline
+    Distance (m) & 1 sheet (0.0001 m) & 10 sheets (0.00010 m) \\
+    \hline
+    \multirow {3}{*}{Capacitance (F) Before} & 3.98\(\times10^{-8}\) & 3.98\(\times10^{-8}\) \\
+    & 3.98\(\times10^{-8}\) & 3.98\(\times10^{-8}\) \\
+    & 3.95\(\times10^{-8}\) & 3.96\(\times10^{-8}\) \\
+    \hline
+    Average & 3.97\(\times10^{-8}\) & 3.97\(\times10^{-8}\) \\
+    \hline
+    \multirow {3}{*}{Capacitance (F) After} & 4.00\(\times10^{-8}\) & 4.21\(\times10^{-8}\) \\
+    & 4.00\(\times10^{-8}\) & 4.21\(\times10^{-8}\) \\
+    & 3.98\(\times10^{-8}\) & 4.19\(\times10^{-8}\) \\
+    \hline
+    Average & 3.993333333\(\times10^{-8}\) & 4.203333333\(\times10^{-8}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and the resulting capacitance using paper as a dialectric}
+\end{table}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{| c | r | r | r | r | r |}
+    \hline\hline
+    Distance (m) & 1 sheet & 3 sheets \\
+    \hline
+    \multirow {3}{*}{Capacitance (F) Before} & 4.00\(\times10^{-8}\) & 3.96\(\times10^{-8}\) \\
+    & 3.94\(\times10^{-8}\) & 3.95\(\times10^{-8}\) \\
+    & 3.95\(\times10^{-8}\) & 3.95\(\times10^{-8}\) \\
+    \hline
+    Average & 3.963333333\(\times10^{-8}\) & 3.953333333\(\times10^{-8}\) \\
+    \hline
+    \multirow {3}{*}{Capacitance (F) After} & 4.02\(\times10^{-8}\) & 4.05\(\times10^{-8}\) \\
+    & 3.97\(\times10^{-8}\) & 4.02\(\times10^{-8}\) \\
+    & 3.98\(\times10^{-8}\) & 4.02\(\times10^{-8}\) \\
+    \hline
+    Average & 3.99\(\times10^{-8}\) & 4.03\(\times10^{-8}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and the resulting capacitance using cellulose as a dielectric}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r |}
+    \hline\hline
+    Distance (m) & Capacitance (F) \\
+    \hline
+    0.0030 & 2.19\(\times10^{-10}\) \\
+    \hline
+    0.0030 & 2.15\(\times10^{-10}\) \\
+    \hline
+    0.0030 & 2.13\(\times10^{-10}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and the resulting capacitance using vinyl as a dielectric}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r |}
+    \hline\hline
+    Distance (m) & Capacitance (F) \\
+    \hline
+    0.0030 & 2.19\(\times10^{-10}\) \\
+    \hline
+    0.0030 & 2.15\(\times10^{-10}\) \\
+    \hline
+    0.0030 & 2.13\(\times10^{-10}\) \\
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and the resulting capacitance using nylon as a dielectric}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r |}
+    \hline\hline
+    Distance (m) & Capacitance (F) \\
+    \hline
+    0.0080 & 8.54\(\times10^{-11}\) \\
+    \hline
+    0.0081 & 8.59\(\times10^{-11}\) \\
+    \hline
+    0.0080 & 8.56\(\times10^{-11}\) \\  
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and capacitance (with vinyl on left and nylon on right)}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r |}
+    \hline\hline
+    Distance (m) & Capacitance (F) \\
+    \hline
+    0.0075 & 9.94\(\times10^{-11}\) \\
+    \hline
+    0.0075 & 1.000\(\times10^{-10}\) \\
+    \hline
+    0.0075 & 9.98\(\times10^{-11}\) \\  
+    \hline\hline
+  \end{tabular}
+  \caption{Distance between plates and capacitance (with nylon on left and vinyl on right)}
+\end{table}
+
+\subsection* {Main Lab Questions}
+\begin{enumerate}
+  \item Calculate the capacitance using Equation 1 for the various separation distances of task 1 (for part 2a). How do these values compare with the data taken with the capacimeter?  Don’t forget to take into account the dielectric constant for air.
+
+  The equation for calculating capacitance is:
+  \begin{equation*}
+    \begin{split}
+      C &= \kappa\dfrac{\epsilon_{0}A}{d} \\
+    \end{split}
+  \end{equation*}
+  The dielectric constant for air is:
+  \begin{equation*}
+    \begin{split}
+      \kappa &= 1.00054 \\
+    \end{split} 
+  \end{equation*}
+  Thus, the expected values for the capacitance using the above equations  and the average area of the plates are shown in Table 11.
+  \begin{table}
+    \centering
+    \begin{tabular}{| l | r |}
+      \hline\hline
+      Distance (m) & Calculated Capacitance (F) \\
+      \hline
+      0.01 & 2.77016086\(\times10^{-11}\) \\
+      \hline
+      0.03 & 9.23386952\(\times10^{-12}\) \\
+      \hline
+      0.05 & 5.54032171\(\times10^{-12}\) \\
+      \hline
+      0.07 & 3.95737265\(\times10^{-12}\) \\
+      \hline
+      0.09 & 3.07795651\(\times10^{-12}\) \\
+      \hline
+      0.11 & 2.51832805\(\times10^{-12}\) \\
+      \hline\hline
+    \end{tabular}
+    \caption{Distance between plates and the calculated capacitance}
+  \end{table}
+  A quick error analysis in Table 12 shows that the experimental values are .
+  \begin{table}
+    \centering
+    \begin{tabular}{| l | r |}
+      \hline\hline
+      Distance (m) & Error percentage \\
+      \hline
+      0.01 & \\
+      \hline
+      0.03 & \\
+      \hline
+      0.05 & \\
+      \hline
+      0.07 & \\
+      \hline
+      0.09 & \\
+      \hline
+      0.11 & \\
+      \hline\hline
+    \end{tabular}
+    \caption{Error percentages when using air as a dielectric}
+  \end{table}
+   
+  \item  Calculate the dielectric constant for the paper used.  How do your values compare with the listed value from the table above?
+  \item Calculate the dielectric constant for the transparency sheets.  Does the capacitance of the parallel plates depend on the thickness of the dielectric?
+  \item Show that the capacitance for the setup in Figure 4 is given by
+  \begin{equation}
+    \begin{split}
+      C &= \dfrac{2\epsilon_{0}A}{d}\dfrac{\kappa_{1}\kappa_{2}}{\kappa_{1}+\kappa_{2}} \\
+    \end{split}
+\end{equation}
+  \item Compare your experimental results of task 4 with Equation 4.
+  \item The dielectrics you insert between the parallel plates may have excess charge.  What happens when you charge the plates, if this turns out to be true?
+  \item For Part 2b, create a plot of V vs d.  What does the slope represent?
+  \item How much charge is found on the plates in Part 2b?
+\end{enumerate}
+
+\pgfplotstableread {
+X Y
+0.0038 1
+0.0072 2.01
+0.0105 3.00
+0.0145 4.00
+0.0177 5.00
+}\circuita
+
+\pgfplotstableread {
+X Y
+0.0035 1
+0.0070 2.01
+0.0105 3.02
+0.0140 3.99
+0.0175 4.99
+}\circuitb
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      title = {Circuit A Voltage Vs. Amperage},
+      xlabel = {Voltage (V)},
+      ylabel = {Amperage (A)},
+      legend pos=north west,
+      ]
+      \addplot [only marks, mark = *] table {\circuita};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\circuita};
+      \addlegendentry{Data}
+      \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {}
+\end {figure}
+
+\begin {figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      title = {Circuit B Voltage Vs. Amperage},
+      xlabel = {Voltage (V)},
+      ylabel = {Amperage (A)},
+      legend pos = north west,
+      ]
+      \addplot [only marks, mark = *] table {\circuitb};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\circuitb};
+      \addlegendentry{Data}
+      \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption {}
+\end {figure}
+
+\subsection* {REFERENCES}
+Amer Chaaban, M. (n.d.). Voltage Drop. Retrieved February 12, 2020, from https://www.e-education.psu.edu/ae868/node/967 \\\\
+Gladding, G., Selen, M. A., \& Stelzer, T. (2012). Electricity and Magnetism. New York: W.H. Freeman. \\\\
+Illinois Institute of Technology. (n.d.). Experiment 1: Coulomb's Law. PDF. Chicago.
+\end {document}
