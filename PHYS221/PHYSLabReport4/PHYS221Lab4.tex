@@ -147,16 +147,17 @@ Comparing the average values in Tables 1 and 2, it is shown that the capacitance
     C_{\text{total}} &= 5.0497538\times10^{-9}C \\
   \end{split}
 \end{equation*}
-The parallel circuit was calculated as:
+The error percentage for the total capacitance in a series was 2.965566361\%, giving strong evidence for the validity of the series equation. The parallel circuit was calculated as:
 \begin{equation*}
   \begin{split}
     C_{\text{parallel}} &= 3.62\times10^{-8} + 2.13\times10^{-8} + 8.1\times10^{-9} \\
     C_{\text{parallel}} &= 6.56\times10^{-8} \\
   \end{split}
 \end{equation*}
+The error percentage for this calculation was 0.1016260213\%, also demonstrating the formula's validity.
 
 \noindent
-Thus, it is shown that the capacitance is higher in a parallel rather than series circuit using equations and the experiment data.
+Thus, it is shown that the capacitance is higher in a parallel rather than series circuit using both equations and experiment data.
 
 \subsection* {Part 2a Questions}
 Step 1: The results for Step 1 are shown in Table 5.
@@ -192,7 +193,7 @@ Step 1: The results for Step 1 are shown in Table 5.
     Average & 3.94\(\times10^{-11}\) & 1.98\(\times10^{-11}\) & 1.58\(\times10^{-11}\) & 1.40\(\times10^{-11}\) & 1.32\(\times10^{-11}\) & 1.25\(\times10^{-11}\) \\ % %6666667 (LDR) % % %6666667 (LDR) %3333333 (LDR)
     \hline\hline
   \end{tabular}
-  \caption{Distance between plates and the resulting capacitance using air as a dialectric}
+  \caption{Distance between plates and the resulting capacitance using air as a dielectric}
 \end{table}
 
 \noindent
@@ -203,21 +204,23 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
     \hline\hline
     Distance (m) & 1 sheet (0.0001 m) & 10 sheets (0.0010 m) \\
     \hline
-    \multirow {3}{*}{Capacitance (F) Before} & 3.98\(\times10^{-8}\) & 3.98\(\times10^{-8}\) \\
-    & 3.98\(\times10^{-8}\) & 3.98\(\times10^{-8}\) \\
-    & 3.95\(\times10^{-8}\) & 3.96\(\times10^{-8}\) \\
+    \multirow {3}{*}{Capacitance (F) Before} & 3.98\(\times10^{-11}\) & 3.98\(\times10^{-11}\) \\
+    & 3.98\(\times10^{-11}\) & 3.98\(\times10^{-11}\) \\
+    & 3.95\(\times10^{-11}\) & 3.96\(\times10^{-11}\) \\
     \hline
-    Average & 3.97\(\times10^{-8}\) & 3.97\(\times10^{-8}\) \\
+    Average & 3.97\(\times10^{-11}\) & 3.97\(\times10^{-11}\) \\
     \hline
-    \multirow {3}{*}{Capacitance (F) After} & 4.00\(\times10^{-8}\) & 4.21\(\times10^{-8}\) \\
-    & 4.00\(\times10^{-8}\) & 4.21\(\times10^{-8}\) \\
-    & 3.98\(\times10^{-8}\) & 4.19\(\times10^{-8}\) \\
+    \multirow {3}{*}{Capacitance (F) After} & 4.00\(\times10^{-11}\) & 4.21\(\times10^{-11}\) \\
+    & 4.00\(\times10^{-11}\) & 4.21\(\times10^{-11}\) \\
+    & 3.98\(\times10^{-11}\) & 4.19\(\times10^{-11}\) \\
     \hline
-    Average & 3.993333333\(\times10^{-8}\) & 4.203333333\(\times10^{-8}\) \\
+    Average & 3.993333333\(\times10^{-11}\) & 4.203333333\(\times10^{-11}\) \\
     \hline
     Calculated \(\kappa\) & 3.605828272 & 37.95450293 \\
     \hline
-    Calculated \(\kappa\) (other method) & 1.005877414 & 1.058774139 \\
+    Calculated \(\kappa\) (method 2) & 1.005877414 & 1.058774139 \\
+    \hline
+    Calculated \(\kappa\) (method 3) & -0.03413017959 & -0.4204502412 \\
     \hline\hline
   \end{tabular}
   \caption{Distance between plates and the resulting capacitance using paper as a dielectric}
@@ -229,21 +232,23 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
     \hline\hline
     Distance (m) & 1 sheet & 3 sheets \\
     \hline
-    \multirow {3}{*}{Capacitance (F) Before} & 4.00\(\times10^{-8}\) & 3.96\(\times10^{-8}\) \\
-    & 3.94\(\times10^{-8}\) & 3.95\(\times10^{-8}\) \\
-    & 3.95\(\times10^{-8}\) & 3.95\(\times10^{-8}\) \\
+    \multirow {3}{*}{Capacitance (F) Before} & 4.00\(\times10^{-11}\) & 3.96\(\times10^{-11}\) \\
+    & 3.94\(\times10^{-11}\) & 3.95\(\times10^{-11}\) \\
+    & 3.95\(\times10^{-11}\) & 3.95\(\times10^{-11}\) \\
     \hline
-    Average & 3.963333333\(\times10^{-8}\) & 3.953333333\(\times10^{-8}\) \\
+    Average & 3.963333333\(\times10^{-11}\) & 3.953333333\(\times10^{-11}\) \\
     \hline
-    \multirow {3}{*}{Capacitance (F) After} & 4.02\(\times10^{-8}\) & 4.05\(\times10^{-8}\) \\
-    & 3.97\(\times10^{-8}\) & 4.02\(\times10^{-8}\) \\
-    & 3.98\(\times10^{-8}\) & 4.02\(\times10^{-8}\) \\
+    \multirow {3}{*}{Capacitance (F) After} & 4.02\(\times10^{-11}\) & 4.05\(\times10^{-11}\) \\
+    & 3.97\(\times10^{-11}\) & 4.02\(\times10^{-11}\) \\
+    & 3.98\(\times10^{-11}\) & 4.02\(\times10^{-11}\) \\
     \hline
-    Average & 3.99\(\times10^{-8}\) & 4.03\(\times10^{-8}\) \\
+    Average & 3.99\(\times10^{-11}\) & 4.03\(\times10^{-11}\) \\
     \hline
     Calculated \(\kappa\) & 14.3461379 & 43.46987648 \\
     \hline
-    Calculate \(\kappa\) (other method) & 1.006728343 & 1.019392917 \\
+    Calculate \(\kappa\) (method 2) & 1.006728343 & 1.019392917 \\
+    \hline
+    Calculate \(\kappa\) (method 2) & -0.03413017959 & -0.1101221452 \\
     \hline\hline
   \end{tabular}
   \caption{Distance between plates and the resulting capacitance using cellulose as a dielectric}
@@ -265,7 +270,7 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
       \kappa &= 1.00054 \\
     \end{split} 
   \end{equation*}
-  Thus, the expected values for the capacitance using the above equations  and the average area of the plates are shown in Table 11.
+  Thus, the expected values for the capacitance using the above equations and the average area of the plates are shown in Table 8.
   \begin{table}
     \centering
     \begin{tabular}{| l | r |}
@@ -287,7 +292,8 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
     \end{tabular}
     \caption{Distance between plates and the calculated capacitance}
   \end{table}
-  A quick error analysis in Table 12 shows that the experimental values are not at all close to the expected values. While the capacimeter was zeroed and checked multiple times throughout the experiment, it is clear from the data that the mistake was systematic, possibly with the capacimeter settings.
+  A quick error analysis in Table 9 shows that the experimental values are not at all close to the expected values. While the capacimeter was zeroed and checked multiple times throughout the experiment, it is clear from the data that the mistake was systematic, possibly with the capacimeter settings. 
+
   \begin{table}
     \centering
     \begin{tabular}{| l | r |}
@@ -309,7 +315,7 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
     \end{tabular}
     \caption{Error percentages when using air as a dielectric}
   \end{table}
-   
+
   \item  Calculate the dielectric constant for the paper used.  How do your values compare with the listed value from the table above?
   
   The equation for calculating capacitance is again used (Equation 1), and the results are shown in Table 5.
@@ -318,7 +324,7 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
       \kappa &= \dfrac{Cd}{\epsilon_{0}A} \\
     \end{split}
   \end{equation*}
-  These values, 3.6 and 38.0, are not at all close to the values of expected \(\kappa\) range, which is 1.5 to 3.0. \(\kappa\) can also be calculated from the following equation:
+  These values, 3.6 and 38.0, are not at all close to the values of expected \(\kappa\) range, which is 1.5 to 3.0 (method 1). \(\kappa\) can also be calculated from the following equation (method 2):
   \begin{equation*}
     \begin{split}
       C &= \kappa{C}_0 \\
@@ -326,18 +332,51 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
   \end{equation*}
   The results of this calculation are also in Table 5. These values, by comparison to the previous calculation, are not only much closer to the expected values, but also more consistent with each other.
   
+  Further analysis showed that the values obtained for the "before" measurements in Tables 6 and 7 were the same as those obtained when the capacitor used air as a dielectric and the plates were 1 centimeter apart, meaning that the plates were not as close as possible when putting the paper in between. Then, in order to correctly calculate the paper dielectric constant using the experimental data, Equation 4 is used, taking into account the air in between the plates.
+
+  If \(\kappa_{1}\) is the dielectric constant for air and \(\kappa_{2}\) is the dielectric constant for paper, then \(\kappa_{2}\) can be calculated for by splitting up the capacitor by dielectrics, as in Question 4 (method 3). \(C_{1}\), the capacitor with only air, can be represented as:
+  \begin{equation*}
+    \begin{split}
+      C_{1} &= \kappa_{1}\dfrac{\epsilon_{0}A}{d_{1}} \\
+    \end{split}
+  \end{equation*} 
+  where \(d_{1} = 0.01 \text{m} - 0.0001 \text{m}\). Then the capacitor containing only paper is:
+  \begin{equation*}
+    \begin{split}
+      C_{2} &= \kappa_{2}\dfrac{\epsilon_{0}A}{d_{2}} \\
+    \end{split}
+  \end{equation*}
+  where \(d_{2} = 0.0001 \text{m}\). Then, combining the equations and solving for \(\kappa_{2}\):
+  \begin{equation}
+    \begin{split}
+      C_{\text{total}} &= \dfrac{1}{\tfrac{1}{\kappa_{1}\tfrac{\epsilon_{0}A}{d_{1}}} + \tfrac{1}{\kappa_{2}\tfrac{\epsilon_{0}A}{d_{2}}}} \\
+      C_{\text{total}} &= \dfrac{1}{\tfrac{d_{1}}{\kappa_{1}\epsilon_{0}A} + \tfrac{d_{2}}{\kappa_{2}\epsilon_{0}A}} \\
+      C_{\text{total}} &= \dfrac{1}{\tfrac{d_{1}\kappa_{2}}{\kappa_{1}\kappa_{2}\epsilon_{0}A} + \tfrac{d_{2}\kappa_{1}}{\kappa_{1}\kappa_{2}\epsilon_{0}A}} \\
+      C_{\text{total}} &= \dfrac{1}{\tfrac{d_{1}\kappa_{2} + d_{2}\kappa_{1}}{\kappa_{1}\kappa_{2}\epsilon_{0}A}} \\
+      C_{\text{total}} &= \dfrac{\kappa_{1}\kappa_{2}\epsilon_{0}A}{d_{1}\kappa_{2} + d_{2}\kappa_{1}} \\
+      C_{\text{total}}(d_{1}\kappa_{2} + d_{2}\kappa_{1}) &= \kappa_{1}\kappa_{2}\epsilon_{0}A \\
+      C_{\text{total}}d_{1}\kappa_{2} + C_{\text{total}}d_{2}\kappa_{1} &=\kappa_{1}\kappa_{2}\epsilon_{0}A \\
+      C_{\text{total}}d_{1}\kappa_{2} - \kappa_{1}\kappa_{2}\epsilon_{0}A &= -C_{\text{total}}d_{2}\kappa_{1} \\
+      \kappa_{2}(C_{\text{total}}d_{1} - \kappa_{1}\epsilon_{0}A) &= -C_{\text{total}}d_{2}\kappa_{1} \\
+      \kappa_{2} &= \dfrac{-C_{\text{total}}d_{2}\kappa_{1}}{C_{\text{total}}d_{1} - \kappa_{1}\epsilon_{0}A} \\
+    \end{split}
+  \end{equation}
+  Thus, the new \(\kappa\) value for paper (for one sheet) is shown in Table 6 (method 3). For 10 sheets, \(d_{1} = 0.01 \text{m} - 0.0010 \text{m}\), and \(d_{2} = 0.0010 \text{m}\). As shown in Table 6, the values are more different. This difference is due to the paper not being completely in contact with one of the plates, which would result in a different series equation.
+
   \item Calculate the dielectric constant for the transparency sheets.  Does the capacitance of the parallel plates depend on the thickness of the dielectric?
 
-  The dielectric constant can be calculated using the same process as Question 2. Table 6 shows these calculations. The values are again completely different from the expected values of \(\kappa\) for cellulose acetate, which is from 2.9 to 4.5. Interestingly, the values given by the other method are very similar to the calculated \(\kappa\) values from the other method when using paper. In fact, it seems as though, by the capacitor, that there is little difference between using air as a dielectric or using another material (in the experiment, paper or cellulose acetate).
+  The dielectric constant can be calculated using the same process as Question 2. Table 6 shows these calculations. The values are again completely different from the expected values of \(\kappa\) for cellulose acetate, which is from 2.9 to 4.5 (method 1). Interestingly, the values given by the other method (method 2) are very similar to the calculated \(\kappa\) values from the other method when using paper. In fact, it seems as though there is little difference between using air as a dielectric or using another material (in the experiment, paper or cellulose acetate).
 
-  Certainly though, the capacitance does depend on the thickness of the dielectric, as witnesses in the capacitance equation and the experiment. As distance increases between plates, capacitance decreases and vice versa. In the experiment, as the distance increases (using air as a dielectric) the capacitance decreases, as shown in Table 4.
+  Certainly though, the capacitance does depend on the thickness of the dielectric, as witnessed in the capacitance equation and the experiment. As distance increases between plates, capacitance decreases and vice versa.
+
+  Equation 4 was again used, where \(d_{1} = 0.01 \text{m} - 0.0001 \text{m}\) and \(d_{2} = 0.0003 \text{m}\) (method 3). There was explicit direction that measuring the thickness of the acetate was not necessary. It is therefore assumed that one acetate sheet has the same thickness as a sheet of paper. The resulting calculations are shown in Table 7.
   \item Show that the capacitance for the setup in Figure 4 is given by
   \begin{equation}
     \begin{split}
       C &= \dfrac{2\epsilon_{0}A}{d}\dfrac{\kappa_{1}\kappa_{2}}{\kappa_{1}+\kappa_{2}} \\
     \end{split}
 \end{equation}
-  To calculate the capacitance with two dielectric, consider the two dielectrics as their own capacitors. For example, \(C_{1}\) would be:
+  To calculate the capacitance with two stacked dielectrics, consider the two dielectrics as their own capacitors. For example, \(C_{1}\) would be:
   \begin{equation*}
     \begin{split}
       C_{1} &= \kappa_{1}\dfrac{\epsilon_{0}A}{\tfrac{d}{2}} \\
@@ -355,7 +394,7 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
       C_{\text{total, series}} &= \dfrac{1}{\tfrac{1}{C_{1}} + \tfrac{1}{C_{2}}} \\
       C_{\text{total, series}} &= \dfrac{1}{\tfrac{1}{\kappa_{1}\tfrac{\epsilon_{0}A}{\tfrac{d}{2}}} + \tfrac{1}{\kappa_{2}\tfrac{\epsilon_{0}A}{\tfrac{d}{2}}}} \\
       C_{\text{total, series}} &= \dfrac{1}{\tfrac{d}{2\kappa_{1}\epsilon_{0}A} + \tfrac{d}{2\kappa_{2}\epsilon_{0}A}} \\
-      C_{\text{total, series}} &= \dfrac{1}{\tfrac{d\kappa_{2}}{2\kappa_{1}\kappa{2}\epsilon_{0}A} + \tfrac{d\kappa{1}}{2\kappa{1}\kappa_{2}\epsilon_{0}A}} \\
+      C_{\text{total, series}} &= \dfrac{1}{\tfrac{d\kappa_{2}}{2\kappa_{1}\kappa_{2}\epsilon_{0}A} + \tfrac{d\kappa{1}}{2\kappa_{1}\kappa_{2}\epsilon_{0}A}} \\
       C_{\text{total, series}} &= \dfrac{1}{\tfrac{d\kappa_{2} + d\kappa_{1}}{2\kappa_{1}\kappa_{2}\epsilon_{0}A}} \\
       C_{\text{total, series}} &= \dfrac{2\kappa_{1}\kappa_{2}\epsilon_{0}A}{d\kappa_{2} + d\kappa_{1}} \\
       C_{\text{total, series}} &= \dfrac{2\epsilon_{0}A}{d}\dfrac{\kappa_{1}\kappa_{2}}{\kappa_{2} + \kappa_{1}} \\
@@ -460,24 +499,28 @@ Step 2: The data from Step 2 is shown in Tables 6 and 7.
     \end{split}
   \end{equation*}
   So while the values seem internally consistent, they are not the expected values.
+
+  Note: The wide difference in values in Table 12 (0.0080 m to 0.0075 m) is due to combining the results from two experiments where the position of the nylon and vinyl plates were changed. However, whether the vinyl or nylon plates were left or right should not matter and as such, any calculations using the capacitance for this part of the experiment used the average capacitance. The difference in values is likely due to slight bends in the plates themselves.
   \item The dielectrics you insert between the parallel plates may have excess charge.  What happens when you charge the plates, if this turns out to be true?
-  If the parallel plates have an excess charge, then the 
+
+  Since the area of the plates, the distance separating them, and the dielectric constant stay the same, the capacitance would not change. As such, the voltage would have to increase, by Equation 6.
   \item For Part 2b, create a plot of V vs d.  What does the slope represent?
+
   The voltage and capacitance are connected by the following equation:
-  \begin{equation*}
+  \begin{equation}
     \begin{split}
       V &= \dfrac{Q}{C} \\
       V &= \dfrac{Q}{\tfrac{\epsilon_{0}A}{d}} \\
       V &= \dfrac{Qd}{\epsilon_{0}A} \\
     \end{split}
-  \end{equation*}
+  \end{equation}
   Then, if \(V\) represents the voltage (\(x\)-value) and \(d\) represents the distance between the plates (\(y\)-value), then the slope is equal to:
   \begin{equation*}
     \begin{split}
       \dfrac{Q}{\epsilon_{0}A} \\
     \end{split}
   \end{equation*}
-  Then \(Q\), the charge on one of the plates of the capacitor is just the above expression multiplied by two known values, \(\epsilon_{0}\) and \(A\).
+  Then \(Q\), the charge on one of the plates of the capacitor is just the above expression multiplied by two known values, \(\epsilon_{0}\) and \(A\). The plot of \(V\) vs. \(d\) is shown in Figure 1.
   \item How much charge is found on the plates in Part 2b?
   Using part of the answer to Question 7, the charge on one of the plates is the slope in Figure 1 multiplied by \(\epsilon_{0}\) and \(A\).
   \begin{equation*}
@@ -519,8 +562,7 @@ X Y
   \caption {}
 \end {figure}
 
-\subsection* {REFERENCES}
-Amer Chaaban, M. (n.d.). Voltage Drop. Retrieved February 12, 2020, from https://www.e-education.psu.edu/ae868/node/967 \\\\
-Gladding, G., Selen, M. A., \& Stelzer, T. (2012). Electricity and Magnetism. New York: W.H. Freeman. \\\\
-Illinois Institute of Technology. (n.d.). Experiment 1: Coulomb's Law. PDF. Chicago.
+\thebibliography{3}
+  \bibitem{labManual}
+  Illinois Institute of Technology. (n.d.). Experiment 4: Capacitors. PDF. Chicago.
 \end {document}
