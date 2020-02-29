@@ -1,5 +1,8 @@
 % Document notes:
-% Improvements: In Figure 3, make the total voltage table go directly underneath the current table and to the right of the resistor voltage table.
+% Improvements:
+%   - In Figure 3, make the total voltage table go directly underneath the current table and to the right of the resistor voltage table.
+%   - There may be a bug with the circuitikz package where it should be able to put plus/minus signs with batteries (last heard of in 2014)
+%   - Cannot draw voltage across resistors in parallel circuit? May be because they are vertical.
 \documentclass [12pt, letterpaper, twoside] {article}
 \usepackage[utf8]{inputenc}
 \usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
@@ -118,13 +121,30 @@ Each of the four resistors were first measured by the multimeter. Then all but t
 
 \begin{figure}
   \centering
-  \begin{circuitikz}[]
-    \draw (0,0) -- (0,3)
-    to[R=\(R_{1}\)] (2,3) -- (2,3)
-    to[R=\(R_{2}\)] (3,3) -- (3,3)
-    to[R=\(R_{3}\)] (5,3) -- (5,0) to[battery1, l=$V$] (0,0);
-  \end{circuitikz}
-  \caption{Series circuit}
+  \subfloat[Series circuit]{
+    \begin{circuitikz}[]
+      \draw (0,0) -- (0,2)
+      to[R=\(R_{1}\), v_=\(V_{1}\)] (2,2) -- (2,2)
+      to[R=\(R_{1}\), v_=\(V_{2}\)] (3,2) -- (3,2)
+      to[R=\(R_{3}\), v_=\(V_{3}\)] (5,2) -- (5,0) to[battery1, l=\(V\), i=\(I\)] (0,0);
+    \end{circuitikz}
+  }\qquad
+  \subfloat[Parallel circuit]{
+    \begin{circuitikz}[american]
+      \draw (4.5,0) -- (0,0) to[R=\(R_{1}\)] (0,3) -- (4.5,3) to[battery1, l=\(V\), i=\(I\)] (4.5,0);
+      \draw (1.5,0) to[R=\(R_{2}\)] (1.5,3);
+      \draw (3,0) to[R=\(R_{3}\)] (3,3);
+    \end{circuitikz}
+  }\qquad
+  \subfloat[Combined circuit]{
+    \begin{circuitikz}[]
+      \draw (4,4.5) to[battery1, l=\(V\), i=\(I\)] (4,0) -- (0,0);
+      \draw (4,4.5) -- (0,4.5) -- (0,4.5) to[R=\(R_{1}\)] (0,2.5);
+      \draw (0,2.5) -- (-0.75,2.5) to[R=\(R_{2}\)] (-0.75,0.5) -- (0.75,0.5);
+      \draw (0,2.5) -- (0.75,2.5) to[R=\(R_{3}\)] (0.75,0.5);
+      \draw (0,0.5) -- (0,0);
+    \end{circuitikz}
+  }
 \end{figure}
 
 The second part of the experiment looked at resistors in parallel, and was constructed as in Figure 2. Each resistor in the parallel circuit was measured, while the experimental total resistance was obtained using Ohm's Law (Equation 1) and the total measured current and voltage. Total resistance was then found again using Equation 3.
@@ -318,6 +338,7 @@ Next, data was collected for the current running through each resister when all 
       \hline
     \end{tabular}
   }
+  \caption{Resistors in parallel}
 \end{figure}
 
 \subsection* {ANALYSIS OF DATA}
