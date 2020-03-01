@@ -39,6 +39,7 @@
 \renewcommand {\labelitemiv}{$\triangle$}
 
 \raggedbottom
+\pgfplotsset{compat=1.16}
 \begin {document}
 \begin {titlepage}
 \begin {center}
@@ -72,7 +73,7 @@ Updated \usdate\today~(\currenttime)
 \end {flushright}
 \end {titlepage}
 \subsection* {STATEMENT OF OBJECTIVE}
-The objective of this lab was to examine Ohm's Law, its connection with resistors, and how resistance changes in series, parallel, or both types of circuits. \\
+The objective of this lab was to examine Ohm's Law, its connection with resistors, and how resistance changes in series, parallel, or both types of circuits.
 
 \subsection* {THEORY}
 \noindent
@@ -82,7 +83,7 @@ A circuit can be described by Ohm's Law, which is represented by the following:
     V &= IR \\
   \end{split}
 \end{equation}
-where \(V\) is the voltage measured in Volts (V), \(I\) is the current measured in Amps (A), and \(R\) is the resistance measured in Ohms (\(\Omega\)). Two other concepts will help describe circuits, including Kirchhoff's First Law and Kirchhoff's Second Law.
+where \(V\) is the voltage measured in Volts (V), \(I\) is the current measured in Amps (A), and \(R\) is the resistance measured in Ohms (\(\Omega\)). Two other concepts will help describe circuits, namely Kirchhoff's First Law and Kirchhoff's Second Law.
 \begin{theorem}[Kirchhoff's First Law]
   The current entering a junction is the same as the current leaving a junction.
 \end{theorem}
@@ -117,7 +118,7 @@ Current in a circuit will result in different values depending on the placement 
   \end {itemize}
 
 \subsection* {PROCEDURE}
-Each of the four resistors were first measured by the multimeter. Then all but the fourth resistor were constructed into a series circuit, as shown in Figure 1. By Ohm's Law (Equation 1), resistance can be calculated if both the voltage across the resistor and the current through the resistor are known. Thus, the multimeter was used to measure the voltage and the ammeter was used to measure the current for each resistor. Ohm's Law (Equation 1) can again be used for finding the total resistance experimentally. As for resistor 4, its value was used to obtain an experimental value of the current.
+Each of the four resistors were first measured by the multimeter. Then all but the fourth resistor were constructed into a series circuit, as shown in Figure 1, diagram a. By Ohm's Law (Equation 1), resistance can be calculated if both the voltage across the resistor and the current through the resistor are known. Thus, the multimeter was used to measure the voltage and the ammeter was used to measure the current for each resistor. Ohm's Law (Equation 1) can again be used for finding the total resistance experimentally. As for resistor 4, it was added to the series circuit and its value was used to obtain an experimental value of the current.
 
 \begin{figure}
   \centering
@@ -145,61 +146,68 @@ Each of the four resistors were first measured by the multimeter. Then all but t
       \draw (0,0.5) -- (0,0);
     \end{circuitikz}
   }
+  \caption{Circuit configurations}
 \end{figure}
 
-The second part of the experiment looked at resistors in parallel, and was constructed as in Figure 2. Each resistor in the parallel circuit was measured, while the experimental total resistance was obtained using Ohm's Law (Equation 1) and the total measured current and voltage. Total resistance was then found again using Equation 3.
+The second part of the experiment looked at resistors in parallel, and was constructed as in Figure 1, diagram b. Each resistor in the parallel circuit was measured, while the experimental total resistance was obtained using Ohm's Law (Equation 1) and the total measured current and voltage. Total resistance was then found again using Equation 3.
 
-The last part of the experiment examined a combination of the first two parts and used the circuit in Figure 3. In order to validate Kirchhoff's Laws, \(I_{1}\), \(I_{2}\), \(I_{3}\), \(V_{\text{total}}\), \(V_{1}\), \(V_{2}\), and \(V_{3}\) were measured and then compared to the expected values using Kirchhoff's Laws. 
+The last part of the experiment examined a combination of the first two parts and used the circuit in Figure 1, diagram c. In order to validate Kirchhoff's Laws, \(I_{1}\), \(I_{2}\), \(I_{3}\), \(V_{\text{total}}\), \(V_{1}\), \(V_{2}\), and \(V_{3}\) were measured and then compared to the expected values using Kirchhoff's Laws. 
     
 \subsection* {DATA}
-The resistances as measured by the multimeter are shown in Table 1. The colors on each of the resistors are shown below: \\
+The resistances as measured by the multimeter and calculated for series and parallel circuits are shown in Table 1. The colors on each of the resistors are shown below: 
+
+\vspace{0.5cm}
+\indent
+\textbf{\(R_{1}\):} Red, violet, brown, gold (\(27\times10^{1}\pm5\%\text{ }\Omega\))
 
 \indent
-\textbf{\(R_{1}\):} Red, violet, brown, gold (\(27\times10^{1}\pm5\%\text{ }\Omega\)) \\
-\indent
-\textbf{\(R_{2}\):} Green, blue, brown, gold (\(56\times10^{1}\pm5\%\text{ }\Omega\)) \\
-\indent
-\textbf{\(R_{3}\):} Brown, brown, red, gold (\(11\times10^{2}\pm5\%\text{ }\Omega\)) \\
-\indent
-\textbf{\(R_{4}\):} Orange, orange, red, silver (\(33\times10^{2}\pm10\%\text{ }\Omega\)) \\
+\textbf{\(R_{2}\):} Green, blue, brown, gold (\(56\times10^{1}\pm5\%\text{ }\Omega\))
 
-\begin{table}[h!]
+\indent
+\textbf{\(R_{3}\):} Brown, brown, red, gold (\(11\times10^{2}\pm5\%\text{ }\Omega\))
+
+\indent
+\textbf{\(R_{4}\):} Orange, orange, red, silver (\(33\times10^{2}\pm10\%\text{ }\Omega\))
+\vspace{0.5cm}
+
+\begin{table}
   \centering
-  \begin{tabular}{| l | r |}
+  \begin{tabular}{| l | r | c | c | c | c |}
     \hline\hline
-    Resistor & Resistance (\(\Omega\)) \\
+    \multirow {3}{*}{Resistor} & & Calculated & \% & Calculated & \% \\
+    & Resistance (\(\Omega\)) & Resistance, & Error & Resistance, & Error \\
+    & & Series (\(\Omega\)) & & Parallel (\(\Omega\)) & \\
     \hline
-    \multirow {3}{*}{\(R_{1}\)} & 270 \\
-    & 268 \\
-    & 269 \\
+    \multirow {3}{*}{\(R_{1}\)} & 270 & & & & \\
+    & 268 & & & & \\
+    & 269 & & & & \\
     \hline
-    Average & 269 \\
+    Average & 269 & 303.96 & 13.00 & 289.03 & 7.45 \\ %97112 (LDR) %617517 (LDR) %10786 %6497621 (LDR)
     \hline
-    \multirow {3}{*}{\(R_{2}\)} & 549 \\
-    & 549 \\
-    & 549 \\
+    \multirow {3}{*}{\(R_{2}\)} & 549 & & & & \\
+    & 549 & & & & \\
+    & 549 & & & & \\
     \hline
-    Average & 549 \\
+    Average & 549 & 616.11 & 12.22 & 585.56 & 6.66 \\ %73412 (LDR) %355942 %5556 (LDR) %857122 (LDR)
     \hline
-    \multirow {3}{*}{\(R_{3}\)} & 1085 \\
-    & 1085 \\
-    & 1085 \\
+    \multirow {3}{*}{\(R_{3}\)} & 1085 & & & & \\
+    & 1085 & & & & \\
+    & 1085 & & & & \\
     \hline
-    Average & 1085 \\
+    Average & 1085 & 1220.13 & 12.45 & 1188.7218 & 9.56 \\ %4146 %476 %9612903 (LDR)
     \hline
-    \multirow {3}{*}{\(R_{4}\)} & 3560 \\
-    & 3560 \\
-    & 3560 \\
+    \multirow {3}{*}{\(R_{4}\)} & 3560 & & & & \\
+    & 3560 & & & & \\
+    & 3560 & & & & \\
     \hline
-    Average & 3560 \\
+    Average & 3560 & 3916.98 & 10.03 & 3809.64 & 7.01 \\ %0393 %753913 (LDR) %8095 (LDR) %2306039
     \hline\hline
   \end{tabular}
-  \caption{Measured resistances by multimeter}
+  \caption{Resistances by multimeter, in series, and in parallel circuits}
 \end{table}
 
-
 \noindent
-The voltage across each of the resistors and the total current are shown in Figure 3.
+The voltage across each of the resistors and the total current are shown in Figure 2. For the series circuit with \(R_{4}\), the voltage (\(V_{4}\)) and total current is again measured, as shown in Figure 3. Next, data was collected for the current running through each resister when all resistors were in a parallel circuit. The total voltage was measured again. These results are shown in Figure 4.
 
 \begin{figure}
   \centering
@@ -257,14 +265,12 @@ The voltage across each of the resistors and the total current are shown in Figu
   \caption{Resistors in series without \(R_{4}\)}
 \end{figure}
 
-For the series circuit with \(R_{4}\), the voltage (\(V_{4}\)) and total current is again measured, as shown in Figure 4.
-
 \begin{figure}
   \centering
   \subfloat[Voltage]{
     \begin{tabular}{| l | r |}
       \hline\hline
-      Voltage & Voltage (V) \\
+      Voltage on Resistor & Voltage (V) \\
       \hline
       \multirow {3}{*}{\(V_{4}\)} & 6.92 \\
       & 6.92 \\
@@ -290,8 +296,6 @@ For the series circuit with \(R_{4}\), the voltage (\(V_{4}\)) and total current
   \caption{Resistors in series with \(R_{4}\)}
 \end{figure}
     
-Next, data was collected for the current running through each resister when all resistors were in a parallel circuit. The total voltage was measured again. These results are shown in Figure 5.
-
 \begin{figure}
   \centering
   \subfloat[Current through each resister]{
@@ -342,120 +346,69 @@ Next, data was collected for the current running through each resister when all 
 \end{figure}
 
 \subsection* {ANALYSIS OF DATA}
-Figures 2 through 5 show the distance between the pith balls depending on the rod and material combination. Equation 9 from Supplementary Question 1 can be used to measure the force from Coulomb's Law. Figure 6 shows the force of the two charges using Equation 9 and the distance between the charges, while Figure 7 is a direct representation of Equation 13 and explores the distance between charges and the charge values themselves. \\
+In order to evaluate resistance in a series circuit, the experimental values obtained by measuring the voltage across each resistor and the total current were compared to the established resistance values using Equation 1. Since the current going through the resistors is identical in series circuits, each resistor value was found by the following:
+\begin{equation*}
+  \begin{split}
+    R_{n} = \dfrac{V_{n}}{I_{\text{total}}} \\
+  \end{split}
+\end{equation*}
+where \(R_{n}\) is the resistance of some resister \(n\) in a series circuit. The results of the calculations are shown in Table 1. For the parallel circuit, the individual resistances were calculated using Ohm's Law again (Equation 1) and the fact that voltage across resistors in parallel is equal. The results of these calculations are shown in Table 1. Overall, when calculating the resistor values whether in a series or parallel circuit, the values were relatively close to each other, as witnessed in Table 1. The highest error percentage was around 13\%, which is a relatively modest difference. %550843 (LDR) %9246945 (LDR)
 
-\noindent
-Note: For comprehensibility, Figures 2 through 5 have been shown in centimeters.
+For the total resistances in the series and parallel circuits, the theoretical values were caluclated using Equation 2 and 3, respectively. The experimental results for each circuit were measured by using Ohm's Law and Kirchhoff's Second Law for the series circuit, and Ohm's Law for the parallel circuit. For the series circuit, Kirchhoff's Second Law holds that:
+\begin{equation}
+  \begin{split}
+    V_{\text{total}} &= V_{1} + V_{2} + V_{3} + \cdots + V_{n} \\
+  \end{split}
+\end{equation}
+Then, Ohm's Law shows that:
+\begin{equation}
+  \begin{split}
+    I_{\text{total}}R_{\text{total}} &= I_{1}R_{1} + I_{2}R_{2} + I_{3}R_{3} + \cdots + I_{n}R_{n} \\
+    R_{\text{total}} &= \dfrac{I_{1}R_{1} + I_{2}R_{2} + I_{3}R_{3} + \cdots + I_{n}R_{n}}{I_{\text{total}}} \\
+  \end{split}
+\end{equation}
+Since the current in a series circuit is equal through all the resistors, \(I_{\text{total}} = I_{1} = I_{2} = I_{3} = I_{n}\). The following is then given:
+\begin{equation*}
+  \begin{split}
+    R_{\text{total}} &= R_{1} + R_{2} + R_{3} + \cdots + R_{n} \\
+  \end{split}
+\end{equation*}
+Thus, the experimental total resistance is simply the experimental resistances found using Ohm's Law summed together. For the parallel circuit, the following was used:
+\begin{equation*}
+  \begin{split}
+    R_{\text{total}} &= \dfrac{V_{\text{total}}}{I_{\text{total}}} \\
+  \end{split}
+\end{equation*}
+since \(V_{\text{total}} = V_{1} = V_{2} = V_{3}\) in a series circuit, as in this experiment. The results for both calculations are shown in Table 2. Error percentages show that the results are consistent with the values obtained theoretically, validating Ohms's Law and the two equations for calculating resistances in series and parallel circuits.
 
-\begin{figure}
+The last part of the first procedure used the resistance value measured with the multimeter to estimate \(I_{\text{total}}\), which can be calculated using Ohm's Law (Equation 1).
+\begin{equation}
+  \begin{split}
+    I_{\text{total}} &= \dfrac{V_{\text{total}}}{R_{\text{total}}} \\
+  \end{split}
+\end{equation}
+\(R_{\text{total}}\) is simply the resistances measured by the multimeter summed together by Equation 2 (theoretical resistance in series in Table 2), while \(V_{\text{total}}\) is the average value from Figure 2, table c. Thus:
+\begin{equation*}
+  \begin{split}
+    I_{\text{total}} &= \dfrac{10.63\text{ }\text{V}}{5463\text{ }\Omega} \\
+    I_{\text{total}} &= 0.001945817316 \\
+  \end{split}
+\end{equation*}
+The result is 
+
+\begin{table}
   \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      title = {Distance Between Pith Balls Using Silk},
-      symbolic x coords = {Rubber, Nylon, Vinyl, Acrylic},
-      xtick = data,
-      nodes near coords align={vertical},
-      xlabel = {Rods},
-      ylabel = {Distance between pith balls (cm)},
-    ]
-    \addplot+[ybar] plot coordinates
-        {(Rubber,5.6166667) (Nylon, 0.6666667) (Vinyl,4.9333333) (Acrylic,6.4)};
-    \end{axis}
-  \end{tikzpicture}%
-  \caption{}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      title = {Distance Between Pith Balls Using Plastic},
-      symbolic x coords = {Rubber, Nylon, Vinyl, Acrylic},
-      xtick = data,
-      nodes near coords align={vertical},
-      xlabel = {Rods},
-      ylabel = {Distance between pith balls (cm)},
-    ]
-    \addplot+[ybar] plot coordinates
-        {(Rubber,3.6333333) (Nylon,0.9) (Vinyl,6.5) (Acrylic,5.7333333)};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      title = {Distance Between Pith Balls Using Hair},
-      symbolic x coords = {Rubber, Nylon, Vinyl, Acrylic},
-      xtick = data,
-      nodes near coords align={vertical},
-      xlabel = {Rods},
-      ylabel = {Distance between pith balls (cm)},
-    ]
-    \addplot+[ybar] plot coordinates
-        {(Rubber,6.0666667) (Nylon,6.6333333) (Vinyl,6.6) (Acrylic,5.7666667)};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      title = {Distance Between Pith Balls Using Wool},
-      symbolic x coords = {Rubber, Nylon, Vinyl, Acrylic},
-      xtick = data,
-      nodes near coords align={vertical},
-      xlabel = {Rods},
-      ylabel = {Distance between pith balls (cm)},
-    ]
-    \addplot+[ybar] plot coordinates
-        {(Rubber,3.4) (Nylon,1) (Vinyl,7.2666667) (Acrylic,4)};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{}
-\end{figure}
-
-\pgfplotstableread{
-X Y
-0.056166667 0.000124169358 
-0.006666667 0.0000140592135
-0.064       0.00014365347
-0.049333333 0.00010783345
-0.036333333 0.0000780776033
-0.009       0.0000189899857
-0.057333333 0.000127016292
-0.065       0.000146207576
-0.060666667 0.000135253239
-0.066333333 0.000149638717
-0.057666667 0.000127833041
-0.066       0.000148778135
-0.034       0.0000728839413
-0.01        0.0000211057941
-0.04        0.0000863207909
-0.072666667 0.000166368938
-}\distanceAndForce
-
-\begin {figure}
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      title = {Distance Between Charges and Force of Charge},
-      xlabel = {\(r\) (m)},
-      ylabel = {\(F_{\text{charge}}\) (N)},
-      ]
-      \addplot [only marks, mark = *] table {\distanceAndForce};
-      \addplot [thick, red] table[
-        y={create col/linear regression={y=Y}}
-      ]
-      {\distanceAndForce};
-    \end{axis}
-  \end{tikzpicture}
-  \caption {}
-\end {figure}
+  \begin{tabular}{| l | c | c | c | c | c | c |}
+    \hline\hline
+    \multirow {3}{*}{Resistor} & Theoretical & Experimental & \% & Theoretical & Experimental & \% \\
+    & Resistance, & Resistance, & Error & Resistance & Resistance, & Error \\
+    & Series (\(\Omega\)) & Series (\(\Omega\)) & & Parallel (\(\Omega\)) & Parallel (\(\Omega\)) & \\
+    \hline
+    \(R_{\text{total}}\) & 5463 & 6016.98 & 10.14 & 148.33 & 159.46 & 7.50 \\ % %9997 (LDR) %058204 %44209 %53698 (LDR) %7213952 (LDR)
+    \hline\hline
+  \end{tabular}
+  \caption{Total resistance in series and parallel circuits}
+\end{table}
 
 \pgfplotstableread{
 X Y
@@ -499,197 +452,9 @@ X Y
 \end {figure}
 
 \subsection* {DISCUSSION OF RESULTS}
-Figures 2 through 5 can be compared to what was expected for each rod/material combination. For instance, in Figure 2, it was expected that the acrylic rod would show the greatest distance between pith balls followed by vinyl, with nylon and rubber being equal. However, Figure 2 shows that while acrylic discharged the most, nylon and rubber did not behave as expected. \\\\
-For plastic, it was expected that acrylic would show the greatest distance, followed by nylon, vinyl, and then rubber. The lowest, as shown in Figure 3, was nylon, which does not match expectations. \\\\
-For hair, the expectation was for vinyl to discharge the greatest, followed by rubber, and equally, acrylic and nylon. However, nylon again disrupts expectations by having the greatest distance between the pith balls. Acrylic and rubber seem to follow expectations. \\\\
-And lastly, for wool, vinyl was expected to show the greatest distance, followed by rubber, acrylic, and nylon. Figure 5 shows that these expectations were mostly met, with acrylic slightly exceeding the distance expected. \\
 
 \subsection* {FURTHER STUDY}
-The lab manual states that there are five materials to test (IIT, 3) and five rods to charge the pith balls with. The materials and rods presented at the lab station lacked both a mystery fur and a rayon rod, resulting in this epxeriment consisting of 16 rod/material combinations. Thus, if this experiment were to be repeated, the materials needed (see Equpiment) should be thoroughly checked. Since this experiment did not contain the full list, it is less rigorious than had it been executed in full. \\\\
-Additionally, the value for the length of the string was not recorded during the experiment. The value implemented in this lab report was from a neighboring experiment, and as such, all representative material (tables and graphs) cannot fully model the actual experiment. \\\\
-Care must be taken in order to outline the variables and materials needed in the future. 
-
-\subsection* {SUPPLEMENTARY QUESTIONS}
-1. Using the free-body diagrams of Figure 3, derive an expression for the charge in terms of the pith ball mass \emph{m}, and the separation distance “r”. \\\\
-We know Coulomb's Law from Equation 1. The gravitational force for the pith balls is equal to the product of the mass and Earth's gravity constant. Using this information and the fact that the pith balls are not moving, the following is derived:
-\begin{equation}
-  \begin{split}
-    F_{\text{charge}} &= F_{\text{tension}}\sin{\theta} \\
-  \end{split}
-\end{equation}
-
-\noindent
-Additionally:
-\begin{equation}
-  \begin{split}
-    F_{\text{gravity}} &= F_{\text{tension}}\cos{\theta} \\
-    m_{\text{ball}}g &= F_{\text{tension}}\cos{\theta} \\
-  \end{split}
-\end{equation}
-
-\noindent
-where \(\theta\) is the angle between the string and the vertical. The tension force can be solved for using the above Equation set 4:
-\begin{equation}
-  \begin{split}
-    F_{\text{tension}} &= \dfrac{F_{\text{charge}}}{\sin{\theta}} \\
-  \end{split}
-\end{equation}
-
-\noindent
-Likewise, Equation set 5 can be used to solve for the tension force:
-\begin{equation}
-  \begin{split}
-    F_{\text{tension}} &= \dfrac{m_{\text{ball}}g}{\cos{\theta}}
-  \end{split}
-\end{equation}
-
-\noindent
-Thus, since \(F_{\text{tension}}\) is solved for in Equation set 6 and 7, they can be combined:
-\begin{equation}
-  \begin{split}
-    \dfrac{F_{\text{charge}}}{\sin{\theta}} &= \dfrac{m_{\text{ball}}g}{\cos{\theta}} \\
-  \end{split}
-\end{equation}
-
-\noindent
-To find \(F_{\text{charge}}\) in this experiment, \(F_{\text{charge}}\) can be solved for:
-\begin{equation}
-  \begin{split} 
-    F_{\text{charge}} &= m_{\text{ball}}g\tan{\theta} \\
-  \end{split}
-\end{equation}
-
-\noindent
-To find \(q_{1}\) and \(q_{2}\), it must be known that these charges are equal, since they were equally charged by the rods. Thus, by substituting in Coulomb's Law (Equation 1), the charge on a pith ball, \(q\), can be solved for:
-\begin{equation}
-  \begin{split}
-    k\dfrac{q_{1}q_{2}}{r^2} &= m_{\text{ball}}g\tan{\theta} \\
-    k\dfrac{q^2}{r^2} &= m_{\text{ball}}g\tan{\theta} \\
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\theta}}{k}} \\
-  \end{split}
-\end{equation}
-
-\noindent
-However, \(\theta\) was not measured. Using trig:
-
-\begin{equation}
-  \begin{split}
-    \theta &= \sin^{-1}\left(\dfrac{r}{2l}\right) \\
-  \end{split}
-\end{equation}
-
-\noindent
-where \(l\) is the length of the string. Finally, Equation 10 can be combined with Equation 11 to calculate the charge force and charge on a pith ball using the mass of the ball and the length of the string. Below is how to calculate the charge force:
-
-\begin{equation}
-  \begin{split}
-    F_{\text{charge}} &= m_{\text{ball}}g\tan{\theta} \\
-    F_{\text{charge}} &= m_{\text{ball}}g\tan\left({\sin^{-1}\left(\dfrac{r}{2l}\right)}\right) \\
-    F_{\text{charge}} &= m_{\text{ball}}g\left(\dfrac{r}{\sqrt{4l^2-r^2}}\right) \\
-  \end{split}
-\end{equation}
-
-\noindent
-Below is how to calculate the charge on a single pith ball:
-\begin{equation}
-  \begin{split}
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\theta}}{k}} \\
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\left(\sin^{-1}\left(\dfrac{r}{2l}\right)\right)}}{k}} \\
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\left(\dfrac{r}{\sqrt{4l^2-r^2}}\right)}{k}} \\
-    q &= \sqrt{\dfrac{r^{3}m_{\text{ball}}g}{k\sqrt{4l^2-r^2}}} \\
-  \end{split}
-\end{equation}
-
-\noindent
-2. Calculate the charge on the pith balls for each rod/soft material combination.  How many millions or billions of electrons reside on each pith ball? \\\\
-An electron has a charge of about -1.60 \(\times 10^{-19}\) C (Boston University, "Electric charge and Coulomb's law"). Knowing this fact, the amount of electrons can be calculated for each pith ball in each combination of rod and material using the following:
-\begin{equation}
-  \begin{split}
-    n &= \dfrac{q}{e} \\
-  \end{split}
-\end{equation}
-where \(n\) is the number of electrons, \(q\) is the charge of one of the pith balls, and \(e\) is the charge of one electron.
-
-\begin {table}[H]
-  \centering
-  \begin {tabular}{| c | c | c | c | c | c |}
-    \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
-    \hline
-    & & Rubber & Nylon & Acrylic & Vinyl \\
-    \hline
-    \multirow {4}{*}{Material} & Silk & 4.12 \(\times10^{10}\) & 1.65 \(\times10^{9}\) & 5.05 \(\times10^{-10}\) & 3.38\(\times 10^{10}\) \\ %329714 %682723 (LDR) %355268 %501704 (LDR)
-    \cline{2-6}
-    & Plastic & 2.12 \(\times10^{10}\) & 2.58\(\times10^{9}\) & 4.26 \(\times10^{10}\) & 5.18 \(\times10^{10}\) \\ %508214 (LDR) %382794 %692174 (LDR) %794053 (LDR)
-    \cline{2-6}
-    & Hair & 4.65\(\times 10^{10}\) & 5.35\(\times 10^{10}\) & 4.30\(\times 10^{10}\) & 5.30\(\times 10^{10}\) \\ %817784 (LDR) %579832 (LDR) %541544 (LDR) %361821
-    \cline{2-6}
-    & Wool & 1.91\(\times 10^{10}\) & 3.03\(\times10^{9}\) & 2.45\(\times 10^{10}\) & 6.17\(\times 10^{10}\) \\ %228934 %663194 (LDR) %836667 (LDR) %490279 (LDR)
-    \hline\hline
-  \end {tabular} \\
-  \caption {Electrons in one pith ball (e)}
-\end {table}
-
-\noindent
-3. Compare the extremely small gravitational attraction between the two pith balls with the repulsion of the electrostatic force. \\
-
-\begin {table}[H]
-  \centering
-  \begin {tabular}{| c | c | c | c | c | c |}
-    \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
-    \hline
-    & & Rubber & Nylon & Acrylic & Vinyl \\
-    \hline
-    \multirow {4}{*}{Material} & Silk & 3.38 \(\times10^{-17}\) & 2.40\(\times 10^{-15}\) & 2.61 \(\times10^{-17}\) & 4.38 \(\times10^{-17}\) \\ %289494 %119976 %546875 (LDR) %495258
-    \cline{2-6}
-    & Plastic & 8.08 \(\times10^{-17}\) & 1.32 \(\times10^{-15}\) & 3.25 \(\times10^{-17}\) & 2.53 \(\times10^{-17}\) \\ %416815 %753086 (LDR) %661983 (LDR) %591716 (LDR)
-    \cline{2-6}
-    & Hair & 2.90 \(\times10^{-17}\) & 2.43 \(\times10^{-17}\) & 3.21 \(\times10^{-17}\) & 2.45 \(\times10^{-17}\) \\ %964977 (LDR) %539332 (LDR) %919506 (LDR) %995409 (LDR)
-    \cline{2-6}
-    & Wool & 9.23 \(\times10^{-17}\) & 1.07 \(\times10^{-15}\) & 6.67 \(\times10^{-17}\) & 2.02 \(\times10^{-17}\) \\ %183391 %72 (LDR) % %104198
-    \hline\hline
-  \end {tabular} \\
-  \caption {Force of gravity between pith balls (N)}
-\end {table}
-
-\noindent
-The proportion between the charge force and the gravitational force between the pith balls will be defined as:
-\begin{equation}  
-  \begin{split}
-    \dfrac{F_{\text{charge}}}{F_{\text{gravitational}}} \\
-  \end{split} 
-\end{equation}
-
-\noindent
-Table 5 shows the proportion between the two forces for each rod/material pair.
-
-\begin {table}[H]
-  \centering
-  \begin {tabular}{| c | c | c | c | c | c |}
-    \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
-    \hline
-    & & Rubber & Nylon & Acrylic & Vinyl \\
-    \hline
-    \multirow {4}{*}{Material} & Silk & 3.67 \(\times10^{12}\) & 5.86 \(\times10^{9}\) & 5.51 \(\times10^{12}\) & 2.46 \(\times10^{12}\) \\ %0505889 %5078671 (LDR) %353648 %9170265 (LDR)
-    \cline{2-6}
-    & Plastic & 9.66 \(\times10^{11}\) & 1.44 \(\times10^{10}\) & 3.91 \(\times10^{12}\) & 5.79 \(\times10^{12}\) \\ %8087493 (LDR) %1331378 %2262558 %8296557 (LDR)
-    \cline{2-6}
-    & Hair & 4.66 \(\times10^{12}\) & 6.17 \(\times10^{12}\) & 3.98 \(\times10^{12}\) & 6.07 \(\times10^{12}\) \\ %4468116 %966806 (LDR) %3336588 %2690734
-    \cline{2-6}
-    & Wool & 7.89 \(\times10^{11}\) & 1.98 \(\times10^{10}\) &1.29 \(\times10^{12}\) & 8.23 \(\times10^{12}\) \\ %4849714 %7679357 (LDR) %4164781 %1839796
-    \hline\hline
-  \end {tabular} \\
-  \caption {Proportion of \(F_{\text{charge}}\) to \(F_{\text{gravitational}}\) (unitless)}
-\end {table}
-
-\noindent
-4. Develop a way to determine if the mystery fur is from a rabbit or cat. If you have time, try your method out, to see if it works. If time is short, or humidity is too high, describe how one could carry out the method in conditions with lower humidity. \\\\ 
-We know that the farther away two materials are in Figure 2 of the lab manual (IIT, 2), the greater affinity they have for receiving or depositing electrons. As such, we can determine whether the mystery fur is from a rabbit or a cat based on its combinations with the rods and the resulting distance. For rabbit fur, as we rub it with rods increasingly farther apart, the distance between the pith balls will increase. The order, from least to most distance for rabbit fur should be as follows: acrylic, nylon, plastic, rubber, and vinyl. For the cat fur, the order is as follows from least to most distance: nylon, acrylic and rubber, and vinyl.
 
 \subsection* {REFERENCES}
-Boston University. (n.d.). Electric charge and Coulomb's law. Retrieved February 5, 2020, from https://physics.bu.edu/~duffy/py106/Charge.html \\\\
-Gladding, G., Selen, M. A., \& Stelzer, T. (2012). Electricity and Magnetism. New York: W.H. Freeman. \\\\
-Illinois Institute of Technology. (n.d.). Experiment 1: Coulomb's Law. PDF. Chicago.
+Illinois Institute of Technology. (n.d.). Experiment 5: Simple Resistor Circuits. PDF. Chicago.
 \end {document}
