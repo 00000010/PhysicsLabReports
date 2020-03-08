@@ -3,6 +3,7 @@
 %   - In Figure 3, make the total voltage table go directly underneath the current table and to the right of the resistor voltage table.
 %   - There may be a bug with the circuitikz package where it should be able to put plus/minus signs with batteries (last heard of in 2014)
 %   - Cannot draw voltage across resistors in parallel circuit? May be because they are vertical.
+%   - Fixed all the sloppy typesetting (i.e. warnings like underbox 10000)
 \documentclass [12pt, letterpaper, twoside] {article}
 \usepackage[utf8]{inputenc}
 \usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
@@ -90,7 +91,7 @@ where \(V\) is the voltage measured in Volts (V), \(I\) is the current measured 
 \begin{theorem}[Kirchhoff's Second Law]
   The sum of all the voltage drops around a closed circuit is equal to zero.
 \end{theorem}
-Furthermore, resistance in a circuit is described differently depending on whether it is in series or parallel. If the resisters are in series, their resistances are added together.
+Furthermore, resistance in a circuit is described differently depending on whether it is in series or parallel. If the resistors are in series, their resistances are added together.
 \begin{equation}
   \begin{split}
     R_{\text{total}} &= R_{1} + R_{2} + R_{3} + \cdots \\
@@ -149,9 +150,9 @@ Each of the four resistors were first measured by the multimeter. Then all but t
   \caption{Circuit configurations}
 \end{figure}
 
-The second part of the experiment looked at resistors in parallel, and was constructed as in Figure 1, diagram b. Each resistor in the parallel circuit was measured, while the experimental total resistance was obtained using Ohm's Law (Equation 1) and the total measured current and voltage. Total resistance was then found again using Equation 3.
+The second part of the experiment examined resistors in parallel, and was constructed as in Figure 1, diagram b. The current through each resistor in the parallel circuit was measured, while the experimental total resistance was obtained using Ohm's Law (Equation 1) and the total measured current and voltage. Total resistance was then found again using Equation 3.
 
-The last part of the experiment examined a combination of the first two parts and used the circuit in Figure 1, diagram c. In order to validate Kirchhoff's Laws, \(I_{1}\), \(I_{2}\), \(I_{3}\), \(V_{\text{total}}\), \(V_{1}\), \(V_{2}\), and \(V_{3}\) were measured and then compared to the expected values using Kirchhoff's Laws. 
+The last part of the experiment analyzed a combination of the series and parallel circuits and used the circuit in Figure 1, diagram c. In order to validate Kirchhoff's Laws, \(I_{1}\), \(I_{2}\), \(I_{3}\), \(V_{\text{total}}\), \(V_{1}\), \(V_{2}\), and \(V_{3}\) were measured and then compared to the expected values using Kirchhoff's Laws. 
     
 \subsection* {DATA}
 The resistances as measured by the multimeter and calculated for series and parallel circuits are shown in Table 1. The colors on each of the resistors are shown below: 
@@ -207,7 +208,7 @@ The resistances as measured by the multimeter and calculated for series and para
 \end{table}
 
 \noindent
-The voltage across each of the resistors and the total current are shown in Figure 2. For the series circuit with \(R_{4}\), the voltage (\(V_{4}\)) and total current is again measured, as shown in Figure 3. Next, data was collected for the current running through each resister when all resistors were in a parallel circuit. The total voltage was measured again. These results are shown in Figure 4.
+The voltage across each of the resistors and the total current are shown in Figure 2. For the series circuit with \(R_{4}\), the voltage (\(V_{4}\)) and total current is again measured, as shown in Figure 3. Next, data was collected for the current running through each resistor when all resistors were in a parallel circuit. The total voltage was measured again. These results are shown in Figure 4.
 The data from procedure 2 of the experiment is presented in Figure 5.
 
 \begin{figure}
@@ -215,7 +216,7 @@ The data from procedure 2 of the experiment is presented in Figure 5.
   \subfloat[Voltage across each resistor]{
     \begin{tabular}{| l | r |}
       \hline\hline
-      Voltage on Resistor & Voltage (V) \\
+      Voltage across Resistor & Voltage (V) \\
       \hline
       \multirow {3}{*}{\(V_{1}\)} & 1.509 \\
       & 1.510 \\
@@ -271,7 +272,7 @@ The data from procedure 2 of the experiment is presented in Figure 5.
   \subfloat[Voltage]{
     \begin{tabular}{| l | r |}
       \hline\hline
-      Voltage on Resistor & Voltage (V) \\
+      Voltage across Resistor & Voltage (V) \\
       \hline
       \multirow {3}{*}{\(V_{4}\)} & 6.92 \\
       & 6.92 \\
@@ -299,7 +300,7 @@ The data from procedure 2 of the experiment is presented in Figure 5.
     
 \begin{figure}
   \centering
-  \subfloat[Current through each resister]{
+  \subfloat[Current through each resistor]{
     \begin{tabular}{| l | r |}
       \hline\hline
       Current through resistor & Current (A) \\
@@ -421,7 +422,7 @@ In order to evaluate resistance in a series circuit, the experimental values obt
     R_{n} = \dfrac{V_{n}}{I_{\text{total}}} \\
   \end{split}
 \end{equation*}
-where \(R_{n}\) is the resistance of some resister \(n\) in a series circuit. The results of the calculations are shown in Table 1. For the parallel circuit, the individual resistances were calculated using Ohm's Law again (Equation 1) and the fact that voltage across resistors in parallel is equal. The results of these calculations are shown in Table 1. Overall, when calculating the resistor values whether in a series or parallel circuit, the values were relatively close to each other, as witnessed in Table 1. The highest error percentage was around 13\%, which is a relatively modest difference. Using the values for the current through each resistor and the measured resistance using the multimeter, the result can be viewed pictorally in Figure 6, where the slope represents the voltage. %550843 (LDR) %9246945 (LDR)
+where \(R_{n}\) is the resistance and \(V_{n}\) is the voltage of some resistor, \(n\), in a series circuit. The results of the calculations are shown in Table 1. For the parallel circuit, the individual resistances were calculated using Ohm's Law again (Equation 1) and the fact that voltage across resistors in parallel is equal. The results of these calculations are shown in Table 1. Overall, when calculating the resistor values whether in a series or parallel circuit, the values were relatively close to each other, as witnessed in Table 1. The highest error percentage was around 13\%, which is a relatively modest difference. Using the values for the current through each resistor and the measured resistance using the multimeter, the result can be viewed pictorally in Figure 6, where the slope represents the voltage. However, the slope, 9.83, representing 9.83 V, had an error of about 7.53\% from the expected 10.63 V. %550843 (LDR) %9246945 (LDR) %5870179 (LDR)
 
 \pgfplotstableread{
 X Y
@@ -478,7 +479,7 @@ Thus, the experimental total resistance is simply the experimental resistances f
     R_{\text{total}} &= \dfrac{V_{\text{total}}}{I_{\text{total}}} \\
   \end{split}
 \end{equation*}
-since \(V_{\text{total}} = V_{1} = V_{2} = V_{3}\) in a series circuit, as in this experiment. The results for both calculations are shown in Table 2. Error percentages show that the results are consistent with the values obtained theoretically, validating Ohms's Law and the two equations for calculating resistances in series and parallel circuits.
+since \(V_{\text{total}} = V_{1} = V_{2} = V_{3}\) in a parallel circuit when each resistor is in a separate branch of the circuit. The results for both calculations are shown in Table 2. Error percentages show that the results are consistent with the values obtained theoretically, validating Ohms's Law and the two equations for calculating resistances in series and parallel circuits.
 
 \begin{table}
   \centering
@@ -509,7 +510,7 @@ The last part of the first procedure used the resistance value measured with the
 \end{equation*}
 The result yields a percentage error of 10.14\%. %058201
 
-Finally, given the data for the last part of the lab using a combination of the first two circuits, the experimental current values can be compared to the theoretical values. First, the total resistance is calculated:
+Finally, given the data for the last part of the lab using a combination of the first two circuits, the experimental current values can be compared to the theoretical values. First the total resistance is calculated:
 \begin{equation}
   \begin{split}
     R_{\text{total}} &= R_{1} + \dfrac{1}{\tfrac{1}{R_{2}} + \tfrac{1}{R_{3}}} \\
@@ -535,7 +536,7 @@ Then the total current can be calculated using Ohm's Law (Equation 6), the total
     I_{1} &= I_{2} + I_{3} \\
   \end{split}
 \end{equation}
-Additionally, voltage across resistors is equal, thus:
+Additionally, voltage across resistors in parallel is equal, thus:
 \begin{equation}
   \begin{split}
     V_{\text{total}} &= V_{1} + V_{2} = V_{1} + V_{3} \\
@@ -563,7 +564,7 @@ Thus, \(I_{2}\) and \(I_{3}\) can now be calculated using Ohm's Law (Equation 6)
     I_{2} &= 0.011 \text{ A} \\ %08885049
   \end{split}
 \end{equation*}
-with an error percentage of 6.81\% if the experimental value was 0.0103. By the same process, \(I_{3}\) can be calculated: %3307571
+with an error percentage of 6.81\% as the experimental value was 0.0103. By the same process, \(I_{3}\) can be calculated: %3307571
 \begin{equation*}
   \begin{split}
     I_{3} &= \dfrac{6.09\text{ V}}{1085\text{ }\Omega} \\

@@ -1,0 +1,194 @@
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For drawing pictures
+\usepackage {tikz}
+% For equations
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% For multiple rows in table slot
+\usepackage {multirow}
+\usepackage {verbatim}
+% To add captions
+\usepackage {caption}
+\usepackage {float}
+% To make graphs
+\usepackage {pgfplots}
+% To make scatter plots
+\usepackage{pgfplotstable}
+% To make tables side by side
+\usepackage{subfig}
+
+\usetikzlibrary {shapes.geometric, arrows, angles}
+
+\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
+\tikzstyle {arrow} = [thick, ->, >=stealth]
+\renewcommand {\labelitemiv}{$\triangle$}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+College of Science: Physics Department \\
+\vspace {0.1cm}
+Illinois Institute of Technology \\
+\vspace {0.1cm}
+General Physics II: Electromagnetism (PHYS 221-01) \\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Complex Circuits}
+\vspace {0.35cm}
+
+\normalsize
+Lab 6
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Lavanya Roy (lab partner) \\
+Date of experiment: 4 Mar 2020 \\
+Due date: 11 Mar 2020 \\
+Lab section L06 \\
+TA: Will Limestall \\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {Configuration 1}
+\begin {figure}
+  \centering
+  \subfloat {
+    \begin {tikzpicture}
+      \draw[style=ultra thick] (0,0) rectangle (8.75,5.125);
+
+      \filldraw[fill=red,style=thick] (0.50,4.625) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (0.50,4.625) circle (0.20cm);
+      \draw (0.50,4.625) node {1};
+
+      \filldraw[fill=blue!70!red!70!,style=thick] (4.375,4.625) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (4.375,4.625) circle (0.20cm);
+      \draw (4.375,4.625) node {2};
+
+      \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.20cm);
+      \draw (8.25,4.625) node {3};
+
+      \filldraw[fill=yellow,style=thick] (0.50,0.50) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (0.50,0.50) circle (0.20cm);
+      \draw (0.50,0.50) node {4};
+
+      \filldraw[fill=blue,style=thick] (4.375,0.50) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (4.375,0.50) circle (0.20cm);
+      \draw (4.375,0.50) node {5};
+
+      \filldraw[fill=green,style=thick] (8.25,0.5) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (8.25,0.5) circle (0.20cm);
+      \draw (8.25,0.5) node {6};
+
+      % Connections
+      \draw[style=thick] (4.375,4.25) -- (4.375,3.2);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (4.375,3.2) -- (4.375,1.925);
+      \draw[style=thick] (4.375,1.925) -- (4.375,0.875);
+
+      \draw[style=thick] (0.875,0.50) -- (1.925,0.50);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (1.925,0.50) -- (2.95,0.50);
+      \draw[style=thick] (2.95,0.50) -- (4,0.50);
+    \end {tikzpicture}
+  }
+  \subfloat {
+    \begin {tikzpicture}
+      \draw[style=ultra thick] (0,0) rectangle (8.75,5.125);
+
+      \filldraw[fill=red,style=thick] (0.50,4.625) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (0.50,4.625) circle (0.20cm);
+      \draw (0.50,4.625) node {1};
+
+      \filldraw[fill=blue!70!red!70!,style=thick] (4.375,4.625) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (4.375,4.625) circle (0.20cm);
+      \draw (4.375,4.625) node {2};
+
+      \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.20cm);
+      \draw (8.25,4.625) node {3};
+
+      \filldraw[fill=yellow,style=thick] (0.50,0.50) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (0.50,0.50) circle (0.20cm);
+      \draw (0.50,0.50) node {4};
+
+      \filldraw[fill=blue,style=thick] (4.375,0.50) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (4.375,0.50) circle (0.20cm);
+      \draw (4.375,0.50) node {5};
+
+      \filldraw[fill=green,style=thick] (8.25,0.5) circle (0.375cm);
+      \filldraw[fill=white,style=thick] (8.25,0.5) circle (0.20cm);
+      \draw (8.25,0.5) node {6};
+
+      % Connections
+      \draw[style=thick] (4.375,4.25) -- (4.375,3.2);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (4.375,3.2) -- (4.375,1.925);
+      \draw[style=thick] (4.375,1.925) -- (4.375,0.875);
+
+      \draw[style=thick] (0.875,0.50) -- (1.925,0.50);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (1.925,0.50) -- (2.95,0.50);
+      \draw[style=thick] (2.95,0.50) -- (4,0.50);
+    \end {tikzpicture}
+  } 
+  \caption {Possible Box A6 Configurations}
+\end {figure}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r | r | r | r | r | r |}
+    \hline\hline
+    Connection & 1 & 2 & 3 & 4 & 5 & 6 \\
+    \hline
+    1 & & 0 & 0 & 0 & 0 & 0 \\
+    \hline
+    2 & &  & 0 & 0.020 & 0.045 & 0.019 \\
+    \hline
+    3 & & & & 0 & 0 & 0 \\
+    \hline
+    4 & & & & & 0.037 & 0.017 \\
+    \hline
+    5 & & & & & & 0.032 \\
+    \hline\hline
+  \end{tabular}
+  \caption {Amperage at different connections}
+\end{table}
+
+Looking at Table 1, the different current values can be used to find the resistance when the voltage is known to be 10.058 V.
+\begin{equation}
+  \begin{split}
+    I = \dfrac{V}{R} \\
+  \end{split}
+\end{equation}
+Then, for each of the connections the resistances are:
+
+2-4: 502.9 \(\Omega\)
+
+2-5: 223.5111111 \(\Omega\)
+
+2-6: 529.3684211 \(\Omega\)
+
+4-5: 271.8378378 \(\Omega\)
+
+4-6: 591.6470588 \(\Omega\)
+
+5-6: 314.3125 \(\Omega\)
+
+Since the two known resistors have values of 220\(\Omega\pm\) 5\% and 270\(\Omega\pm\) 5\%, then the 2-5 connection must contain the 220\(\Omega\) resistor and the 4-5 connection must contain the 270\(\Omega\) resistor.
+
+The unknown resistor must then reside between 2 and 6 or 5 and 6, because 223.51 \(\Omega\) and 271.84 \(\Omega\) roughly add up to 502.90 \(\Omega\) for between connection 2 and 4.
+
+\thebibliography{3}
+  \bibitem{labManual}
+  Illinois Institute of Technology. (n.d.). Experiment 6: Complex Circuits. PDF. Chicago.
+\end {document}
