@@ -94,13 +94,22 @@ Updated \usdate\today~(\currenttime)
       \draw (8.25,0.5) node {6};
 
       % Connections
+      % 2 to 5
       \draw[style=thick] (4.375,4.25) -- (4.375,3.2);
       \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (4.375,3.2) -- (4.375,1.925);
       \draw[style=thick] (4.375,1.925) -- (4.375,0.875);
 
+      % 4 to 5
       \draw[style=thick] (0.875,0.50) -- (1.925,0.50);
       \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (1.925,0.50) -- (2.95,0.50);
       \draw[style=thick] (2.95,0.50) -- (4,0.50);
+      
+      % 2 to 6
+
+      \draw[style=thick] (4.630,4.350) -- (5.865,3.017);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm}, decorate] (5.865,3.017) -- (6.731,2.081);
+      \draw[style=thick] (6.731,2.081) -- (7.995,0.775);
+
     \end {tikzpicture}
   }
   \subfloat {
@@ -132,13 +141,20 @@ Updated \usdate\today~(\currenttime)
       \draw (8.25,0.5) node {6};
 
       % Connections
+      % 2 to 5
       \draw[style=thick] (4.375,4.25) -- (4.375,3.2);
-      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (4.375,3.2) -- (4.375,1.925);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (4.375,3.2) -- (4.375,1.925) node[right] {\(R_{1}\)};
       \draw[style=thick] (4.375,1.925) -- (4.375,0.875);
 
+      % 4 to 5
       \draw[style=thick] (0.875,0.50) -- (1.925,0.50);
-      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (1.925,0.50) -- (2.95,0.50);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (1.925,0.50) -- (2.95,0.50) node[above] {\(R_{2}\)};
       \draw[style=thick] (2.95,0.50) -- (4,0.50);
+    
+      % 5 to 6
+      \draw[style=thick] (4.75,0.50) -- (5.795,0.50);
+      \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (5.795,0.50) -- (7.07,0.50) node[above] {\(R_{3}\)};
+      \draw[style=thick] (7.07,0.50) -- (7.875,0.50);
     \end {tikzpicture}
   } 
   \caption {Possible Box A6 Configurations}
@@ -184,9 +200,9 @@ Then, for each of the connections the resistances are:
 
 5-6: 314.3125 \(\Omega\)
 
-Since the two known resistors have values of 220\(\Omega\pm\) 5\% and 270\(\Omega\pm\) 5\%, then the 2-5 connection must contain the 220\(\Omega\) resistor and the 4-5 connection must contain the 270\(\Omega\) resistor.
+Since the two known resistors have values of 220\(\Omega\pm\) 5\% (\(R_{1}\)) and 270\(\Omega\pm\) 5\% (\(R_{2}\)), then the 2-5 connection must contain the 220\(\Omega\) resistor and the 4-5 connection must contain the 270\(\Omega\) resistor.
 
-The unknown resistor must then reside between 2 and 6 or 5 and 6, because 223.51 \(\Omega\) and 271.84 \(\Omega\) roughly add up to 502.90 \(\Omega\) for between connection 2 and 4.
+The unknown resistor (\(R_{3}\)) must then reside between 2 and 6 or 5 and 6, because 223.51 \(\Omega\) and 271.84 \(\Omega\) roughly add up to 502.90 \(\Omega\) for between connection 2 and 4.
 
 \thebibliography{3}
   \bibitem{labManual}
