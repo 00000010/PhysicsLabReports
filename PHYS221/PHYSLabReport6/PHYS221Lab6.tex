@@ -111,7 +111,7 @@ Updated \usdate\today~(\currenttime)
       \draw[style=thick] (6.731,2.081) -- (7.995,0.775);
 
     \end {tikzpicture}
-  }
+  }\qquad
   \subfloat[Case B (correct orientation)] {
     \begin {tikzpicture}
       \draw[style=ultra thick] (0,0) rectangle (8.75,5.125);
@@ -158,14 +158,6 @@ Updated \usdate\today~(\currenttime)
     \end {tikzpicture}
   } 
   \caption {Possible Box A6 Configurations}
-\end {figure}
-
-\begin {figure}
-  \centering
-  \subfloat {
-    \begin {tikzpicture}
-    \end {tikzpicture} 
-  }
 \end {figure}
 
 \begin{table}
@@ -257,7 +249,156 @@ Then, solving for \(R_{3}\):
   \end{split}
 \end{equation*}
 
-However, evaluating \(R_{3}\) with \(R_{1}\) with 220 \(\Omega\), \(R_{2}\) with 270 \(\Omega\) and \(R_{\text{total}}\) as 149.96 \(\Omega\) gives a value of -623 \(\Omega\).
+However, evaluating \(R_{3}\) with \(R_{1}\) with 220 \(\Omega\), \(R_{2}\) with 270 \(\Omega\) and \(R_{\text{total}}\) as 149.96 \(\Omega\) gives a value of -623 \(\Omega\). Thus, the only alternatives are if two of the resistors are in parallel. These two configurations are shown in Figure 2. In order to find the range of \(R_{3}\), the following formula is used:
+\begin{equation*}
+  \begin{split}
+    R_{\text{total}} &= R_{1} + \dfrac{1}{\tfrac{1}{R_{2}} + \tfrac{1}{R_{3}}} \\
+  \end{split}
+\end{equation*}
+If \(R_{3}\) is solved for:
+\begin{equation*}
+  \begin{split}
+    R_{\text{total}} &= R_{1} + \dfrac{1}{\tfrac{R_{3}}{R_{2}R_{3}} + \tfrac{R_{2}}{R_{2}R_{3}}} \\
+    R_{\text{total}} &= R_{1} + \dfrac{1}{\tfrac{R_{2} + R_{3}}{R_{2}R_{3}}} \\
+    R_{\text{total}} &= R_{1} + \dfrac{R_{2}R_{3}}{R_{2} + R_{3}} \\
+    R_{\text{total}} - R_{1} &= \dfrac{R_{2}R_{3}}{R_{2} + R_{3}} \\
+    (R_{\text{total}} - R_{1})(R_{2} + R_{3} ) &= R_{2}R_{3} \\
+    R_{\text{total}}R_{2} + R_{\text{total}}R_{3} - R_{1}R_{2} - R_{1}R_{3} &= R_{2}R_{3} \\
+    R_{\text{total}}R_{3} -R_{1}R_{3} - R_{2}R_{3} &= -R_{\text{total}}R_{2} + R_{1}R_{2} \\
+    R_{3}(R_{\text{total}} - R_{1} - R_{2}) &=  -R_{\text{total}}R_{2} + R_{1}R_{2} \\
+    R_{3} &= \dfrac{-R_{\text{total}}R_{2} + R_{1}R_{2}}{R_{\text{total}} - R_{1} - R_{2}} \\
+  \end{split}
+\end{equation*}
+
+For the above solution, \(R_{3}\) is equal to 
+\begin {figure}
+  \centering
+    \subfloat[Case A] {
+      \begin {tikzpicture}
+        \draw[style=ultra thick] (0,0) rectangle (8.75,5.125);
+
+        \filldraw[fill=red,style=thick] (0.50,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (0.50,4.625) circle (0.20cm);
+        \draw (0.50,4.625) node {1};
+
+        \filldraw[fill=blue!70!red!70!,style=thick] (4.375,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (4.375,4.625) circle (0.20cm);
+        \draw (4.375,4.625) node {2};
+
+        \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.20cm);
+        \draw (8.25,4.625) node {3};
+
+        \filldraw[fill=yellow,style=thick] (0.50,0.50) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (0.50,0.50) circle (0.20cm);
+        \draw (0.50,0.50) node {4};
+
+        \filldraw[fill=blue,style=thick] (4.375,0.50) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (4.375,0.50) circle (0.20cm);
+        \draw (4.375,0.50) node {5};
+
+        \filldraw[fill=green,style=thick] (8.25,0.5) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (8.25,0.5) circle (0.20cm);
+        \draw (8.25,0.5) node {6};
+
+        % Connections 
+        \draw [style=thick] (0.831030035,0.676193406) -- (3.2375,2.5626);
+        \draw [style=thick] (3.2375,2.5626) -- (3.2375,3.0626) -- (3.7375,3.0626);
+        \draw [style=thick] (3.2375,2.5626) -- (3.2375,2.0626) -- (3.7375,2.0626);
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (3.7375,3.0626) -- (5.0125,3.0626) node[above] {\(R_{2}\)};
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (3.7375,2.0626) -- (5.0125,2.0626) node[below] {\(R_{3}\)};
+        \draw[style=thick] (5.0125,3.0626) -- (5.5125,3.0626) -- (5.5125,2.5626);
+        \draw[style=thick] (5.0125,2.0626) -- (5.5125,2.0626) -- (5.5125,2.5626);
+        \draw[style=thick] (5.5125,2.5626) -- (6.213812569,3.11229329);
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (6.213812569,3.11229329) -- (7.217297835,3.898831478) node[above] {\(R_{1}\)};
+        \draw[style=thick] (7.217297835,3.898831478) -- (7.918969965, 4.448806594);
+      \end {tikzpicture}
+    }
+    
+    \subfloat[Case B] {
+      \begin {tikzpicture}
+        \draw[style=ultra thick] (0,0) rectangle (8.75,5.125);
+
+        \filldraw[fill=red,style=thick] (0.50,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (0.50,4.625) circle (0.20cm);
+        \draw (0.50,4.625) node {1};
+
+        \filldraw[fill=blue!70!red!70!,style=thick] (4.375,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (4.375,4.625) circle (0.20cm);
+        \draw (4.375,4.625) node {2};
+
+        \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.20cm);
+        \draw (8.25,4.625) node {3};
+
+        \filldraw[fill=yellow,style=thick] (0.50,0.50) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (0.50,0.50) circle (0.20cm);
+        \draw (0.50,0.50) node {4};
+
+        \filldraw[fill=blue,style=thick] (4.375,0.50) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (4.375,0.50) circle (0.20cm);
+        \draw (4.375,0.50) node {5};
+
+        \filldraw[fill=green,style=thick] (8.25,0.5) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (8.25,0.5) circle (0.20cm);
+        \draw (8.25,0.5) node {6};
+
+        % Connections 
+        \draw [style=thick] (0.831030035,0.676193406) -- (3.2375,2.5626);
+        \draw [style=thick] (3.2375,2.5626) -- (3.2375,3.0626) -- (3.7375,3.0626);
+        \draw [style=thick] (3.2375,2.5626) -- (3.2375,2.0626) -- (3.7375,2.0626);
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (3.7375,3.0626) -- (5.0125,3.0626) node[above] {\(R_{1}\)};
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (3.7375,2.0626) -- (5.0125,2.0626) node[below] {\(R_{3}\)};
+        \draw[style=thick] (5.0125,3.0626) -- (5.5125,3.0626) -- (5.5125,2.5626);
+        \draw[style=thick] (5.0125,2.0626) -- (5.5125,2.0626) -- (5.5125,2.5626);
+        \draw[style=thick] (5.5125,2.5626) -- (6.213812569,3.11229329);
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (6.213812569,3.11229329) -- (7.217297835,3.898831478) node[above] {\(R_{2}\)};
+        \draw[style=thick] (7.217297835,3.898831478) -- (7.918969965, 4.448806594);
+      \end {tikzpicture}
+    }\qquad
+    \subfloat[Case C] {
+      \begin {tikzpicture}
+        \draw[style=ultra thick] (0,0) rectangle (8.75,5.125);
+
+        \filldraw[fill=red,style=thick] (0.50,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (0.50,4.625) circle (0.20cm);
+        \draw (0.50,4.625) node {1};
+
+        \filldraw[fill=blue!70!red!70!,style=thick] (4.375,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (4.375,4.625) circle (0.20cm);
+        \draw (4.375,4.625) node {2};
+
+        \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (8.25,4.625) circle (0.20cm);
+        \draw (8.25,4.625) node {3};
+
+        \filldraw[fill=yellow,style=thick] (0.50,0.50) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (0.50,0.50) circle (0.20cm);
+        \draw (0.50,0.50) node {4};
+
+        \filldraw[fill=blue,style=thick] (4.375,0.50) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (4.375,0.50) circle (0.20cm);
+        \draw (4.375,0.50) node {5};
+
+        \filldraw[fill=green,style=thick] (8.25,0.5) circle (0.375cm);
+        \filldraw[fill=white,style=thick] (8.25,0.5) circle (0.20cm);
+        \draw (8.25,0.5) node {6};
+
+        % Connections 
+        \draw [style=thick] (0.831030035,0.676193406) -- (3.2375,2.5626);
+        \draw [style=thick] (3.2375,2.5626) -- (3.2375,3.0626) -- (3.7375,3.0626);
+        \draw [style=thick] (3.2375,2.5626) -- (3.2375,2.0626) -- (3.7375,2.0626);
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (3.7375,3.0626) -- (5.0125,3.0626) node[above] {\(R_{1}\)};
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (3.7375,2.0626) -- (5.0125,2.0626) node[below] {\(R_{2}\)};
+        \draw[style=thick] (5.0125,3.0626) -- (5.5125,3.0626) -- (5.5125,2.5626);
+        \draw[style=thick] (5.0125,2.0626) -- (5.5125,2.0626) -- (5.5125,2.5626);
+        \draw[style=thick] (5.5125,2.5626) -- (6.213812569,3.11229329);
+        \draw[style=thick,decoration = {zigzag,segment length = 3mm, amplitude = 1mm},decorate] (6.213812569,3.11229329) -- (7.217297835,3.898831478) node[above] {\(R_{3}\)};
+        \draw[style=thick] (7.217297835,3.898831478) -- (7.918969965, 4.448806594);
+      \end {tikzpicture}
+    }
+  \caption {Possible Box B6 Configurations}
+\end {figure}
 
 \thebibliography{3}
   \bibitem{labManual}
