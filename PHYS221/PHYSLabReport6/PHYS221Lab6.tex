@@ -188,6 +188,7 @@ Looking at Table 1, the different current values can be used to find the resista
 \end{equation}
 Then, for each of the connections the resistances are:
 
+\vspace{0.5cm}
 2-4: 502.9 \(\Omega\)
 
 2-5: 223.5111111 \(\Omega\)
@@ -199,6 +200,7 @@ Then, for each of the connections the resistances are:
 4-6: 591.6470588 \(\Omega\)
 
 5-6: 314.3125 \(\Omega\)
+\vspace{0.5cm}
 
 Since the two known resistors have values of 220\(\Omega\pm\) 5\% (\(R_{1}\)) and 270\(\Omega\pm\) 5\% (\(R_{2}\)), then the 2-5 connection must contain the 220\(\Omega\) resistor and the 4-5 connection must contain the 270\(\Omega\) resistor.
 
@@ -227,12 +229,14 @@ Equation 1 can be used again for finding the total resistance for connections. T
   \caption {Amperage at different connections (Box B6)}
 \end {table}
 
+\vspace{0.5cm}
 3-4: 149.9552239 \(\Omega\)
+\vspace{0.5cm}
 
-Notice that 149.96 \(\Omega\) is much smaller than \(R_{1}\) and \(R_{2}\), meaning that the only combination including \(R_{3}\) would have to involve all of the resistors in parallel. Resistance for resistors in parallel is defined as:
+Notice that 149.96 \(\Omega\) is much smaller than \(R_{1}\) or \(R_{2}\), meaning that the resistors cannot be in series, as then \(R_{3}\) would have to be negative. Resistance for resistors in parallel is defined as:
 \begin{equation}
   \begin{split}
-    R_{\text{total}} &= \dfrac{1}{\tfrac{1}{R_{1}} + \tfrac{1}{R_{2}} + \dfrac{1}{R_{3}}} \\
+    R_{\text{total}} &= \dfrac{1}{\tfrac{1}{R_{1}} + \tfrac{1}{R_{2}} + \tfrac{1}{R_{3}}} \\
   \end{split}
 \end{equation}
 Then, solving for \(R_{3}\):
@@ -249,7 +253,7 @@ Then, solving for \(R_{3}\):
   \end{split}
 \end{equation*}
 
-However, evaluating \(R_{3}\) with \(R_{1}\) with 220 \(\Omega\), \(R_{2}\) with 270 \(\Omega\) and \(R_{\text{total}}\) as 149.96 \(\Omega\) gives a value of -623 \(\Omega\). Thus, the only alternatives are if two of the resistors are in parallel. These two configurations are shown in Figure 2. In order to find the range of \(R_{3}\), the following formula is used:
+However, evaluating \(R_{3}\) with \(R_{1}\) with 220 \(\Omega\), \(R_{2}\) with 270 \(\Omega\) and \(R_{\text{total}}\) as 149.96 \(\Omega\) gives a value of -623 \(\Omega\). Thus, the only alternatives are if two of the resistors are in parallel. These two configurations are shown in Figure 2. In order to find the range of \(R_{3}\), the following formula is used for Case A:
 \begin{equation*}
   \begin{split}
     R_{\text{total}} &= R_{1} + \dfrac{1}{\tfrac{1}{R_{2}} + \tfrac{1}{R_{3}}} \\
@@ -270,7 +274,41 @@ If \(R_{3}\) is solved for:
   \end{split}
 \end{equation*}
 
-For the above solution, \(R_{3}\) is equal to 
+\noindent
+For the above solution, \(R_{3}\) is equal to -55.61646841 \(\Omega\). Since \(R_{3}\) cannot have a negative value, this configuration is not possible.
+
+\noindent
+For Case B, the equation is:
+\begin{equation*}
+  \begin{split}
+    R_{\text{total}} &= R_{2} + \dfrac{1}{\tfrac{1}{R_{1}} + \tfrac{1}{R_3}} \\
+  \end{split}
+\end{equation*}
+If \(R_{3}\) is solved for:
+\begin{equation*}
+  \begin{split}
+    R_{3} &= \dfrac{-R_{\text{total}}R_{1} + R_{1}R_{2}}{R_{\text{total}} - R_{1} - R_{2}} \\
+  \end{split}
+\end{equation*}
+
+\noindent
+For the above solution, \(R_{3}\) is equal to -77.66580344 \(\Omega\). Since \(R_{3}\) cannot have a negative value, this configuration is not possible.
+
+\noindent
+For Case C, the equation is:
+\begin{equation*}
+  \begin{split}
+    R_{\text{total}} &= R_{3} + \dfrac{1}{\tfrac{1}{R_{1}} + \tfrac{1}{R_{2}}} \\
+  \end{split}
+\end{equation*}
+If \(R_{3}\) is solved for:
+\begin{equation*}
+  \begin{split}
+    R_{3} &= R_{\text{total}} - \dfrac{1}{\tfrac{1}{R_{1}} + \tfrac{1}{R_{2}}} \\
+  \end{split}
+\end{equation*}
+For the above solution, \(R_{3}\) is equal to 28.7307341 \(\Omega\). Since this is the only value that is feasible for \(R_{3}\), then this configuration is most likely.
+
 \begin {figure}
   \centering
     \subfloat[Case A] {
