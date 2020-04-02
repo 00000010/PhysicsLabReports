@@ -2,6 +2,8 @@
 % Started messing around manually with the packages to update circuitikz to get a curved capacitor. Apparently was running a version earlier than 2019, even though got the package in 2020. Was dumb. Just use texhash next time; it updates "the database" automatically.
 % See note on first circuit (not able to put nodes on switch B)
 % Keep getting the warning: "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.2> not available (Font) size <5> substituted on input line 87." even though I have not used another other font. Incredibly irritating. See log.
+% Everything kept breaking with this lab report. It's probably the worst one besides there being no overfull bad boxes.
+% Fix the "noindents". Put it as a global setting instead of scattering the code with it.
 \documentclass [12pt, letterpaper, twoside] {article}
 \usepackage[utf8]{inputenc}
 \usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
@@ -15,6 +17,7 @@
 \usepackage {tabu}
 % For multiple rows in table slot
 \usepackage {multirow}
+% For comments, I think
 \usepackage {verbatim}
 % To add captions
 \usepackage {caption}
@@ -23,8 +26,6 @@
 \usepackage {pgfplots}
 % To make scatter plots
 \usepackage{pgfplotstable}
-% To make pretty theorems
-\usepackage[english]{babel}
 % To make circuit drawings
 \usepackage{circuitikz}
 %\usepackage[siunitx, RPvoltages]{circuitikzgit}
@@ -71,20 +72,19 @@ Updated \usdate\today~(\currenttime)
 The objective of this lab was to examine the relationship between capacitance, total resistance, and time in a circuit by charging or discharging a capacitor.
 
 \subsection* {THEORY}
-\begin{comment}
 The voltage across a capacitor depends on the max voltage it could be charged to, as well as the time it has been charging and a time constant involving the capacitance and the total resistance in the circuit. For charging a capacitor, the voltage can be expressed as:
 \begin{equation}
   \begin{split}
-    V_{c}(t) &= V_{\text{max}}\left(1-e^{-\sfrac{t}{\tau}}\right) \\
+    V(t) &= V_{\text{0}}\left(1-e^{-\sfrac{t}{\tau}}\right) \\
   \end{split}
 \end{equation}
-where \(V_{\text{max}}\) is the max voltage the capacitor can charge to (non-inclusive), \(t\) is the time the capacitor has been charging, and \(\tau\) is the product of the total resistance in the circuit and the capacitance of the capacitor.
-\end{comment}
+where \(V_{\text{0}}\) is the "maximum" (not possible to reach this value) voltage the capacitor can charge to, \(t\) is the time the capacitor has been charging, and \(\tau\) is the product of the total resistance in the circuit and the capacitance of the capacitor.
 
-For discharging a capacitor, the voltage can be expressed as:
+\noindent
+By the same logic, the voltage across a capacitor when it is discharging can be expressed as:
 \begin{equation}
   \begin{split}
-    V_{c}(t) &= V_{0}e^{-\sfrac{t}{\tau}} \\
+    V(t) &= V_{0}e^{-\sfrac{t}{\tau}} \\
   \end{split}
 \end{equation}
 where \(V_{0}\) is the voltage the capacitor starts at, \(t\) is the time the capacitor has been discharging, and \(\tau\) is the product of the total resistance in the circuit and the capacitance of the capacitor.
@@ -107,7 +107,7 @@ where \(V_{0}\) is the voltage the capacitor starts at, \(t\) is the time the ca
 There were two types of time constants measured in this lab. Of the two capacitors given, the large capacitor was used for the first part of the lab. Its capacitance was measured and recorded. The circuit in Figure 1 was then constructed using the large capacitor.
 
 \noindent
-For the second part of the lab, the small capacitor and oscilloscope were used to 
+For the second part of the lab, the small capacitor and the oscilloscope were used and Circuit b of Figure 1 was constructed. Using the oscilloscope, \(\tau\) was again calculated using milliseconds instead of seconds and observing the function behavior as the capacitor was charged and discharged.
 
 \begin{figure}
   \centering
@@ -137,7 +137,7 @@ For the second part of the lab, the small capacitor and oscilloscope were used t
 \end{figure}
 
 \subsection* {DATA}
-The capacitance of both capacitors was measured and recorded in Table 1. The resistance in the first part was taken as 1 M\(\Omega\).
+The capacitance of both capacitors was measured and recorded in Table 1. The resistance in the first part was taken as 1 M\(\Omega\). The resistance for part 2 was measured as 3.85 k\(\Omega\).
 \begin{table}
   \centering
   \begin{tabular}{| l | r | r |}
@@ -200,6 +200,49 @@ The capacitance of both capacitors was measured and recorded in Table 1. The res
   \caption{Voltage across large capacitor}
 \end{table}
 
+\noindent
+For the second part of the lab, the oscilloscope was used to obtain at what times the capacitor was charged/discharged to 63\% of its highest voltage. Below is the data collected while the capacitor was discharging:
+
+\noindent
+For the first part of the graph:
+
+\textbf{\(\Delta{V}\):} 3.76 V
+
+\textbf{\(\Delta{t}\):} 150 \(\mu\)s
+
+\noindent
+For the second part of the graph:
+
+\textbf{\(\Delta{V}\):} 3.72 V
+
+\textbf{\(\Delta{t}\):} 140 \(\mu\)s
+
+\noindent
+Data collected as the capacitor was charging:
+
+\textbf{\(\Delta{V}\):} 2.32 V
+
+\textbf{\(\Delta{t}\):} 130 \(\mu\)s
+
+\noindent
+For the second part of the graph:
+
+\textbf{\(\Delta{V}\):} 3.76 V
+
+\textbf{\(\Delta{t}\):} 130 \(\mu\)s
+
+\noindent
+The \(\Delta{t}\) represents the change in time from when the capacitor first starts charging to when it has reached 63\% of its "maximum" voltage, while the change in voltage is the change in voltage across the capacitor from when it starts charging to when it is at its "maximum" voltage. 63\% of the change in voltage was calculated then to obtain the change in time. Thus, the average time constant is 137.5 \(\mu\)s, or \(1.35\cdot{10}^{-4}\) s for when the voltage across the capacitor is at 63\%.
+
+\noindent
+For Step 5, when the frequency is changed to 4.0 Hz, the period and voltage decrease as expected. Recall the relationship between period and frequency:
+\begin{equation*}
+  \begin{split}
+    T &= \dfrac{1}{f} \\
+  \end{split}
+\end{equation*}
+If the frequency is set higher, the period should then decrease.
+
 \subsection* {ANALYSIS OF DATA}
 For the first part of the lab, the large capacitor was used. It was charged using the voltage supply and then the voltage was recorded across the capacitor as it discharged. Figure 2 displays the data, where the red line showed the best-fit line for the data, while the blue line showed the expected line the data would follow. 
 
@@ -236,7 +279,7 @@ Then the equation for this specific circuit (Circuit a in Figure 1) is:
     V_{a}(t) &= 7.585{e}^{-\tfrac{t}{48.5}} \\
   \end{split}
 \end{equation*}
-This equation is shown in Figure 2 in blue. For the second part of the lab, the 
+This equation is graphed in Figure 2 in blue. 
 
 \pgfplotstableread{
 X Y
@@ -326,11 +369,21 @@ X Y
   \caption {}
 \end {figure}
 
-For the second par
-\subsection* {DISCUSSION OF RESULTS}
+\noindent
+For the second part of the lab, the theoretical value of \(\tau\) was calculated as:
+\begin{equation*}
+  \begin{split}
+    \tau &= RC \\
+         &= (3850\Omega)(3.62\cdot{10}^{-8}) \\
+         &= 0.00013937 \\
+  \end{split}
+\end{equation*}
+The time constant from the lab was recorded with an average of \(1.35\cdot{10}^{-4}\), which gives an error percentage of about 1.34 \%.
 
-\subsection* {FURTHER STUDY}
-\(\tau\) is the product of the total resistance and the capacitance of the capacitor being charged. However, in the first part of the lab, the resistance of the large capacitor was not recorded. The resistance of the small capacitor was recorded as \(3.85\Omega\). Thus, if this value were used, then the \(\tau\) would be:
+\subsection* {DISCUSSION OF RESULTS}
+For both procedures, the error percentage was very small (from 1 to 3\%), showing high consistency with the charging and discharging equations. Possible sources of error include neglecting to take into account the resistance of the large capacitor in the first part of the lab (discussed below) and minimal sources of voltage drop across the circuits (such as in the wires, for instance).
+
+Recall that \(\tau\) is the product of the total resistance and the capacitance of the capacitor being charged. In the first part of the lab, the resistance of the large capacitor was not recorded. The resistance of the small capacitor was recorded as \(3.85\Omega\). Thus, if this value were used, then the \(\tau\) would be:
 \begin{equation*}
   \begin{split}
     \tau &= RC \\
@@ -339,16 +392,43 @@ For the second par
          &\approx 48.7 \\
   \end{split}
 \end{equation*}
-Notice that 48.7 is not far off from 48.5 as calculated previously, so while not recording the resistance of the capacitor was certainly a mistake, the overall trend did not change much.
+Notice that 48.7 is not far off from 48.5 as calculated previously, so while not recording the resistance of the capacitor was certainly a mistake, there was only a 0.412\% change from 48.5.
+
+\subsection* {FURTHER STUDY}
+Further implementation of this lab should be sure to include as much of the total resistance in the circuit into the calculations as possible. Additionally, it would be interesting to observe this time constant changing when other capacitors are added, and at different parts in the circuit.
 
 \subsection* {SUPPLEMENTARY QUESTIONS}
 \begin{enumerate}
   \item{Equation 2 can be written as \(\ln(V(t)) = \ln(V_{o})-\frac{t}{\tau}\). This means that if we plot \(\ln(V(t))\) versus \(t\), the slope will correspond to \(-\frac{1}{\tau}\). Find the natural logarithm of \(V(t)\) from your data and plot \(\ln(V(t))\) versus \(t\).}
+
   The graph is shown in Figure 3.
   \item{Find the slope of the best-fit line and thus obtain the experimentally measured value of the time constant. Compare the time constant obtained from this slope with the predicted value of \(\tau\) using \(\tau=RC\) and the values of \(R_{i}\) and \(C\) obtained previously.}
   The slope is shown in Figure 3, as well as discussed in the Analysis of Data section. An error percentage is included.
   \item{Compare your measured value with the product of \(RC\) obtained from the individual values of \(R\) and \(C\) measured earlier and equation \(\tau=RC\).}
+  
+  
   \item{Using Equation 2, show the mathematical reasoning behind why the time constant, \(\tau\), represents a 63\% decrease in the initial voltage for a discharging capacitor.}
+
+  When time is equal to \(\tau\), then the discharging equation becomes:
+  \begin{equation*}
+    \begin{split}
+      V_{c}(t) &= V_{0}e^{-1} \\
+      V_{c}(t) &= \dfrac{V_{0}}{e} \\
+      \dfrac{V_{c}(t)}{V_{0}} &= \dfrac{1}{e} \\
+      \dfrac{V_{c}(t)}{V_{0}} &= 0.367879441 \\
+    \end{split}
+  \end{equation*}
+  Thus, when time is equal to \(\tau\), the voltage across the capacitor at that point has discharged \((1-0.37)\cdot{100\%} = 63\%\).
+  For the charging equation:
+  \begin{equation*}
+    \begin{split}
+      V(t) &= V_{0}\left(1-e^{-1}\right) \\
+      V(t) &= V_{0}-\dfrac{V_{0}}{e} \\
+      \dfrac{V(t)}{V_{0}} &= 1-\dfrac{1}{e} \\
+      \dfrac{V(t)}{V_{0}} &= 0.632120559 \\
+    \end{split}
+  \end{equation*}
+  Again, showing that when time is equal to \(\tau\), the capacitor has charged to 63\% of its maximum voltage.
 \end{enumerate}
 
 \subsection* {REFERENCES}
