@@ -62,7 +62,7 @@ Lab 7
 \footnotesize
 Emily Pang, Lavanya Roy (lab partner) \\
 Date of experiment: 26 Feb 2020 \\
-Due date: 4 Mar 2020 \\
+Due date: 1 Apr 2020 \\
 Lab section L06 \\
 TA: Will Limestall \\
 Updated \usdate\today~(\currenttime)
@@ -351,9 +351,9 @@ X Y
   \begin{tikzpicture}
 %    \draw[color=blue] plot (\x,7.585\e^{-\x/48.5});
     \begin{axis}[
-      title = {Voltage of a Capacitor Vs. Time Passed},
+      title = {Natural Logarithm of the Voltage Across a Capacitor and Time Passed},
       xlabel = {Time (s)},
-      ylabel = {Voltage (V)},
+      ylabel = {Natural Log of Voltage (V)},
       legend pos = north east,
       ]
       \addplot [only marks, mark = *] table {\second};
@@ -403,10 +403,11 @@ Further implementation of this lab should be sure to include as much of the tota
 
   The graph is shown in Figure 3.
   \item{Find the slope of the best-fit line and thus obtain the experimentally measured value of the time constant. Compare the time constant obtained from this slope with the predicted value of \(\tau\) using \(\tau=RC\) and the values of \(R_{i}\) and \(C\) obtained previously.}
+
   The slope is shown in Figure 3, as well as discussed in the Analysis of Data section. An error percentage is included.
   \item{Compare your measured value with the product of \(RC\) obtained from the individual values of \(R\) and \(C\) measured earlier and equation \(\tau=RC\).}
   
-  
+  The theoretical and experimental values for \(\tau\) are discussed in sections Analysis of Data and Discussion of Results.  
   \item{Using Equation 2, show the mathematical reasoning behind why the time constant, \(\tau\), represents a 63\% decrease in the initial voltage for a discharging capacitor.}
 
   When time is equal to \(\tau\), then the discharging equation becomes:
