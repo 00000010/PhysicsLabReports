@@ -1,0 +1,356 @@
+% Document notes:
+% Started messing around manually with the packages to update circuitikz to get a curved capacitor. Apparently was running a version earlier than 2019, even though got the package in 2020. Was dumb. Just use texhash next time; it updates "the database" automatically.
+% See note on first circuit (not able to put nodes on switch B)
+% Keep getting the warning: "LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.2> not available (Font) size <5> substituted on input line 87." even though I have not used another other font. Incredibly irritating. See log.
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For drawing pictures
+\usepackage {tikz}
+% For equations
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% For multiple rows in table slot
+\usepackage {multirow}
+\usepackage {verbatim}
+% To add captions
+\usepackage {caption}
+\usepackage {float}
+% To make graphs
+\usepackage {pgfplots}
+% To make scatter plots
+\usepackage{pgfplotstable}
+% To make pretty theorems
+\usepackage[english]{babel}
+% To make circuit drawings
+\usepackage{circuitikz}
+%\usepackage[siunitx, RPvoltages]{circuitikzgit}
+% To make tables side by side
+\usepackage{subfig}
+% To make inline fractions
+\usepackage{xfrac}
+
+\raggedbottom
+\pgfplotsset{compat=1.16}
+\begin {document}
+\begin {titlepage}
+\begin {center}
+Department of Biological, Chemical, and Physical Science\\
+\vspace {0.1cm}
+Illinois Institute of Technology\\
+\vspace {0.1cm}
+General Physics II: Electromagnetism (PHYS 221-01)\\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {RC Circuits}
+\vspace {0.35cm}
+
+\normalsize
+Lab 7 
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang, Lavanya Roy (lab partner) \\
+Date of experiment: 26 Feb 2020 \\
+Due date: 4 Mar 2020 \\
+Lab section L06 \\
+TA: Will Limestall \\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+\subsection* {STATEMENT OF OBJECTIVE}
+The objective of this lab was to examine the relationship between capacitance, total resistance, and time in a circuit by charging or discharging a capacitor.
+
+\subsection* {THEORY}
+\begin{comment}
+The voltage across a capacitor depends on the max voltage it could be charged to, as well as the time it has been charging and a time constant involving the capacitance and the total resistance in the circuit. For charging a capacitor, the voltage can be expressed as:
+\begin{equation}
+  \begin{split}
+    V_{c}(t) &= V_{\text{max}}\left(1-e^{-\sfrac{t}{\tau}}\right) \\
+  \end{split}
+\end{equation}
+where \(V_{\text{max}}\) is the max voltage the capacitor can charge to (non-inclusive), \(t\) is the time the capacitor has been charging, and \(\tau\) is the product of the total resistance in the circuit and the capacitance of the capacitor.
+\end{comment}
+
+For discharging a capacitor, the voltage can be expressed as:
+\begin{equation}
+  \begin{split}
+    V_{c}(t) &= V_{0}e^{-\sfrac{t}{\tau}} \\
+  \end{split}
+\end{equation}
+where \(V_{0}\) is the voltage the capacitor starts at, \(t\) is the time the capacitor has been discharging, and \(\tau\) is the product of the total resistance in the circuit and the capacitance of the capacitor.
+
+\subsection* {EQUIPMENT}
+  \noindent
+  \begin {itemize}
+    \itemsep0em
+    \item {one breadboard}
+    \item {one multimeter}
+    \item {one capacimeter}
+    \item {one digital oscilloscope}
+    \item {one function generator}
+    \item {one PASCO Capstone Sensor and associated softward}
+    \item {wires to connect power supply and breadboard}
+    \item {safety glasses}
+  \end {itemize}
+
+\subsection* {PROCEDURE}
+There were two types of time constants measured in this lab. Of the two capacitors given, the large capacitor was used for the first part of the lab. Its capacitance was measured and recorded. The circuit in Figure 1 was then constructed using the large capacitor.
+
+\noindent
+For the second part of the lab, the small capacitor and oscilloscope were used to 
+
+\begin{figure}
+  \centering
+  \subfloat[]{
+    \begin{circuitikz}[american voltages,label/.style={red}]
+      \draw (0.75,2.75) node[label]{\bf{A}};
+      \draw (1.25,1.5) node[label]{\bf{B}};
+      \draw (0.3,1.9) node {\tiny{+}};
+      \draw (0.3,1.15) node {\tiny{-}};
+      \draw (0,3) to [battery] (0,0);
+      % For some reason, able to get nodes on switch A but not on switch B (nodes are placed at the branch out above and below)
+      \draw (0,3) -- (0.5,3) to [normal open switch,*-*] (1,3) -- (1.5,3) to [normal open switch] (1.5,0) -- (0,0);
+      \draw (1.5,3) -- (3,3) to [resistor,l_=R] (3,1.5) to [cC,l_=C] (3,0) -- (1.5,0);
+    \end{circuitikz}
+  }\qquad
+  \subfloat[]{
+    \begin{circuitikz}[american voltages,label/.style={red}]
+      % The two lines below - tf, why? Fix.
+      \draw (0.3,1.9) node {\tiny{+}};
+      \draw (0.3,1.15) node {\tiny{-}};
+      \draw (0,3) to [battery,l_=\(V_{s}\)] (0,0);
+      % Now not able to put node on switch on left side either
+      \draw (0,3) to [normal open switch] (3,3) to [C,l_=C] (3,0) -- (0,0);
+    \end{circuitikz}
+  }
+  \caption{Circuits}
+\end{figure}
+
+\subsection* {DATA}
+The capacitance of both capacitors was measured and recorded in Table 1. The resistance in the first part was taken as 1 M\(\Omega\).
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r | r |}
+    \hline\hline
+    Capacitor & Capacitance (F) & Average \\
+    \hline
+    \multirow{3}{*}{Large} & \(4.58\cdot{10}^{-5}\) & \\
+    & \(4.58\cdot{10}^{-5}\) & \(4.58\cdot{10}^{-5}\) \\
+    & \(4.58\cdot{10}^{-5}\) & \\
+    \hline
+    \multirow{3}{*}{Small} & \(3.62\cdot{10}^{-8}\) & \\
+    & \(3.61\cdot{10}^{-8}\) & \(3.62\cdot{10}^{-8}\) \\
+    & \(3.62\cdot{10}^{-8}\) & \\
+    \hline\hline
+  \end{tabular}
+  \caption{Capacitance of the capacitors}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r | r | r |}
+    \hline\hline
+    Time (s) & Voltage across capacitor (V) \\
+    \hline
+    0 & 7.585 \\
+    \hline
+    10 & 7.364 \\
+    \hline
+    12 & 7.063 \\
+    \hline
+    20 & 5.985 \\
+    \hline
+    28 & 5.078 \\
+    \hline
+    30 & 4.874 \\
+    \hline
+    39 & 4.055 \\
+    \hline
+    40 & 3.973 \\
+    \hline
+    50 & 3.242 \\
+    \hline
+    54 & 2.987 \\
+    \hline
+    60 & 2.645 \\
+    \hline
+    70 & 2.162 \\
+    \hline
+    74 & 1.994 \\
+    \hline
+    80 & 1.764 \\
+    \hline
+    90 & 1.443 \\
+    \hline
+    100 & 1.18 \\
+    \hline
+    106 & 1.049 \\
+    \hline\hline
+  \end{tabular}
+  \caption{Voltage across large capacitor}
+\end{table}
+
+\subsection* {ANALYSIS OF DATA}
+For the first part of the lab, the large capacitor was used. It was charged using the voltage supply and then the voltage was recorded across the capacitor as it discharged. Figure 2 displays the data, where the red line showed the best-fit line for the data, while the blue line showed the expected line the data would follow. 
+
+\noindent
+Additionally, one of the supplemental questions shows that Equation 1 can be written as:
+\begin{equation*}
+  \begin{split}
+    \ln(V(t)) &= \ln(V_{o}) - \frac{t}{\tau} \\
+  \end{split}
+\end{equation*}
+Thus, the above equation can be used to find an experimental value of \(\tau\) by graphing \(\ln(V(t))\) versus \(t\), where -\sfrac{1}{\(\tau\)} is the slope. The result is shown in Figure 3. Then, since the slope of the best-fit line is equal to \(2\cdot{10}^{-2}\), then \(\tau\) is equal to:
+\begin{equation*}
+  \begin{split}
+    -\tfrac{1}{\tau} &= -2\cdot{10}^{-2} \\
+    \tau &= 50 \\
+  \end{split}
+\end{equation*}
+A quick error analysis shows that this result has an error percentage of about 3.09\%, which shows the experimental value is very close to the predicated value.
+
+\noindent
+Recall Equation 1, which used the initial capacitor voltage, the time passed, and \(\tau\), the total resistance and the capacitor's capacitance. \(\tau\) is then calculated as:
+\begin{equation*}
+  \begin{split}
+    \tau &= RC \\
+         &= (1000000\Omega)(4.85\cdot{10}^{-5}) \\
+         & = 48.5 \\
+  \end{split}
+\end{equation*}
+
+\noindent
+Then the equation for this specific circuit (Circuit a in Figure 1) is:
+\begin{equation*}
+  \begin{split}
+    V_{a}(t) &= 7.585{e}^{-\tfrac{t}{48.5}} \\
+  \end{split}
+\end{equation*}
+This equation is shown in Figure 2 in blue. For the second part of the lab, the 
+
+\pgfplotstableread{
+X Y
+0 7.585
+10 7.364
+12 7.063
+20 5.985
+28 5.078
+30 4.874
+39 4.055
+40 3.973
+50 3.242
+54 2.987
+60 2.645
+70 2.162
+74 1.994
+80 1.764
+90 1.443
+100 1.182
+106 1.049
+}\largeVoltage
+
+\begin {figure}                                                             
+  \centering
+  \begin{tikzpicture}
+%    \draw[color=blue] plot (\x,7.585\e^{-\x/48.5});
+    \begin{axis}[
+      title = {Voltage of a Capacitor Vs. Time Passed},
+      xlabel = {Time (s)},
+      ylabel = {Voltage (V)},
+      legend pos = north east,
+      ]
+      \addplot [only marks, mark = *] table {\largeVoltage};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\largeVoltage};
+      \addplot[domain=0:106,blue] {7.585*exp(-0.0205394797*x)};
+      \addlegendentry{Data}
+      \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)};
+      \addlegendentry{\(7.585\cdot{e}^{-\tfrac{x}{48.5}}\)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption {}
+\end {figure}
+
+\pgfplotstableread{
+X Y
+0 2.026172613
+10 1.996603263
+12 1.95486989
+28 1.789256339
+30 1.583914955
+39 1.399950688
+40 1.379521477
+50 1.176190423
+54 1.094269539
+60 0.9726710653
+70 0.7710337192
+74 0.6901426715
+80 0.5675839576
+90 0.3667242798
+100 0.167207919
+106 0.04783732941
+}\second
+
+\begin {figure}                                                             
+  \centering
+  \begin{tikzpicture}
+%    \draw[color=blue] plot (\x,7.585\e^{-\x/48.5});
+    \begin{axis}[
+      title = {Voltage of a Capacitor Vs. Time Passed},
+      xlabel = {Time (s)},
+      ylabel = {Voltage (V)},
+      legend pos = north east,
+      ]
+      \addplot [only marks, mark = *] table {\second};
+      \addplot [thick, red] table[
+        y={create col/linear regression={y=Y}}
+      ]
+      {\second};
+      \addlegendentry{Data}
+      \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)};
+      \addlegendentry{\(7.585\cdot{e}^{-\tfrac{x}{48.5}}\)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption {}
+\end {figure}
+
+For the second par
+\subsection* {DISCUSSION OF RESULTS}
+
+\subsection* {FURTHER STUDY}
+\(\tau\) is the product of the total resistance and the capacitance of the capacitor being charged. However, in the first part of the lab, the resistance of the large capacitor was not recorded. The resistance of the small capacitor was recorded as \(3.85\Omega\). Thus, if this value were used, then the \(\tau\) would be:
+\begin{equation*}
+  \begin{split}
+    \tau &= RC \\
+         &= (3850 \Omega + 1000000\Omega)(4.85\cdot{10}^{-5}\text{F}) \\
+         &= 48.686725 \\
+         &\approx 48.7 \\
+  \end{split}
+\end{equation*}
+Notice that 48.7 is not far off from 48.5 as calculated previously, so while not recording the resistance of the capacitor was certainly a mistake, the overall trend did not change much.
+
+\subsection* {SUPPLEMENTARY QUESTIONS}
+\begin{enumerate}
+  \item{Equation 2 can be written as \(\ln(V(t)) = \ln(V_{o})-\frac{t}{\tau}\). This means that if we plot \(\ln(V(t))\) versus \(t\), the slope will correspond to \(-\frac{1}{\tau}\). Find the natural logarithm of \(V(t)\) from your data and plot \(\ln(V(t))\) versus \(t\).}
+  The graph is shown in Figure 3.
+  \item{Find the slope of the best-fit line and thus obtain the experimentally measured value of the time constant. Compare the time constant obtained from this slope with the predicted value of \(\tau\) using \(\tau=RC\) and the values of \(R_{i}\) and \(C\) obtained previously.}
+  The slope is shown in Figure 3, as well as discussed in the Analysis of Data section. An error percentage is included.
+  \item{Compare your measured value with the product of \(RC\) obtained from the individual values of \(R\) and \(C\) measured earlier and equation \(\tau=RC\).}
+  \item{Using Equation 2, show the mathematical reasoning behind why the time constant, \(\tau\), represents a 63\% decrease in the initial voltage for a discharging capacitor.}
+\end{enumerate}
+
+\subsection* {REFERENCES}
+Illinois Institute of Technology. (n.d.). Experiment 7: RC Circuits. PDF. Chicago.
+\end {document}
