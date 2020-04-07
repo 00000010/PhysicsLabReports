@@ -1,0 +1,183 @@
+% Document notes:
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For math
+\usepackage {amsmath}
+% For multi-line comments
+\usepackage {verbatim}
+\usepackage {float}
+% For slanted fractions
+\usepackage {xfrac}
+% For putting figures side-by-side
+\usepackage {subfig}
+% For drawings 
+\usepackage {tikz}
+% For table padding
+\usepackage {array}
+% For drawing finite-state machines
+\usetikzlibrary{automata}
+% positioning nodes
+\usetikzlibrary{positioning}  
+% customizing arrows
+\usetikzlibrary{arrows}       
+% customizing node shapes
+\usetikzlibrary{shapes}       
+% more arrow types (why is this even necessary?!)
+\usepgflibrary{arrows}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+College of Science: Physics Department \\
+\vspace {0.1cm}
+Illinois Institute of Technology \\
+\vspace {0.1cm}
+Physics II (PHYS 221-01) \\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {PHYS 221 Formula Sheet}
+\vspace {0.35cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang \\
+Professor: Dr. Linda Spentzouris \\
+Updated \usdate\today~(\currenttime)
+\end {flushright}
+\end {titlepage}
+
+\subsection* {Unit 10: Kirchoff's Rules}
+
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c | c | c | c | c |}
+    \hline
+    \multicolumn{2}{| c |}{Ohm's Law} & \multicolumn{2}{ c |}{Resistance} & Voltage Rule & Current Rule & Voltage (capacitor) \\
+    \hline
+    \(J = \sigma{E}\) & \(V = IR\) & \(R = \dfrac{1}{\sigma}\dfrac{L}{A}\) & \(R = \rho\dfrac{L}{A}\) & \(\sum\Delta{V_{n}}\) & \(\sum{I_{in}} = \sum{I_{out}}\) & \(V_{c} = \dfrac{Q}{C}\) \\[3pt]
+    \hline
+  \end{tabular}}
+\end{table}
+
+\subsection* {Unit 11: RC Circuits}
+
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c | c |}
+    \hline
+    \multicolumn{2}{| c |}{Charging} & \multicolumn{2}{ c |}{Discharging} \\
+    \hline
+    \(q(t) = CV_{b}(1-e^{-\sfrac{t}{RC}})\) & \(I(t) = \dfrac{V_{b}}{R}e^{-\sfrac{t}{RC}}\) & \(q(t) = q_{0}e^{-\sfrac{t}{RC}}\) & \(I(t) = -\dfrac{q_{0}}{RC}e^{-\sfrac{t}{RC}}\) \\[3pt]
+    \hline
+  \end{tabular}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c | c |}
+    \hline
+    Time Constant & Power with capacitor & Power (resistor) & PE of capacitor \\
+    \hline
+    \(\tau = RC\) & \(P_{\text{battery}(t)} = V_{b}I_{0}e^{-\sfrac{t}{RC}}\) & \(P_{r}(t) = rI_{0}^{2}e^{-\sfrac{2t}{RC}}\) & \(U_{C}(t) = \dfrac{1}{2}\dfrac{q_{0}^2}{C}(1-e^{-\sfrac{t}{RC}})^2\) \\[3pt]
+    \hline
+  \end{tabular}}
+\end{table}
+
+\subsection* {Unit 12: Magnetism}
+
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Lorentz Force & Magnetic Force & Particle in Magnetic Field \\
+    \hline
+    \(\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}\) & \(\vec{F} = q\vec{v} \times \vec{B}\) & \(R = \dfrac{mv}{qB}\) \\[5pt]
+    \hline
+  \end{tabular}}
+\end{table}
+
+\subsection* {Unit 13: Force and Torques on Currents}
+
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c | c |}
+    \hline
+    Force on wire w/ current & \(\vec{F}_{\text{closed loop,not moving}}\) & \multicolumn{2}{ c |}{Loop w/ current in magnetic field} \\
+    \hline
+    \(\vec{F} = \vec{I}L\times{\vec{B}}\) & 0 & \multicolumn{2}{ c |}{\(\tau_{\text{loop}} = IAB\sin(\theta)\)} \\
+    \hline
+    Magnetic Dipole Moment & Torque on loop & Work & PE \\
+    \hline
+    \(\vec{\mu} = NI\vec{A}\) & \(\vec{\tau} = \vec{\mu} \times \vec{B}\) & \(W = \int_{\theta_{1}}^{\theta_{2}}\mu{B}\sin(\theta)\,d\theta\) & \(U(\theta) = -\vec{\mu} \cdot \vec{B}\) \\
+    \hline
+  \end{tabular}}
+\end{table}
+
+\subsection* {Unit 14: Biot-Savart Law}
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c |}
+    \hline
+    Biot-Savart Law & \(\mu_{0}\) & Infinite Straight Wire w/ current \\
+    \hline
+    \(d\vec{B} = \dfrac{\mu_{0}I}{4\pi}\dfrac{d\vec{s}\times{\hat{r}}}{r^{2}}\) & \(4\pi\times{10}^{-7}\dfrac{\text{T}\cdot\text{m}}{\text{A}}\) & \(B = \dfrac{\mu_{0}I}{2\pi{R}}\) \\[3pt]
+    \hline
+    \multicolumn{3}{| c |}{Circular Loop (center)} \\
+    \hline
+    \multicolumn{3}{| c |}{\(B = \dfrac{\mu_{0}I}{2}\dfrac{R^{2}}{\left(R^{2}+z^{2}\right)^{\tfrac{3}{2}}}\)} \\[0.4cm]
+    \hline
+  \end{tabular}}
+\end{table}
+
+\subsection* {Unit 15: Ampere's Law}
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c |}
+    \hline
+    Ampere's Law & Infinite Sheet \\
+    \hline
+    \(\oint_{\text{loop}}\vec{B}\cdot{d\vec{l}} = \mu_{0}I_{\text{enclosed}}\) & \(B = \dfrac{1}{2}\mu_{0}nI\) \\[3pt]
+    \hline
+  \end{tabular}}
+\end{table} 
+
+\subsection* {Unit 16: Simple Harmonic Motion}
+
+\begin{table}[H]
+  \centering
+  {\renewcommand{\arraystretch}{2}
+  \begin{tabular}{| c | c | c | c |}
+    \hline
+    Spring Force (F) & Angular Velocity & Displacement & Period \\
+    \hline
+    \(\vec{F} = -k\vec{x}\) & \(\omega = \sqrt{\dfrac{k}{m}}\) & \(x(t) = A\sin(\omega{t} - \phi)\) & \(T = \dfrac{2\pi}{\omega}\) \\[3pt]
+    \hline
+  \end{tabular}}
+\end{table}
+
+\subsection* {Unit 17: Motional EMF}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{| c |}
+    \hline
+    \hline
+  \end{tabular}
+\end{table}
+\end{document}
