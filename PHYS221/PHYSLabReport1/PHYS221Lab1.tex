@@ -1,3 +1,5 @@
+% Document notes
+% Interestingly, in Figure 1, need to draw the node first, then fill it in order to still have a visible label on the node. See the circle node (tikzstyle) specifications.
 \documentclass [12pt, letterpaper, twoside] {article}
 \usepackage[utf8]{inputenc}
 \usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
@@ -19,18 +21,17 @@
 \usepackage {pgfplots}
 % To make scatter plots
 \usepackage{pgfplotstable}
+% Reference local figures and tables
+\usepackage{hyperref}
 
 \usetikzlibrary {shapes.geometric, arrows, angles}
-
-\tikzstyle {pink1circle0} = [circle, minimum size=0.5cm, text centered, draw=black, fill=pink1]
-\tikzstyle {arrow} = [thick, ->, >=stealth]
-\renewcommand {\labelitemiv}{$\triangle$}
+\usetikzlibrary {positioning}
 
 \raggedbottom
 \begin {document}
 \begin {titlepage}
 \begin {center}
-Department of Biological, Chemical, and Physical Science\\
+College of Science: Physics Department \\
 \vspace {0.1cm}
 Illinois Institute of Technology\\
 \vspace {0.1cm}
@@ -59,24 +60,24 @@ TA: Will Limestall \\
 Updated \usdate\today~(\currenttime)
 \end {flushright}
 \end {titlepage}
+
 \subsection* {STATEMENT OF OBJECTIVE}
-The objective of this lab was to examine the relationship between charged masses and the distance between charges using Coulomb's Law. \\
+The objective of this lab was to examine the relationship between charged masses and the distance between charges using Coulomb's Law.
 
 \subsection* {THEORY}
-\noindent
-When two or more charged objects are within some distance \(r\), the force exerted on the objects by each other can be modeled using Coulomb's Law, as shown below
+When two or more charged objects are within some distance \(r\), the force exerted on the objects by each other can be modeled using Coulomb's Law, as shown below:
 \begin {equation}
   \begin {split}
     F = k\dfrac{q_{1}q_{2}}{r^2} \\
   \end {split}
 \end {equation}
-where \(k\) is a constant measured at 9.0 \(\times 10^9 \tfrac{\text{ N}\cdot\text{m}^2}{\text{C}^2}\) and the force is measured in Newtons. Additionally, all masses exert a gravitational force on other masses, as shown by the Law of Universal Gravitation
+where \(k\) is a constant measured at 9.0 \(\times 10^9 \tfrac{\text{ N}\cdot\text{m}^2}{\text{C}^2}\) and the force is measured in Newtons. Additionally, all masses exert a gravitational force on other masses, as shown by the Law of Universal Gravitation:
 \begin {equation}
   \begin {split}
     F_{\text{univ. grav.}} &= G\dfrac{m_{1}m_{2}}{r^2} \\
   \end {split}
 \end {equation}
-where \(G\) is a constant equal to \(6.67\times{10^{-11}}\tfrac{\text{m}^2}{\text{kg}\cdot{\text{s}^2}}\), \(m_{1}\) and \(m_{2}\) represent the two masses, and \(r\) is the distance between the masses. Lastly, it is known that all masses on Earth are under the influence of gravity. The force of gravity on Earth is represented by
+where \(G\) is a constant equal to \(6.67\times{10^{-11}}\tfrac{\text{m}^2}{\text{kg}\cdot{\text{s}^2}}\), \(m_{1}\) and \(m_{2}\) represent the two masses, and \(r\) is the distance between the masses. Lastly, it is known that all masses on Earth are under the influence of gravity (including Earth). The force of gravity on Earth is represented by:
 \begin{equation}
   \begin{split}
     F_{\text{gravity}} &= mg \\
@@ -105,70 +106,79 @@ where \(m\) is the mass of the object and \(g\) is the gravity constant on Earth
   \end {itemize}
 
 \subsection* {PROCEDURE}
-First, the electroscope should be set up as shown in Figure 1, with both pith balls attached to the electroscope with an equal length of string. Each of the rod-material combinations will be rubbed together to statically charge the rods. Figure 2 from the IIT lab manual (IIT, 2) shows the material and rod affinities for receiving or giving electrons. \\\\
-After charging a rod, it will be dragged across the metal support of the electroscope, charging the pith balls. The distance between the pith balls will then be measured using the mirror ruler. Care will be taken to not discharge the pith balls by touching them. This procedure will be repeated for each of the rod-material combinations and recorded. \\\\
-In order to completely use Coulomb's Law, it needs to be used alongside a known equation. In this experiment, Newton's Law of Universal Gravitation will be used. Thus, the length of the string will also need to be recorded to calculate the gravitational force. The mass of the pith balls is established in the lab manual.
+First, the electroscope should be set up as shown in Figure ~\ref{fig:1}, with both pith balls attached to the electroscope with an equal length of string. \(r\) will be equal to zero initially as the balls are not charged. Each of the rod-material combinations will be rubbed together to statically charge the rods. Figure 2 from the IIT lab manual (IIT, 2) shows the material and rod affinities for receiving or giving electrons.
+
+After charging a rod, it will be dragged across the metal support of the electroscope, charging the pith balls. The distance between the pith balls will then be measured using the mirror ruler. Care should be taken to not discharge the pith balls by touching them. This procedure will be repeated for each of the rod-material combinations and \(r\) will be recorded.
+
+In order to completely use Coulomb's Law, it needs to be used alongside a known equation. In this experiment, Newton's Law of Universal Gravitation will be used. Thus, the length of the string will also need to be recorded to calculate the gravitational force. The mass of the pith balls is given in the lab manual.
 
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
-      \draw [ultra thick] (0,0) -- (2,4);
-      \draw [ultra thick] (2,4) -- (4,0);
-      \draw [dashed] (2,4) -- (2,0);
-      \draw [red, fill] (0,0) circle [radius=0.5];
-      \draw [red, fill] (4,0) circle [radius=0.5];
-      \draw [thick, <->] (0,-0.6) -- (4,-0.6);
-      \draw (1.52,3) arc [radius=0.5, start angle=206.6, end angle=270];
-      \node at (0,2) {\(l\)};
-      \node at (4,2) {\(l\)};
-      \node at (0,0) {\(m\)};
-      \node at (2,-1) {\(r\)};
-      \node at (4,0) {\(m\)};
-      \node at (1.6,2.4) {\(\theta\)};
+      \tikzstyle{ball}=[circle,draw,minimum size=1.0,draw=red,fill=red]
+      \tikzstyle{string}=[ultra thick,draw]
+      % Coordinate to connect strings
+      \coordinate (stand) at (2,4) {};
+      % Pith balls
+      \node (ball1) at (0,0) [ball] {\(m\)};
+      \node (ball2) at (4,0) [ball] {\(m\)};
+      % Draw lines to balls
+      \draw (stand) -- node[above left] {\(l\)} ++(ball1) [string];
+      \draw (stand) -- node[above right] {\(l\)} ++(ball2) [string];
+      % r line
+      \draw [<->,thick] (ball1) -- node[below] {\(r\)} ++(ball2);
+      % Dashed line
+      \draw [dashed] (stand) -- (2,0);
+      % Theta angle
+      % Wish to replace with a circle so don't have to calculate where to place arc
+      \draw (1.553,3.106) arc [radius=1.0cm, start angle=243.4, end angle=270];
+      \node at (1.7,2.7) {\(\theta\)};
     \end{tikzpicture}
     \caption{Pith balls on a string of length \(l\) with mass \(m\) and a distance \(r\) from each other.}
+    \label{fig:1}
   \end{center}
 \end{figure}
 
 \subsection* {DATA}
-Each combination of rod and material were used to charge the rod and apply it to the pith balls. The distance was then recorded for three trials. These trials are shown in Table 1. Tables 2 and 3 show the charge force, \(F_{\text{charge}}\), and charge magnitude, \(|q|\), for each rod/material pair. The mass of each pith ball was 0.04 grams per the lab manual (IIT, 3). The length of the string was not measured, but a value of 9.3 cm was used.
+Each combination of rod and material was used to charge the rod and apply it to the pith balls. The distance was then recorded for three trials. These trials are shown in Table ~\ref{tab:1}. Tables ~\ref{tab:2} and ~\ref{tab:3} show the charge force, \(F_{\text{charge}}\), and charge magnitude, \(|q|\), for each rod/material pair. The mass of each pith ball was 0.04 grams per the lab manual (IIT, 3). The length of the string was not measured, but a value of 9.3 cm was used.
 
-\begin {table}[H]
+\begin{table}[H]
   \centering
-  \begin {tabular}{| c | c | r | r | r | r |}
+  \begin{tabular}{| c | c | r | r | r | r |}
     \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
+    & & \multicolumn{4}{| c |}{Rods} \\
     \hline
     & & Rubber & Nylon & Acrylic & Vinyl \\
     \hline
-    \multirow {12}{*}{Material} & \multirow {3}{*}{Silk} & 0.0570 & 0.0080 & 0.0740 & 0.0250 \\
+    \multirow{16}{*}{Material} & \multirow {3}{*}{Silk} & 0.0570 & 0.0080 & 0.0740 & 0.0250 \\
     & & 0.0550 & 0.0050 & 0.0660 & 0.0570 \\ 
     & & 0.0565 & 0.0070 & 0.0520 & 0.0660 \\
     \cline{2-6}
     & Average & 0.0562 & 0.00667 & 0.064 & 0.0493 \\ %66667 (LDR) %6667 (LDR) % %33333 (LDR)
     \cline{2-6}
-    & \multirow {3}{*}{Plastic} & 0.0430 & 0.0070 & 0.0780 & 0.0640 \\
+    & \multirow{3}{*}{Plastic} & 0.0430 & 0.0070 & 0.0780 & 0.0640 \\
     & & 0.0300 & 0.0110 & 0.0640 & 0.0670 \\
     & & 0.0360 & 0.0090 & 0.0300 & 0.0640 \\
     \cline{2-6}
     & Average & 0.0363 & 0.009 & 0.0573 & 0.0650 \\ %33333 (LDR) % %33333 %
     \cline{2-6}
-    & \multirow {3}{*}{Hair} & 0.0570 & 0.0620 & 0.0450 & 0.0710 \\
+    & \multirow{3}{*}{Hair} & 0.0570 & 0.0620 & 0.0450 & 0.0710 \\
     & & 0.0600 & 0.0710 & 0.0650 & 0.0610 \\
     & & 0.0650 & 0.0660 & 0.0630 & 0.0660 \\
     \cline{2-6}
     & Average & 0.0607 & 0.0663 & 0.0577 & 0.0660 \\ %66667 (LDR) %33333 %66667 (LDR) %
     \cline{2-6}
-    & \multirow {3}{*}{Wool} & 0.0480 & 0.0170 & 0.0340 & 0.0700 \\
+    & \multirow{3}{*}{Wool} & 0.0480 & 0.0170 & 0.0340 & 0.0700 \\
     & & 0.0240 & 0.0060 & 0.0300 & 0.0730 \\
     & & 0.0300 & 0.0070 & 0.0560 & 0.0750 \\
     \cline{2-6}
     & Average & 0.0340 & 0.0100 & 0.0400 & 0.0727 \\ % % % %66667 (LDR)
     \cline{2-6}
     \hline\hline
-  \end {tabular} \\
-  \caption {Distance between pith balls in meters between different rods and materials.}
-\end {table}
+  \end{tabular} \\
+  \caption{Distance between pith balls in meters between different rods and materials.}
+  \label{tab:1}
+\end{table}
 
 \begin {table}[H]
   \centering
@@ -191,6 +201,7 @@ Each combination of rod and material were used to charge the rod and apply it to
     \hline\hline
   \end {tabular} \\
   \caption {Force of charge and charge values for rubber and nylon}
+  \label{tab:2}
 \end {table}
 
 \begin{table}[h!]
@@ -213,13 +224,11 @@ Each combination of rod and material were used to charge the rod and apply it to
     \hline\hline
   \end{tabular}
   \caption{Force of charge and charge values for acrylic and vinyl}
+  \label{tab:3}
 \end{table}
 
 \subsection* {ANALYSIS OF DATA}
-Figures 2 through 5 show the distance between the pith balls depending on the rod and material combination. Equation 9 from Supplementary Question 1 can be used to measure the force from Coulomb's Law. Figure 6 shows the force of the two charges using Equation 9 and the distance between the charges, while Figure 7 is a direct representation of Equation 13 and explores the distance between charges and the charge values themselves. \\
-
-\noindent
-Note: For comprehensibility, Figures 2 through 5 have been shown in centimeters.
+Figures ~\ref{fig:2}, ~\ref{fig:3}, ~\ref{fig:4}, and ~\ref{fig:5} show the distance between the pith balls depending on the rod and material combination. Equation 9 from Supplementary Question 1 can be used to measure the force from Coulomb's Law. Figure ~\ref{fig:6} shows the force of the two charges using Equation 9 and the distance between the charges, while Figure ~\ref{fig:7} is a direct representation of Equation 13 and explores the distance between charges and the charge values themselves.
 
 \begin{figure}
   \centering
@@ -235,8 +244,9 @@ Note: For comprehensibility, Figures 2 through 5 have been shown in centimeters.
     \addplot+[ybar] plot coordinates
         {(Rubber,5.6166667) (Nylon, 0.6666667) (Vinyl,4.9333333) (Acrylic,6.4)};
     \end{axis}
-  \end{tikzpicture}%
+  \end{tikzpicture}
   \caption{}
+  \label{fig:2}
 \end{figure}
 
 \begin{figure}[h!]
@@ -255,6 +265,7 @@ Note: For comprehensibility, Figures 2 through 5 have been shown in centimeters.
     \end{axis}
   \end{tikzpicture}
   \caption{}
+  \label{fig:3}
 \end{figure}
 
 \begin{figure}[h!]
@@ -273,6 +284,7 @@ Note: For comprehensibility, Figures 2 through 5 have been shown in centimeters.
     \end{axis}
   \end{tikzpicture}
   \caption{}
+  \label{fig:4}
 \end{figure}
 
 \begin{figure}[h!]
@@ -291,6 +303,7 @@ Note: For comprehensibility, Figures 2 through 5 have been shown in centimeters.
     \end{axis}
   \end{tikzpicture}
   \caption{}
+  \label{fig:5}
 \end{figure}
 
 \pgfplotstableread{
@@ -329,6 +342,7 @@ X Y
     \end{axis}
   \end{tikzpicture}
   \caption {}
+  \label{fig:6}
 \end {figure}
 
 \pgfplotstableread{
@@ -370,200 +384,213 @@ X Y
     \end{axis}
   \end{tikzpicture}
   \caption {}
+  \label{fig:7}
 \end {figure}
 
 \subsection* {DISCUSSION OF RESULTS}
-Figures 2 through 5 can be compared to what was expected for each rod/material combination. For instance, in Figure 2, it was expected that the acrylic rod would show the greatest distance between pith balls followed by vinyl, with nylon and rubber being equal. However, Figure 2 shows that while acrylic discharged the most, nylon and rubber did not behave as expected. \\\\
-For plastic, it was expected that acrylic would show the greatest distance, followed by nylon, vinyl, and then rubber. The lowest, as shown in Figure 3, was nylon, which does not match expectations. \\\\
-For hair, the expectation was for vinyl to discharge the greatest, followed by rubber, and equally, acrylic and nylon. However, nylon again disrupts expectations by having the greatest distance between the pith balls. Acrylic and rubber seem to follow expectations. \\\\
-And lastly, for wool, vinyl was expected to show the greatest distance, followed by rubber, acrylic, and nylon. Figure 5 shows that these expectations were mostly met, with acrylic slightly exceeding the distance expected. \\
+Figures 2 through 5 can be compared to what was expected for each rod/material combination. For instance, in Figure ~\ref{fig:2}, it was expected that the acrylic rod would show the greatest distance between pith balls followed by vinyl, with nylon and rubber being equal. However, the results showed that while acrylic discharged the most, nylon and rubber did not behave as expected.
+
+For plastic, it was expected that acrylic would show the greatest distance, followed by nylon, vinyl, and then rubber. The lowest, as shown in Figure ~\ref{fig:3}, was nylon, which does not match expectations.
+
+For hair, the expectation was for vinyl to discharge the greatest, followed by rubber, and equally, acrylic and nylon. However, nylon again disrupts expectations by having the greatest distance between the pith balls. Acrylic and rubber seem to follow expectations.
+
+And lastly, for wool, vinyl was expected to show the greatest distance, followed by rubber, acrylic, and nylon. Figure ~\ref{fig:5} shows that these expectations were mostly met, with acrylic slightly exceeding the distance expected.
 
 \subsection* {FURTHER STUDY}
-The lab manual states that there are five materials to test (IIT, 3) and five rods to charge the pith balls with. The materials and rods presented at the lab station lacked both a mystery fur and a rayon rod, resulting in this epxeriment consisting of 16 rod/material combinations. Thus, if this experiment were to be repeated, the materials needed (see Equpiment) should be thoroughly checked. Since this experiment did not contain the full list, it is less rigorious than had it been executed in full. \\\\
-Additionally, the value for the length of the string was not recorded during the experiment. The value implemented in this lab report was from a neighboring experiment, and as such, all representative material (tables and graphs) cannot fully model the actual experiment. \\\\
-Care must be taken in order to outline the variables and materials needed in the future. 
+The lab manual states that there are five materials to test (IIT, 3) and five rods to charge the pith balls with. The materials and rods presented at the lab station lacked both a mystery fur and a rayon rod, resulting in this experiment consisting of 16 rod/material combinations. Thus, if this experiment were to be repeated, the materials needed (see Equipment) should be thoroughly checked. Since this experiment did not contain the full list, it is less rigorous than had it been executed in full.
+
+Additionally, the value for the length of the string was not recorded during the experiment. The value implemented in this lab report was obtained from another experiment, and as such, all representative material (tables and graphs) cannot fully model the actual experiment.
 
 \subsection* {SUPPLEMENTARY QUESTIONS}
-1. Using the free-body diagrams of Figure 3, derive an expression for the charge in terms of the pith ball mass \emph{m}, and the separation distance “r”. \\\\
-We know Coulomb's Law from Equation 1. The gravitational force for the pith balls is equal to the product of the mass and Earth's gravity constant. Using this information and the fact that the pith balls are not moving, the following is derived:
-\begin{equation}
-  \begin{split}
-    F_{\text{charge}} &= F_{\text{tension}}\sin{\theta} \\
-  \end{split}
-\end{equation}
+\begin{enumerate}
+  \item{Using the free-body diagrams of Figure 3, derive an expression for the charge in terms of the pith ball mass \emph{m}, and the separation distance \(r\).}
 
-\noindent
-Additionally:
-\begin{equation}
-  \begin{split}
-    F_{\text{gravity}} &= F_{\text{tension}}\cos{\theta} \\
-    m_{\text{ball}}g &= F_{\text{tension}}\cos{\theta} \\
-  \end{split}
-\end{equation}
+    We know Coulomb's Law from Equation 1. The gravitational force for the pith balls is equal to the product of the mass and Earth's gravity constant. Using this information and the fact that the pith balls are not moving, the following is derived:
+    \begin{equation*}
+      \begin{split}
+        F_{\text{charge}} &= F_{\text{tension}}\sin{\theta} \\
+      \end{split}
+    \end{equation*}
 
-\noindent
-where \(\theta\) is the angle between the string and the vertical. The tension force can be solved for using the above Equation set 4:
-\begin{equation}
-  \begin{split}
-    F_{\text{tension}} &= \dfrac{F_{\text{charge}}}{\sin{\theta}} \\
-  \end{split}
-\end{equation}
+    \noindent
+    Additionally:
+    \begin{equation}
+      \begin{split}
+        F_{\text{gravity}} &= F_{\text{tension}}\cos{\theta} \\
+        m_{\text{ball}}g &= F_{\text{tension}}\cos{\theta} \\
+      \end{split}
+    \end{equation}
 
-\noindent
-Likewise, Equation set 5 can be used to solve for the tension force:
-\begin{equation}
-  \begin{split}
-    F_{\text{tension}} &= \dfrac{m_{\text{ball}}g}{\cos{\theta}}
-  \end{split}
-\end{equation}
+    \noindent
+    where \(\theta\) is the angle between the string and the vertical. The tension force can be solved for using the above Equation set 4:
+    \begin{equation}
+      \begin{split}
+        F_{\text{tension}} &= \dfrac{F_{\text{charge}}}{\sin{\theta}} \\
+      \end{split}
+    \end{equation}
 
-\noindent
-Thus, since \(F_{\text{tension}}\) is solved for in Equation set 6 and 7, they can be combined:
-\begin{equation}
-  \begin{split}
-    \dfrac{F_{\text{charge}}}{\sin{\theta}} &= \dfrac{m_{\text{ball}}g}{\cos{\theta}} \\
-  \end{split}
-\end{equation}
+    \noindent
+    Likewise, Equation set 5 can be used to solve for the tension force:
+    \begin{equation}
+      \begin{split}
+        F_{\text{tension}} &= \dfrac{m_{\text{ball}}g}{\cos{\theta}}
+      \end{split}
+    \end{equation}
 
-\noindent
-To find \(F_{\text{charge}}\) in this experiment, \(F_{\text{charge}}\) can be solved for:
-\begin{equation}
-  \begin{split} 
-    F_{\text{charge}} &= m_{\text{ball}}g\tan{\theta} \\
-  \end{split}
-\end{equation}
+    \noindent
+    Thus, since \(F_{\text{tension}}\) is solved for in Equation set 6 and 7, they can be combined:
+    \begin{equation}
+      \begin{split}
+        \dfrac{F_{\text{charge}}}{\sin{\theta}} &= \dfrac{m_{\text{ball}}g}{\cos{\theta}} \\
+      \end{split}
+    \end{equation}
 
-\noindent
-To find \(q_{1}\) and \(q_{2}\), it must be known that these charges are equal, since they were equally charged by the rods. Thus, by substituting in Coulomb's Law (Equation 1), the charge on a pith ball, \(q\), can be solved for:
-\begin{equation}
-  \begin{split}
-    k\dfrac{q_{1}q_{2}}{r^2} &= m_{\text{ball}}g\tan{\theta} \\
-    k\dfrac{q^2}{r^2} &= m_{\text{ball}}g\tan{\theta} \\
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\theta}}{k}} \\
-  \end{split}
-\end{equation}
+    \noindent
+    To find \(F_{\text{charge}}\) in this experiment, \(F_{\text{charge}}\) can be solved for:
+    \begin{equation}
+      \begin{split} 
+        F_{\text{charge}} &= m_{\text{ball}}g\tan{\theta} \\
+      \end{split}
+    \end{equation}
 
-\noindent
-However, \(\theta\) was not measured. Using trig:
+    \noindent
+    To find \(q_{1}\) and \(q_{2}\), it must be known that these charges are equal, since they were equally charged by the rods. Thus, by substituting in Coulomb's Law (Equation 1), the charge on a pith ball, \(q\), can be solved for:
+    \begin{equation}
+      \begin{split}
+        k\dfrac{q_{1}q_{2}}{r^2} &= m_{\text{ball}}g\tan{\theta} \\
+        k\dfrac{q^2}{r^2} &= m_{\text{ball}}g\tan{\theta} \\
+        q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\theta}}{k}} \\
+      \end{split}
+    \end{equation}
 
-\begin{equation}
-  \begin{split}
-    \theta &= \sin^{-1}\left(\dfrac{r}{2l}\right) \\
-  \end{split}
-\end{equation}
+    \noindent
+    However, \(\theta\) was not measured. Using trig:
 
-\noindent
-where \(l\) is the length of the string. Finally, Equation 10 can be combined with Equation 11 to calculate the charge force and charge on a pith ball using the mass of the ball and the length of the string. Below is how to calculate the charge force:
+    \begin{equation}
+      \begin{split}
+        \theta &= \sin^{-1}\left(\dfrac{r}{2l}\right) \\
+      \end{split}
+    \end{equation}
 
-\begin{equation}
-  \begin{split}
-    F_{\text{charge}} &= m_{\text{ball}}g\tan{\theta} \\
-    F_{\text{charge}} &= m_{\text{ball}}g\tan\left({\sin^{-1}\left(\dfrac{r}{2l}\right)}\right) \\
-    F_{\text{charge}} &= m_{\text{ball}}g\left(\dfrac{r}{\sqrt{4l^2-r^2}}\right) \\
-  \end{split}
-\end{equation}
+    \noindent
+    where \(l\) is the length of the string. Finally, Equation 10 can be combined with Equation 11 to calculate the charge force and charge on a pith ball using the mass of the ball and the length of the string. Below is how to calculate the charge force:
 
-\noindent
-Below is how to calculate the charge on a single pith ball:
-\begin{equation}
-  \begin{split}
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\theta}}{k}} \\
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\left(\sin^{-1}\left(\dfrac{r}{2l}\right)\right)}}{k}} \\
-    q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\left(\dfrac{r}{\sqrt{4l^2-r^2}}\right)}{k}} \\
-    q &= \sqrt{\dfrac{r^{3}m_{\text{ball}}g}{k\sqrt{4l^2-r^2}}} \\
-  \end{split}
-\end{equation}
+    \begin{equation}
+      \begin{split}
+        F_{\text{charge}} &= m_{\text{ball}}g\tan{\theta} \\
+        F_{\text{charge}} &= m_{\text{ball}}g\tan\left({\sin^{-1}\left(\dfrac{r}{2l}\right)}\right) \\
+        F_{\text{charge}} &= m_{\text{ball}}g\left(\dfrac{r}{\sqrt{4l^2-r^2}}\right) \\
+      \end{split}
+    \end{equation}
 
-\noindent
-2. Calculate the charge on the pith balls for each rod/soft material combination.  How many millions or billions of electrons reside on each pith ball? \\\\
-An electron has a charge of about -1.60 \(\times 10^{-19}\) C (Boston University, "Electric charge and Coulomb's law"). Knowing this fact, the amount of electrons can be calculated for each pith ball in each combination of rod and material using the following:
-\begin{equation}
-  \begin{split}
-    n &= \dfrac{q}{e} \\
-  \end{split}
-\end{equation}
-where \(n\) is the number of electrons, \(q\) is the charge of one of the pith balls, and \(e\) is the charge of one electron.
+    \noindent
+    Below is how to calculate the charge on a single pith ball:
+    \begin{equation}
+      \begin{split}
+        q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\theta}}{k}} \\
+        q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\tan{\left(\sin^{-1}\left(\dfrac{r}{2l}\right)\right)}}{k}} \\
+        q &= \sqrt{\dfrac{r^{2}m_{\text{ball}}g\left(\dfrac{r}{\sqrt{4l^2-r^2}}\right)}{k}} \\
+        q &= \sqrt{\dfrac{r^{3}m_{\text{ball}}g}{k\sqrt{4l^2-r^2}}} \\
+      \end{split}
+    \end{equation}
 
-\begin {table}[H]
-  \centering
-  \begin {tabular}{| c | c | c | c | c | c |}
-    \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
-    \hline
-    & & Rubber & Nylon & Acrylic & Vinyl \\
-    \hline
-    \multirow {4}{*}{Material} & Silk & 4.12 \(\times10^{10}\) & 1.65 \(\times10^{9}\) & 5.05 \(\times10^{-10}\) & 3.38\(\times 10^{10}\) \\ %329714 %682723 (LDR) %355268 %501704 (LDR)
-    \cline{2-6}
-    & Plastic & 2.12 \(\times10^{10}\) & 2.58\(\times10^{9}\) & 4.26 \(\times10^{10}\) & 5.18 \(\times10^{10}\) \\ %508214 (LDR) %382794 %692174 (LDR) %794053 (LDR)
-    \cline{2-6}
-    & Hair & 4.65\(\times 10^{10}\) & 5.35\(\times 10^{10}\) & 4.30\(\times 10^{10}\) & 5.30\(\times 10^{10}\) \\ %817784 (LDR) %579832 (LDR) %541544 (LDR) %361821
-    \cline{2-6}
-    & Wool & 1.91\(\times 10^{10}\) & 3.03\(\times10^{9}\) & 2.45\(\times 10^{10}\) & 6.17\(\times 10^{10}\) \\ %228934 %663194 (LDR) %836667 (LDR) %490279 (LDR)
-    \hline\hline
-  \end {tabular} \\
-  \caption {Electrons in one pith ball (e)}
-\end {table}
+  \item{Calculate the charge on the pith balls for each rod/soft material combination.  How many millions or billions of electrons reside on each pith ball?}
 
-\noindent
-3. Compare the extremely small gravitational attraction between the two pith balls with the repulsion of the electrostatic force. \\
+    An electron has a charge of about -1.60 \(\times 10^{-19}\) C (Boston University, "Electric charge and Coulomb's law"). Knowing this fact, the amount of electrons can be calculated for each pith ball in each combination of rod and material using the following:
+    \begin{equation}
+      \begin{split}
+        n &= \dfrac{q}{e} \\
+      \end{split}
+    \end{equation}
+    where \(n\) is the number of electrons, \(q\) is the charge of one of the pith balls, and \(e\) is the charge of one electron.
 
-\begin {table}[H]
-  \centering
-  \begin {tabular}{| c | c | c | c | c | c |}
-    \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
-    \hline
-    & & Rubber & Nylon & Acrylic & Vinyl \\
-    \hline
-    \multirow {4}{*}{Material} & Silk & 3.38 \(\times10^{-17}\) & 2.40\(\times 10^{-15}\) & 2.61 \(\times10^{-17}\) & 4.38 \(\times10^{-17}\) \\ %289494 %119976 %546875 (LDR) %495258
-    \cline{2-6}
-    & Plastic & 8.08 \(\times10^{-17}\) & 1.32 \(\times10^{-15}\) & 3.25 \(\times10^{-17}\) & 2.53 \(\times10^{-17}\) \\ %416815 %753086 (LDR) %661983 (LDR) %591716 (LDR)
-    \cline{2-6}
-    & Hair & 2.90 \(\times10^{-17}\) & 2.43 \(\times10^{-17}\) & 3.21 \(\times10^{-17}\) & 2.45 \(\times10^{-17}\) \\ %964977 (LDR) %539332 (LDR) %919506 (LDR) %995409 (LDR)
-    \cline{2-6}
-    & Wool & 9.23 \(\times10^{-17}\) & 1.07 \(\times10^{-15}\) & 6.67 \(\times10^{-17}\) & 2.02 \(\times10^{-17}\) \\ %183391 %72 (LDR) % %104198
-    \hline\hline
-  \end {tabular} \\
-  \caption {Force of gravity between pith balls (N)}
-\end {table}
+    \begin {table}[H]
+      \centering
+      \begin {tabular}{| c | c | c | c | c | c |}
+        \hline\hline
+        & & \multicolumn {4}{| c |}{Rods} \\
+        \hline
+        & & Rubber & Nylon & Acrylic & Vinyl \\
+        \hline
+        \multirow {4}{*}{Material} & Silk & 4.12 \(\times10^{10}\) & 1.65 \(\times10^{9}\) & 5.05 \(\times10^{-10}\) & 3.38\(\times 10^{10}\) \\ %329714 %682723 (LDR) %355268 %501704 (LDR)
+        \cline{2-6}
+        & Plastic & 2.12 \(\times10^{10}\) & 2.58\(\times10^{9}\) & 4.26 \(\times10^{10}\) & 5.18 \(\times10^{10}\) \\ %508214 (LDR) %382794 %692174 (LDR) %794053 (LDR)
+        \cline{2-6}
+        & Hair & 4.65\(\times 10^{10}\) & 5.35\(\times 10^{10}\) & 4.30\(\times 10^{10}\) & 5.30\(\times 10^{10}\) \\ %817784 (LDR) %579832 (LDR) %541544 (LDR) %361821
+        \cline{2-6}
+        & Wool & 1.91\(\times 10^{10}\) & 3.03\(\times10^{9}\) & 2.45\(\times 10^{10}\) & 6.17\(\times 10^{10}\) \\ %228934 %663194 (LDR) %836667 (LDR) %490279 (LDR)
+        \hline\hline
+      \end {tabular} \\
+      \caption {Electrons in one pith ball (e)}
+    \end {table}
 
-\noindent
-The proportion between the charge force and the gravitational force between the pith balls will be defined as:
-\begin{equation}  
-  \begin{split}
-    \dfrac{F_{\text{charge}}}{F_{\text{gravitational}}} \\
-  \end{split} 
-\end{equation}
+  \item{Compare the extremely small gravitational attraction between the two pith balls with the repulsion of the electrostatic force.}
 
-\noindent
-Table 5 shows the proportion between the two forces for each rod/material pair.
+    \begin {table}[H]
+      \centering
+      \begin {tabular}{| c | c | c | c | c | c |}
+        \hline\hline
+        & & \multicolumn {4}{| c |}{Rods} \\
+        \hline
+        & & Rubber & Nylon & Acrylic & Vinyl \\
+        \hline
+        \multirow {4}{*}{Material} & Silk & 3.38 \(\times10^{-17}\) & 2.40\(\times 10^{-15}\) & 2.61 \(\times10^{-17}\) & 4.38 \(\times10^{-17}\) \\ %289494 %119976 %546875 (LDR) %495258
+        \cline{2-6}
+        & Plastic & 8.08 \(\times10^{-17}\) & 1.32 \(\times10^{-15}\) & 3.25 \(\times10^{-17}\) & 2.53 \(\times10^{-17}\) \\ %416815 %753086 (LDR) %661983 (LDR) %591716 (LDR)
+        \cline{2-6}
+        & Hair & 2.90 \(\times10^{-17}\) & 2.43 \(\times10^{-17}\) & 3.21 \(\times10^{-17}\) & 2.45 \(\times10^{-17}\) \\ %964977 (LDR) %539332 (LDR) %919506 (LDR) %995409 (LDR)
+        \cline{2-6}
+        & Wool & 9.23 \(\times10^{-17}\) & 1.07 \(\times10^{-15}\) & 6.67 \(\times10^{-17}\) & 2.02 \(\times10^{-17}\) \\ %183391 %72 (LDR) % %104198
+        \hline\hline
+      \end {tabular}
+      \caption {Force of gravity between pith balls (N)}
+    \end {table}
 
-\begin {table}[H]
-  \centering
-  \begin {tabular}{| c | c | c | c | c | c |}
-    \hline\hline
-    & & \multicolumn {4}{| c |}{Rods} \\
-    \hline
-    & & Rubber & Nylon & Acrylic & Vinyl \\
-    \hline
-    \multirow {4}{*}{Material} & Silk & 3.67 \(\times10^{12}\) & 5.86 \(\times10^{9}\) & 5.51 \(\times10^{12}\) & 2.46 \(\times10^{12}\) \\ %0505889 %5078671 (LDR) %353648 %9170265 (LDR)
-    \cline{2-6}
-    & Plastic & 9.66 \(\times10^{11}\) & 1.44 \(\times10^{10}\) & 3.91 \(\times10^{12}\) & 5.79 \(\times10^{12}\) \\ %8087493 (LDR) %1331378 %2262558 %8296557 (LDR)
-    \cline{2-6}
-    & Hair & 4.66 \(\times10^{12}\) & 6.17 \(\times10^{12}\) & 3.98 \(\times10^{12}\) & 6.07 \(\times10^{12}\) \\ %4468116 %966806 (LDR) %3336588 %2690734
-    \cline{2-6}
-    & Wool & 7.89 \(\times10^{11}\) & 1.98 \(\times10^{10}\) &1.29 \(\times10^{12}\) & 8.23 \(\times10^{12}\) \\ %4849714 %7679357 (LDR) %4164781 %1839796
-    \hline\hline
-  \end {tabular} \\
-  \caption {Proportion of \(F_{\text{charge}}\) to \(F_{\text{gravitational}}\) (unitless)}
-\end {table}
+    \noindent
+    The proportion between the charge force and the gravitational force between the pith balls will be defined as:
+    \begin{equation}  
+      \begin{split}
+        \dfrac{F_{\text{charge}}}{F_{\text{gravitational}}} \\
+      \end{split} 
+    \end{equation}
 
-\noindent
-4. Develop a way to determine if the mystery fur is from a rabbit or cat. If you have time, try your method out, to see if it works. If time is short, or humidity is too high, describe how one could carry out the method in conditions with lower humidity. \\\\ 
-We know that the farther away two materials are in Figure 2 of the lab manual (IIT, 2), the greater affinity they have for receiving or depositing electrons. As such, we can determine whether the mystery fur is from a rabbit or a cat based on its combinations with the rods and the resulting distance. For rabbit fur, as we rub it with rods increasingly farther apart, the distance between the pith balls will increase. The order, from least to most distance for rabbit fur should be as follows: acrylic, nylon, plastic, rubber, and vinyl. For the cat fur, the order is as follows from least to most distance: nylon, acrylic and rubber, and vinyl.
+    \noindent
+    Table 5 shows the proportion between the two forces for each rod/material pair.
 
-\subsection* {REFERENCES}
-Boston University. (n.d.). Electric charge and Coulomb's law. Retrieved February 5, 2020, from https://physics.bu.edu/~duffy/py106/Charge.html \\\\
-Gladding, G., Selen, M. A., \& Stelzer, T. (2012). Electricity and Magnetism. New York: W.H. Freeman. \\\\
-Illinois Institute of Technology. (n.d.). Experiment 1: Coulomb's Law. PDF. Chicago.
+    \begin {table}[H]
+      \centering
+      \begin {tabular}{| c | c | c | c | c | c |}
+        \hline\hline
+        & & \multicolumn {4}{| c |}{Rods} \\
+        \hline
+        & & Rubber & Nylon & Acrylic & Vinyl \\
+        \hline
+        \multirow {4}{*}{Material} & Silk & 3.67 \(\times10^{12}\) & 5.86 \(\times10^{9}\) & 5.51 \(\times10^{12}\) & 2.46 \(\times10^{12}\) \\ %0505889 %5078671 (LDR) %353648 %9170265 (LDR)
+        \cline{2-6}
+        & Plastic & 9.66 \(\times10^{11}\) & 1.44 \(\times10^{10}\) & 3.91 \(\times10^{12}\) & 5.79 \(\times10^{12}\) \\ %8087493 (LDR) %1331378 %2262558 %8296557 (LDR)
+        \cline{2-6}
+        & Hair & 4.66 \(\times10^{12}\) & 6.17 \(\times10^{12}\) & 3.98 \(\times10^{12}\) & 6.07 \(\times10^{12}\) \\ %4468116 %966806 (LDR) %3336588 %2690734
+        \cline{2-6}
+        & Wool & 7.89 \(\times10^{11}\) & 1.98 \(\times10^{10}\) &1.29 \(\times10^{12}\) & 8.23 \(\times10^{12}\) \\ %4849714 %7679357 (LDR) %4164781 %1839796
+        \hline\hline
+      \end {tabular}
+      \caption {Proportion of \(F_{\text{charge}}\) to \(F_{\text{gravitational}}\) (unitless)}
+    \end {table}
+
+  \item{Develop a way to determine if the mystery fur is from a rabbit or cat. If you have time, try your method out, to see if it works. If time is short, or humidity is too high, describe how one could carry out the method in conditions with lower humidity.}
+
+    We know that the farther away two materials are in Figure 2 of the lab manual (IIT, 2), the greater affinity they have for receiving or depositing electrons. As such, we can determine whether the mystery fur is from a rabbit or a cat based on its combinations with the rods and the resulting distance. For rabbit fur, as we rub it with rods increasingly farther apart, the distance between the pith balls will increase. The order, from least to most distance for rabbit fur should be as follows: acrylic, nylon, plastic, rubber, and vinyl. For the cat fur, the order is as follows from least to most distance: nylon, acrylic and rubber, and vinyl.
+
+\end{enumerate}
+
+\thebibliography{3}
+  \bibitem{coulomb}
+  Boston University. (n.d.). Electric charge and Coulomb's law. Retrieved February 5, 2020, from https://physics.bu.edu/~duffy/py106/Charge.html
+
+  \bibitem{magnetism}
+  Gladding, G., Selen, M. A., \& Stelzer, T. (2012). Electricity and Magnetism. New York: W.H. Freeman.
+
+  \bibitem{labManual}
+  Illinois Institute of Technology. (n.d.). Experiment 1: Coulomb's Law. PDF. Chicago.
+
 \end {document}
