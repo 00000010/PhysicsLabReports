@@ -13,8 +13,6 @@
 \usepackage {tabu}
 % For multiple rows in table slot
 \usepackage {multirow}
-% For multi-line comments, I think
-\usepackage {verbatim}
 % To add captions
 \usepackage {caption}
 % Forget what this is for
@@ -124,12 +122,12 @@ However, examining a wire requires taking into consideration the culmination of 
   \end{split}
 \end{equation}
 where \(n\) is the number of charges per unit volume, \(A\) is the cross-sectional area of the material, \(q\) is the charge of each particle, and \(v\) is the velocity of the charges through the material. Then \(qv\) is equal to the current divided by \(nA\). Combining the two equations gives:
-\begin{equation*}
+\begin{equation}
   \begin{split}
     \vec{F}_{\text{wire}} &= (nAL)\left(\dfrac{I}{nA}\times{\vec{B}}\right) \\
     \vec{F}_{\text{wire}} &= I\vec{L}\times\vec{B} \\
   \end{split}
-\end{equation*}
+\end{equation}
 
 \noindent
 The magnitude of this force is given by:
@@ -150,12 +148,14 @@ where \(\theta\) is the angle between \(\vec{L}\) and \(\vec{B}\). When \(\theta
     \item {one stand to hold the wire}
     \item {one PASCO Capstone Sensor and associated softward}
     \item {wires to connect power supply and stand}
+    \item {horseshoe magnet}
   \end {itemize}
 
 \subsection* {PROCEDURE}
 The first part of the experiment involved drawing out the observed magnetic fields when placing a compass near the wire held in the stand while it carried current. The current was set to 5.0 Amps. Near the bottom of the stand was a platform depicting the following shown in Figure 1. The compass was then moved around while its position and reaction were recorded.
 
-The second part of the lab involved demonstrating the magnetic force 
+\noindent
+The second part of the lab involved demonstrating the magnetic force varying the current and the length of the wires. For each of these parts, the magnetic force was calculated from the effect the current through the wires had on the mass of the horseshoe magnet.
 
 \subsection* {DATA}
 Figures ~\ref{fig:1} and ~\ref{fig:2} show the orientation of the north and south poles of the compass as it was placed in eight different orientations around the platform with the wire. Figure 1 shows the north poles facing clockwise, while Figure 2 shows the north poles facing counter-clockwise.
@@ -389,18 +389,32 @@ Table 1 demonstrates the above process to plot Figure ~\ref{fig:5} with a best-f
 
 \noindent
 When the magnets are together (as between the poles of the horseshoe magnet), the magnetic field is doubled. Thus, the percentage difference was calculated as such:
+
 \begin{equation*}
   \begin{split}
     \%\text{ Difference} &= \dfrac{0.0677 - (2)(0.02235)}{\tfrac{0.0677 + (2)(0.02235)}{2}}\cdot{100} \\
-    \%\text{ Difference} &= 40.9791628\% \\
+    \%\text{ Difference} &= 41.0\% \\ %791628 (LDR)
   \end{split}
 \end{equation*}
 
 \noindent
-The strength of the magnetic field can be found again using the same process as before for the second half of the second part. \(IB\) represents the slope of the best-fit line when the length of the wire is varied as shown in Figure ~\ref{fig:6}.
+The strength of the magnetic field can be found again using the same process as before for the second half of the second part. \(IB\) represents the slope of the best-fit line when the length of the wire is varied as shown in Figure ~\ref{fig:6}. Thus:
+\begin{equation*}
+  \begin{split}
+    B &= \dfrac{\text{slope}}{I} \\
+      &= \dfrac{0.33094(\text{T}\cdot{A})}{5\text{A}} \\  
+      &= 0.066188\text{ T} \\
+  \end{split}
+\end{equation*}
 
 \noindent
-Table ~\ref{fig:tab2} shows that as the length of the wire increased, the mass of the magnet increased. 
+The percentage difference for this result is:
+\begin{equation*}
+  \begin{split}
+    \%\text{ Difference} &= \dfrac{0.0662 - (2)(0.02235)}{\tfrac{0.0662 + (2)(0.02235)}{2}}\cdot{100} \\
+    \%\text{ Difference} &= 38.8\% \\ %5622249 (LDR)
+  \end{split}
+\end{equation*}
 
 \begin{figure}
   \centering
@@ -489,10 +503,18 @@ X Y
 \end {figure}
 
 \subsection* {DISCUSSION OF RESULTS}
+For the first part of the experiment, the results obtained were expected. When the current switched directions, the direction the north pole of the compass also changed, and corresponded to the RHR.
+
+For the second part of the experiment when varying the current, the results obtained numerically corresponded with what was expected (that the magnetic force increased as the current increased). However, the percentage difference was fairly high, at 41.0\%. This large difference could be due to general disposition of the experiment, as the values obtained were small and could easily be affected by other magnetic fields. 
+
+\noindent
+For the last part when varying the length of the wires between the magnet, the results again agreed with the expectation that with more wire, the overall charges flowing between the magnet would increase. While the value for the magnetic field was very similar to the magnetic field calculated previously, it still had a high percentage difference. Again, this high percentage difference could be due to outside magnetic fields. 
+
+\noindent
+Note that while the current loop contained segments 2-3, 3-4, and 4-5, only the loop from 3-4 actually contributed. For instance, referencing the RHR, the forces of the wires cancel out, as the currents are going in opposite directions.
 
 \subsection* {FURTHER STUDY}
-
-\subsection* {SUPPLEMENTARY QUESTIONS}
+If this experiment were to be done again, it would be interesting to see stronger magnets and their contibution on a larger scale.
 
 \subsection* {REFERENCES}
 Illinois Institute of Technology. (n.d.). Experiment 8: Magnetic Fields and Forces. PDF. Chicago.
