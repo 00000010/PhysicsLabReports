@@ -9,6 +9,7 @@
 *.dat
 *.script
 *.ps
+*.out
 
 # Other files #
 ###################

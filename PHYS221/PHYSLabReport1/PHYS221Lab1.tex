@@ -1,6 +1,6 @@
 % Document notes
 % Interestingly, in Figure 1, need to draw the node first, then fill it in order to still have a visible label on the node. See the circle node (tikzstyle) specifications.
-% Forget what \raggedbottom does, so deleted it
+% Forget what \raggedbottom does, so deleted it. Uhhhhhhh... Actually without it the spacing is weird between sections. Put it back in.
 \documentclass [12pt, letterpaper, twoside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in]{geometry}
@@ -24,6 +24,7 @@
 \usetikzlibrary{positioning}
 
 \pgfplotsset{compat=1.16}
+\raggedbottom
 \begin{document}
 \begin{titlepage}
 \begin{center}
@@ -61,11 +62,9 @@ Updated \usdate\today~(\currenttime)
 The objective of this lab was to examine the relationship between charged masses and the distance between charges using Coulomb's Law.
 
 \subsection*{THEORY}
-When two or more charged objects are within some distance \(r\), the force exerted on the objects by each other can be modeled using Coulomb's Law, as shown below:
-\begin{equation}
-  \begin{split}
+When two or more charged particles are within some distance \(r\), the force exerted on the particles by each other can be modeled using Coulomb's Law, as shown below:
+\begin{equation} \label{eq:1}
     F = k\dfrac{q_{1}q_{2}}{r^2} \\
-  \end{split}
 \end{equation}
 where \(k\) is a constant measured at 9.0 \(\times 10^9 \tfrac{\text{ N}\cdot\text{m}^2}{\text{C}^2}\) and the force is measured in Newtons. Additionally, all masses exert a gravitational force on other masses, as shown by the Law of Universal Gravitation:
 \begin{equation}
@@ -73,7 +72,7 @@ where \(k\) is a constant measured at 9.0 \(\times 10^9 \tfrac{\text{ N}\cdot\te
     F_{\text{univ. grav.}} &= G\dfrac{m_{1}m_{2}}{r^2} \\
   \end{split}
 \end{equation}
-where \(G\) is a constant equal to \(6.67\times{10^{-11}}\tfrac{\text{m}^2}{\text{kg}\cdot{\text{s}^2}}\), \(m_{1}\) and \(m_{2}\) represent the two masses, and \(r\) is the distance between the masses. Lastly, it is known that all masses on Earth are under the influence of gravity (including Earth). The force of gravity on Earth is represented by:
+where \(G\) is a constant equal to \(6.67\times{10^{-11}}\tfrac{\text{m}^2}{\text{kg}\cdot{\text{s}^2}}\), \(m_{1}\) and \(m_{2}\) represent the two masses, and \(r\) is the distance between the centers of the masses. Lastly, it is known that all masses on Earth are under the influence of gravity (including Earth). The force of gravity on a mass on Earth is represented by:
 \begin{equation}
   \begin{split}
     F_{\text{gravity}} &= mg \\
@@ -401,7 +400,22 @@ Additionally, the value for the length of the string was not recorded during the
 \begin{enumerate}
   \item{Using the free-body diagrams of Figure 3, derive an expression for the charge in terms of the pith ball mass \emph{m}, and the separation distance \(r\).}
 
-    We know Coulomb's Law from Equation 1. The gravitational force for the pith balls is equal to the product of the mass and Earth's gravity constant. Using this information and the fact that the pith balls are not moving, the following is derived:
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}
+        \tikzstyle{ball}=[rectangle,draw,minimum size=1.5cm]
+          \node (ball) at (0,0) [ball] {Ball};
+          \node (GForce) at (0,-1.75) {\(F_{\text{gravity}}\)};
+          \node (TForce) at (1,1.75) {\(F_{\text{tension}}\)};
+          \node (CForce) at (-1.75,0) {\(F_{\text{charge}}\)};
+          \draw [->] (ball) -- (GForce);
+          \draw [->] (ball) -- (TForce);
+          \draw [->] (ball) -- (CForce);
+      \end{tikzpicture}
+      \caption{FBD of Pith Ball}
+      \label{fig:8}
+    \end{figure}
+    We know Coulomb's Law from Equation ~\ref{eq:1}. The gravitational force for the pith balls is equal to the product of the mass and Earth's gravity constant. Using this information and the fact that the pith balls are not moving, the following is derived:
     \begin{equation*}
       \begin{split}
         F_{\text{charge}} &= F_{\text{tension}}\sin{\theta} \\
