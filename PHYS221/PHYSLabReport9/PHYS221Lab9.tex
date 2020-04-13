@@ -1,0 +1,360 @@
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For drawing pictures
+\usepackage {tikz}
+% For equations
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% For multiple rows in table slot
+\usepackage {multirow}
+% To add captions
+\usepackage {caption}
+\usepackage {float}
+% To make tables side by side
+\usepackage{subfig}
+\usepackage{pgfplots}
+% To make scatter plots
+\usepackage{pgfplotstable}
+% To make slanted fractions
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\pgfplotsset{compat=1.16}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+College of Science: Physics Department \\
+\vspace {0.1cm}
+Illinois Institute of Technology \\
+\vspace {0.1cm}
+General Physics II: Electromagnetism (PHYS 221-01) \\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Biot-Savart Law with Helmholtz Coil}
+\vspace {0.35cm}
+
+\normalsize
+Lab 9
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang \\
+Date of experiment: 8 Apr 2020 \\
+Due date: 15 Apr 2020 \\
+Lab section L06 \\
+TA: Will Limestall \\
+Updated \usdate\today~(\currenttime)
+\end{flushright}
+\end{titlepage}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| l | r |}
+    \hline\hline
+    Outer Diameter (m) & 0.165 \\
+    \hline
+    Outer Radius (m) & 0.0825 \\
+    \hline
+    Inner Diameter (m) & 0.145 \\
+    \hline
+    Inner Radius (m) & 0.0725 \\
+    \hline
+    \(N\) & 400 \\
+    \hline\hline
+  \end{tabular}
+  \caption{Helmholtz Coil Specifications}
+\end{table}
+
+\begin{figure}
+  \centering
+  \subfloat[Distance from center of coil and measured magnetic field]{
+    \begin{tabular}{| l | c | c |}
+      \hline\hline
+      \multirow{2}{*}{\(z\) (m)} & \multirow{2}{*}{\(B(z)\) (T)} & \multirow{2}{*}{\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)} \\
+      & & \\
+      \hline
+      \multirow{3}{*}{0.03} & 0.00325     & \\
+                            & 0.00325     & 254.1249168 \\
+                            & 0.00324     & \\
+      \hline
+      Average               & 0.003246667 & \\
+      \hline
+      \multirow{3}{*}{0.04} & 0.00279     & \\
+                            & 0.00279     & 243.7834332 \\
+                            & 0.00278     & \\
+      \hline
+      Average               & 0.002786667 & \\
+      \hline
+      \multirow{3}{*}{0.05} & 0.00235     & \\
+                            & 0.00235     & 231.4818322 \\
+                            & 0.00235     & \\
+      \hline
+      Average               & 0.00235 & \\
+      \hline
+      \multirow{3}{*}{0.06} & 0.00195     & \\
+                            & 0.00194     & 217.7943304 \\
+                            & 0.00195     & \\
+      \hline
+      Average               & 0.00194667 & \\
+      \hline
+      \multirow{3}{*}{0.07} & 0.00169     & \\
+                            & 0.00170     & 203.2777985 \\
+                            & 0.00169     & \\
+      \hline
+      Average               & 0.001693333 & \\
+      \hline
+      \multirow{3}{*}{0.08} & 0.00128     & \\
+                            & 0.00127     & 188.4317665 \\
+                            & 0.00128     & \\
+      \hline
+      Average               & 0.001276667 & \\
+      \hline
+      \multirow{3}{*}{0.23} & 0           & \\
+                            & 0           & 46.87040893 \\
+                            & 0           & \\
+      \hline
+      Average               & 0           & \\
+      \hline\hline
+    \end{tabular}
+  }\qquad
+  \subfloat[Current and Magnetic Field Between Coils]{
+    \begin{tabular}{| c | c |}
+      \hline\hline
+      \(I\) (A) & \(B(0)\) (T) \\
+      \hline
+      \multirow{3}{*}{0.10} & 0.00051 \\
+                            & 0.00051 \\
+                            & 0.00051 \\
+      \hline
+      Average               & 0.00051 \\
+      \hline
+      \multirow{3}{*}{0.20} & 0.00101 \\
+                            & 0.00101 \\
+                            & 0.00101 \\
+      \hline
+      Average               & 0.00101 \\
+      \hline
+      \multirow{3}{*}{0.30} & 0.00151 \\
+                            & 0.00152 \\
+                            & 0.00151 \\
+      \hline
+      Average               & 0.001513333 \\
+      \hline
+      \multirow{3}{*}{0.40} & 0.00203 \\
+                            & 0.00202 \\
+                            & 0.00203 \\
+      \hline
+      Average               & 0.002026667 \\
+      \hline
+      \multirow{3}{*}{0.50} & 0.00253 \\
+                            & 0.00253 \\
+                            & 0.00253 \\
+      \hline
+      Average               & 0.00253 \\
+      \hline
+      \multirow{3}{*}{0.60} & 0.00304 \\
+                            & 0.00303 \\
+                            & 0.00304 \\
+      \hline
+      Average               & 0.003036667 \\
+      \hline
+      \multirow{3}{*}{0.70} & 0.00350 \\
+                            & 0.00349 \\
+                            & 0.00349 \\
+      \hline
+      Average               & 0.003493333 \\
+      \hline\hline
+    \end{tabular}
+  }
+  \caption{Data from Part 1 and 2 of the experiment}
+  \label{fig:1}
+\end{figure}
+
+\pgfplotstableread{
+X Y
+254.1249168 3.246667
+243.7834332 2.786667
+231.4818322 2.35
+217.7943304 1.94667
+203.2777985 1.693333
+188.4317665 1.276667
+46.87040893 0
+}\bfrac
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      title = {Strength of magnetic field and {\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)}},
+      xlabel = {{\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)}},
+      ylabel = {B(z) (mT)},
+      legend pos = outer north east,
+    ]
+    \addplot [only marks, mark = *] table {\bfrac};
+    \addplot [thick, red] table[
+    y={create col/linear regression={y=Y}}
+    ]
+    {\bfrac};
+    \addlegendentry{Data}
+    \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:2}
+\end{figure}
+
+\begin{enumerate}
+  \item{Answer the following questions using the data you acquired from Part 1 of this lab:}
+    \begin{enumerate}
+      \item{Add to your data table(s) a column consisting the value of \(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\).}
+
+        \(R\) is the radius of the Helmholtz Coil. The value 15.5 cm was used (the average of 16.5 and 14.5 cm), while \(z\) is the perpendicular distance from the plane of the coil. The calculated values for \(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\) are shown in Table a in Figure ~\ref{fig:1}.
+
+      \item{Plot a graph of \(B(z)\) versus \(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\).}
+
+        Figure ~\ref{fig:2} shows \(B(z)\) versus \(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\).
+
+      \item{What is the field value at the center of the loop?  Compare this value with Equation 3.}
+
+        The field value at the center of the loop, or when \(z = 0\) is equal to:
+        \begin{equation*}
+          \begin{split}
+            B(z) &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+z^{2})^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+(0)^{2})^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2})^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IN}{2R} \\
+          \end{split}
+        \end{equation*}
+        This formula already looks familiar if compared to Equation 3 in the lab manual:
+        \begin{equation*}
+          \begin{split}
+            B = \dfrac{\mu_{0}I}{2R} \\
+          \end{split}
+        \end{equation*}
+        which the lab manual presented as when \(z=0\) and \(N=1\). In our derived equation, if \(N\) is equal to 1 (as in the case when \(z=0\)), then the following is the result:
+        \begin{equation*}
+          \begin{split}
+            B(z) &= \dfrac{\mu_{0}I(1)}{2R} \\
+                 &=  \dfrac{\mu_{0}I}{2R} \\
+          \end{split}
+        \end{equation*}
+        which is exactly the same as Equation 3. Evaluated with the current (1 A) through the coil and radius of the coil (15.5 cm), the magnetic field is:
+        \begin{equation*}
+          \begin{split}
+            B(z) &= \dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(1.0\text{ A})}{2(0.155\text{ m})} \\
+                 &= 0.000004054 \text{ T} \\
+          \end{split}
+        \end{equation*}
+        The result using Equation 3 in the lab manual would give the same result.
+
+      \item{Find the slope of the best-fit line from your graph. From Equation 2, this slope should correspond theoretically to \(\tfrac{\mu_{0}IR^{2}N}{2}\) (try proving this). Compare the two values.}
+
+        The slope of the best-fit line, as shown in Figure ~\ref{fig:2}, was \(1.43\cdot{10}^{-5}\). The formula for the magnetic field is represented by the best-fit line as:
+        \begin{equation*}
+          \begin{split}
+            B(z) &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+z^{2})^{\sfrac{3}{2}}} \\
+          \end{split}
+        \end{equation*}
+        If \(\dfrac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\) is the \(x\)-value and \(B(z)\) is the \(y\)-value, then \(\dfrac{\mu_{0}IR^{2}N}{2}\) would represent the slope. Thus, the experimental value from Figure ~\ref{fig:2} can be compared to the theoretical value obtained through the formula. The theoretical value obtained from the equation was:
+        \begin{equation*}
+          \begin{split}
+            &= \dfrac{\mu_{0}IR^{2}N}{2} \\
+            &= \dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(1.0\text{ A})(0.155\text{ m})^{2}(400\text{ turns})}{2} \\
+            &= 0.000006038 \\
+          \end{split}
+        \end{equation*}
+        The percentage error was calculated as:
+        \begin{equation*}
+          \begin{split}
+            \%\text{ Error} &= \dfrac{|0.000006038 - 0.0000143|}{0.000006038}\times{100\%} \\
+                            &= 129.5611285 \% \\
+          \end{split}
+        \end{equation*}
+
+    \end{enumerate}
+  
+  \item{Answer the following questions using the data you acquired from Part 2 of this lab:}
+    \begin{enumerate}
+      \item{Plot of a graph of \(B(0)\) versus \(I\).}
+
+        The plot of \(B(0)\) versus \(I\) is shown in Figure ~\ref{fig:3}.
+        \pgfplotstableread{
+        X Y
+        0.10 0.51
+        0.20 1.01
+        0.30 1.513333
+        0.40 2.026667
+        0.50 2.53
+        0.60 3.036667
+        0.70 3.493333
+        }\bzero
+
+        \begin{figure}
+          \centering
+          \begin{tikzpicture}
+            \begin{axis}[
+              title = {Current and strength of magnetic field on plane of coil},
+              xlabel = {Current (A)},
+              ylabel = {B(0) (mT)},
+              legend pos = outer north east,
+            ]
+            \addplot [only marks, mark = *] table {\bzero};
+            \addplot [thick, red] table[
+            y={create col/linear regression={y=Y}}
+            ]
+            {\bzero};
+            \addlegendentry{Data}
+            \addlegendentry{\((\pgfmathprintnumber{\pgfplotstableregressiona})x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\)};
+            \end{axis}
+          \end{tikzpicture}
+          \caption{}
+          \label{fig:3}
+        \end{figure}
+
+      \item{Find the slope of the best-fit line.}
+
+        The slope of the best-fit line, from Figure ~\ref{fig:3} is \(5.01\times{10}^{-3}\).
+
+      \item{From Equation 2, the slope of this line should correspond to the value of}
+        \begin{equation*}
+          \begin{split}
+            \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} \\
+          \end{split}
+        \end{equation*}
+
+        The equation below represents the best-fit line:
+        \begin{equation*}
+          \begin{split}
+            B(0) &= \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} \\
+          \end{split}
+        \end{equation*}
+        Current is not in this equation, meaning \(x\) is simply a factor in the above equation, while the \(y\)-value is \(B(0)\). Thus, the slope would be equal to the value in the question. This value evaluated is:
+        \begin{equation*}
+          \begin{split}
+            \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} = \dfrac{8}{5\sqrt{5}}\dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(400\text{ turns})}{0.155\text{ m}} = 0.002320455 \\
+          \end{split}
+        \end{equation*}
+        With this theoretical value, and the slope of the best-fit line as the experimental value, the error percentage of:
+        \begin{equation*}
+          \begin{split}
+            \%\text{ Error} &= \dfrac{|0.002320455 - 0.00501|}{0.002320455}\times{100\%} \\
+                            &= 115.9059352\% \\
+          \end{split}
+        \end{equation*}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
