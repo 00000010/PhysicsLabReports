@@ -86,44 +86,44 @@ Updated \usdate\today~(\currenttime)
       \multirow{2}{*}{\(z\) (m)} & \multirow{2}{*}{\(B(z)\) (T)} & \multirow{2}{*}{\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)} \\
       & & \\
       \hline
-      \multirow{3}{*}{0.03} & 0.00325     & \\
-                            & 0.00325     & 254.1249168 \\
+      \multirow{3}{*}{0.030} & 0.00325     & \\
+                            & 0.00325     & 1700 \\ %42.354643
                             & 0.00324     & \\
       \hline
-      Average               & 0.003246667 & \\
+      Average               & 0.00325 & \\ %6667 (LDR)
       \hline
-      \multirow{3}{*}{0.04} & 0.00279     & \\
-                            & 0.00279     & 243.7834332 \\
+      \multirow{3}{*}{0.040} & 0.00279     & \\
+                            & 0.00279     & 1500 \\ %07.454132
                             & 0.00278     & \\
       \hline
-      Average               & 0.002786667 & \\
+      Average               & 0.00279 & \\ %6667 (LDR)
       \hline
-      \multirow{3}{*}{0.05} & 0.00235     & \\
-                            & 0.00235     & 231.4818322 \\
+      \multirow{3}{*}{0.050} & 0.00235     & \\
+                            & 0.00235     & 1300 \\ %74.655388 (LDR)
                             & 0.00235     & \\
       \hline
       Average               & 0.00235 & \\
       \hline
-      \multirow{3}{*}{0.06} & 0.00195     & \\
-                            & 0.00194     & 217.7943304 \\
+      \multirow{3}{*}{0.060} & 0.00195     & \\
+                            & 0.00194     & 1100 \\ %62.109205 (LDR)
                             & 0.00195     & \\
       \hline
-      Average               & 0.00194667 & \\
+      Average               & 0.00195 & \\ %6667 (LDR)
       \hline
-      \multirow{3}{*}{0.07} & 0.00169     & \\
-                            & 0.00170     & 203.2777985 \\
+      \multirow{3}{*}{0.070} & 0.00169     & \\
+                            & 0.00170     & 880 \\ %7.9844558 (LDR)
                             & 0.00169     & \\
       \hline
-      Average               & 0.001693333 & \\
+      Average               & 0.00169 & \\ %3333
       \hline
-      \multirow{3}{*}{0.08} & 0.00128     & \\
-                            & 0.00127     & 188.4317665 \\
+      \multirow{3}{*}{0.080} & 0.00128     & \\
+                            & 0.00127     & 720 \\ %3.6677308
                             & 0.00128     & \\
       \hline
-      Average               & 0.001276667 & \\
+      Average               & 0.00128 & \\ %6667 (LDR)
       \hline
       \multirow{3}{*}{0.23} & 0           & \\
-                            & 0           & 46.87040893 \\
+                            & 0           & 70 \\ %.94520312 (LDR)
                             & 0           & \\
       \hline
       Average               & 0           & \\
@@ -151,13 +151,13 @@ Updated \usdate\today~(\currenttime)
                             & 0.00152 \\
                             & 0.00151 \\
       \hline
-      Average               & 0.001513333 \\
+      Average               & 0.00151 \\ %3333
       \hline
       \multirow{3}{*}{0.40} & 0.00203 \\
                             & 0.00202 \\
                             & 0.00203 \\
       \hline
-      Average               & 0.002026667 \\
+      Average               & 0.00203 \\ %6667 (LDR)
       \hline
       \multirow{3}{*}{0.50} & 0.00253 \\
                             & 0.00253 \\
@@ -169,13 +169,13 @@ Updated \usdate\today~(\currenttime)
                             & 0.00303 \\
                             & 0.00304 \\
       \hline
-      Average               & 0.003036667 \\
+      Average               & 0.00304 \\ %6667 (LDR)
       \hline
       \multirow{3}{*}{0.70} & 0.00350 \\
                             & 0.00349 \\
                             & 0.00349 \\
       \hline
-      Average               & 0.003493333 \\
+      Average               & 0.00349 \\ %3333
       \hline\hline
     \end{tabular}
   }
@@ -185,13 +185,13 @@ Updated \usdate\today~(\currenttime)
 
 \pgfplotstableread{
 X Y
-254.1249168 3.246667
-243.7834332 2.786667
-231.4818322 2.35
-217.7943304 1.94667
-203.2777985 1.693333
-188.4317665 1.276667
-46.87040893 0
+1742.354643 3.246667
+1507.454132 2.786667
+1274.655388 2.35
+1062.109205 1.946667
+877.9844558 1.693333
+723.6677308 1.276667
+69.94520312 0
 }\bfrac
 
 \begin{figure}
@@ -199,7 +199,7 @@ X Y
   \begin{tikzpicture}
     \begin{axis}[
       title = {Strength of magnetic field and {\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)}},
-      xlabel = {{\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)}},
+      xlabel = {\(\frac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\)},
       ylabel = {B(z) (mT)},
       legend pos = outer north east,
     ]
@@ -233,8 +233,9 @@ X Y
         \begin{equation*}
           \begin{split}
             B(z) &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+z^{2})^{\sfrac{3}{2}}} \\
-                 &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+(0)^{2})^{\sfrac{3}{2}}} \\
+            B(0) &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+(0)^{2})^{\sfrac{3}{2}}} \\
                  &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2})^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IR^{2}N}{2R^{3}} \\
                  &= \dfrac{\mu_{0}IN}{2R} \\
           \end{split}
         \end{equation*}
@@ -254,33 +255,33 @@ X Y
         which is exactly the same as Equation 3. Evaluated with the current (1 A) through the coil and radius of the coil (15.5 cm), the magnetic field is:
         \begin{equation*}
           \begin{split}
-            B(z) &= \dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(1.0\text{ A})}{2(0.155\text{ m})} \\
-                 &= 0.000004054 \text{ T} \\
+            B(z) &= \dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(1.0\text{ A})}{2(0.0.0775\text{ m})} \\
+                 &= 0.00000811\text{ T} \\ %7 (LDR)
           \end{split}
         \end{equation*}
         The result using Equation 3 in the lab manual would give the same result.
 
       \item{Find the slope of the best-fit line from your graph. From Equation 2, this slope should correspond theoretically to \(\tfrac{\mu_{0}IR^{2}N}{2}\) (try proving this). Compare the two values.}
 
-        The slope of the best-fit line, as shown in Figure ~\ref{fig:2}, was \(1.43\cdot{10}^{-5}\). The formula for the magnetic field is represented by the best-fit line as:
+        The slope of the best-fit line, as shown in Figure ~\ref{fig:2}, was \(1.93\cdot{10}^{-5}\). The formula for the magnetic field is represented by the best-fit line as:
         \begin{equation*}
           \begin{split}
             B(z) &= \dfrac{\mu_{0}IR^{2}N}{2(R^{2}+z^{2})^{\sfrac{3}{2}}} \\
           \end{split}
         \end{equation*}
-        If \(\dfrac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\) is the \(x\)-value and \(B(z)\) is the \(y\)-value, then \(\dfrac{\mu_{0}IR^{2}N}{2}\) would represent the slope. Thus, the experimental value from Figure ~\ref{fig:2} can be compared to the theoretical value obtained through the formula. The theoretical value obtained from the equation was:
+        If \(\tfrac{1}{(R^{2}+z^{2})^{\sfrac{3}{2}}}\) is the \(x\)-value and \(B(z)\) is the \(y\)-value, then \(\tfrac{\mu_{0}IR^{2}N}{2}\) would represent the slope. Thus, the experimental value from Figure ~\ref{fig:2} can be compared to the theoretical value obtained through the formula. The theoretical value obtained from the equation was:
         \begin{equation*}
           \begin{split}
             &= \dfrac{\mu_{0}IR^{2}N}{2} \\
-            &= \dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(1.0\text{ A})(0.155\text{ m})^{2}(400\text{ turns})}{2} \\
-            &= 0.000006038 \\
+            &= \dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(1.0\text{ A})(0.0775\text{ m})^{2}(400\text{ turns})}{2} \\
+            &= 0.00000151 \\
           \end{split}
         \end{equation*}
         The percentage error was calculated as:
         \begin{equation*}
           \begin{split}
-            \%\text{ Error} &= \dfrac{|0.000006038 - 0.0000143|}{0.000006038}\times{100\%} \\
-                            &= 129.5611285 \% \\
+            \%\text{ Error} &= \dfrac{|0.00000151 - 0.00000193|}{0.00000151}\times{100\%} \\
+                            &= 27.8 \% \\ %1456954
           \end{split}
         \end{equation*}
 
@@ -328,30 +329,57 @@ X Y
 
         The slope of the best-fit line, from Figure ~\ref{fig:3} is \(5.01\times{10}^{-3}\).
 
-      \item{From Equation 2, the slope of this line should correspond to the value of}
+      \item{From Equation 2, the slope of this line should correspond to the value of
         \begin{equation*}
           \begin{split}
             \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} \\
           \end{split}
         \end{equation*}
+      Show how to derive Equation 5. Compare the slope of your graph with the value obtained from this expression.}
 
-        The equation below represents the best-fit line:
+        The equation in question represents the magnetic field at \(z=0\), or on a plane parallel to the planes created by the two Helmholtz coils and at an equal distance from both of them. It is known from Equation 2 in the lab manual that the equation for the magnitude of the magnetic field along an axis through the center of a Helmholtz coil is:
         \begin{equation*}
           \begin{split}
-            B(0) &= \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} \\
+            B(z) &= \dfrac{\mu_{0}IR^{2}N}{2\left(R^{2}+z^{2}\right)^{\sfrac{3}{2}}} \\
           \end{split}
         \end{equation*}
-        Current is not in this equation, meaning \(x\) is simply a factor in the above equation, while the \(y\)-value is \(B(0)\). Thus, the slope would be equal to the value in the question. This value evaluated is:
+        For two it is both magnetic fields added, since they are the same distance away from the measurement:
         \begin{equation*}
           \begin{split}
-            \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} = \dfrac{8}{5\sqrt{5}}\dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(400\text{ turns})}{0.155\text{ m}} = 0.002320455 \\
+            B(0) &= 2\dfrac{\mu_{0}IR^{2}N}{2\left(R^{2}+z^{2}\right)^{\sfrac{3}{2}}} \\
           \end{split}
         \end{equation*}
-        With this theoretical value, and the slope of the best-fit line as the experimental value, the error percentage of:
+        The radius of the coils is the same as the distance where the magnetic field is being measured from both coils divided by two. In other words, \(z = \tfrac{1}{2}R\).
         \begin{equation*}
           \begin{split}
-            \%\text{ Error} &= \dfrac{|0.002320455 - 0.00501|}{0.002320455}\times{100\%} \\
-                            &= 115.9059352\% \\
+            B(0) &= \dfrac{\mu_{0}IR^{2}N}{\left(R^{2}+(\tfrac{R}{2})^{2}\right)^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IR^{2}N}{\left(R^{2}+(\tfrac{1}{4})R^{2}\right)^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IR^{2}N}{\left(\tfrac{5}{4}R^{2}\right)^{\sfrac{3}{2}}} \\
+                 &= \dfrac{\mu_{0}IN}{\left(\tfrac{5}{4}\right)^{\sfrac{3}{2}}R} \\
+                 &= \dfrac{\mu_{0}IN}{\left(\tfrac{5^{3}}{4^{3}}\right)^{\sfrac{1}{2}}R} \\
+                 &= \dfrac{\mu_{0}IN}{\left(\tfrac{\sqrt{125}}{8}\right)R} \\
+                 &= \dfrac{8\mu_{0}IN}{\sqrt{125}R} \\
+            B(0) &= \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}IN}{R} \\
+          \end{split}
+        \end{equation*}
+        Then if \(I\) represents the \(x\)-value and \(B(0)\) represents the \(y\)-value, then
+        \begin{equation*}
+          \begin{split}
+            \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} \\
+          \end{split}
+        \end{equation*}
+        represents the slope.
+        The theoretical value of the slope is evaluated as:
+        \begin{equation*}
+          \begin{split}
+            \dfrac{8}{5\sqrt{5}}\dfrac{\mu_{0}N}{R} = \dfrac{8}{5\sqrt{5}}\dfrac{(4\pi\times{10}^{-7}\tfrac{\text{T}\cdot\text{m}}{\text{A}})(400\text{ turns})}{0.0775\text{ m}} = 0.00464 \\ %091
+          \end{split}
+        \end{equation*}
+        With this theoretical value, and the slope of the best-fit line as the experimental value, the error percentage was:
+        \begin{equation*}
+          \begin{split}
+            \%\text{ Error} &= \dfrac{|0.00464 - 0.00501|}{0.00464}\times{100\%} \\
+                            &= 7.95 \% \\ %2966121
           \end{split}
         \end{equation*}
     \end{enumerate}
