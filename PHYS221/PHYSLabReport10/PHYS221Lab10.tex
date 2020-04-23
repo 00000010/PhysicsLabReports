@@ -1,0 +1,295 @@
+\documentclass [12pt, letterpaper, twoside] {article}
+\usepackage[utf8]{inputenc}
+\usepackage [left=1.0in, right=1.0in, top=1.0in, bottom=1.0in] {geometry}
+% For updated time
+\usepackage {datetime}
+% For drawing pictures
+\usepackage {tikz}
+% For equations
+\usepackage {amsmath}
+% To make tables
+\usepackage {tabu}
+% For multiple rows in table slot
+\usepackage {multirow}
+% To add captions
+\usepackage {caption}
+\usepackage {float}
+% To make tables side by side
+\usepackage{subfig}
+\usepackage{pgfplots}
+% To make scatter plots
+\usepackage{pgfplotstable}
+% To make slanted fractions
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\pgfplotsset{compat=1.16}
+
+\raggedbottom
+\begin {document}
+\begin {titlepage}
+\begin {center}
+College of Science: Physics Department \\
+\vspace {0.1cm}
+Illinois Institute of Technology \\
+\vspace {0.1cm}
+General Physics II: Electromagnetism (PHYS 221-01) \\
+\vspace* {\fill}
+\begingroup
+\Large
+\textbf {Mass to Charge Ratio}
+\vspace {0.35cm}
+
+\normalsize
+Lab 10
+\vspace {1.5cm}
+\endgroup
+\vspace* {\fill}
+\end {center}
+
+\vspace*{\fill}
+\begin {flushright}
+\footnotesize
+Emily Pang \\
+Date of experiment: 15 Apr 2020 \\
+Due date: 22 Apr 2020 \\
+Lab section L06 \\
+TA: Will Limestall \\
+Updated \usdate\today~(\currenttime)
+\end{flushright}
+\end{titlepage}
+
+\begin{table}
+  \centering
+  {\renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{| l | c |}
+    \hline\hline
+    \(\sfrac{e}{m}\text{ }(\sfrac{\text{C}}{\text{kg}})\) & \(-1.76\times{10}^{11}\) \\ 
+    \hline
+    \(\mu_{0}\text{ }(\sfrac{\text{H}}{\text{m}})\) & \(4\pi\times{10}^{-7}\) \\
+    \hline
+    Inner diameter (m) & 0.26 \\
+    \hline
+    Outer diameter (m) & 0.325 \\
+    \hline
+    N (turns) & 130 \\ 
+    \hline\hline
+  \end{tabular}}
+  \caption{Constants}
+  \label{tab:1}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{| c | c | c | c | c | c |}
+    \hline\hline
+    \multirow{2}{*}{Beam Radius (m)} & \multicolumn{5}{ c |}{Voltage (V)} \\
+    \cline{2-6}
+                                     & 150 & 175 & 200 & 225 & 250 \\
+    \hline
+    0.0350 & 1.474 & 1.579 & 1.689 & 1.788 & 1.888 \\
+    \hline
+    0.0400 & 1.282 & 1.383 & 1.479 & 1.566 & 1.654 \\
+    \hline
+    0.0450 & 1.134 & 1.224 & 1.310 & 1.387 & 1.465 \\
+    \hline
+    0.0500 & 1.024 & 1.104 & 1.181 & 1.251 & 1.321 \\ 
+    \hline\hline
+  \end{tabular}
+  \caption{Beam radius and voltage and the resulting measured current (A)}
+  \label{tab:2}
+\end{table}
+
+\pgfplotstableread{
+X Y
+150 2.172676
+175 2.493241
+200 2.852721
+225 3.196944
+250 3.564544
+}\rowone
+
+\pgfplotstablecreatecol[linear regression]
+{regression}
+{\rowone}
+
+\xdef\slopeone{\pgfplotstableregressiona}
+\xdef\interceptone{\pgfplotstableregressionb}
+
+\pgfplotstableread{
+X Y
+150 1.643524
+175 1.912689
+200 2.187441
+225 2.452356
+250 2.735716
+}\rowtwo
+
+\pgfplotstablecreatecol[linear regression]
+{regression}
+{\rowtwo}
+
+\xdef\slopetwo{\pgfplotstableregressiona}
+\xdef\intercepttwo{\pgfplotstableregressionb}
+
+\pgfplotstableread{
+X Y
+150 1.285956
+175 1.498176
+200 1.7161
+225 1.923769
+250 2.146225
+}\rowthree
+
+\pgfplotstablecreatecol[linear regression]
+{regression}
+{\rowthree}
+
+\xdef\slopethree{\pgfplotstableregressiona}
+\xdef\interceptthree{\pgfplotstableregressionb}
+
+\pgfplotstableread{
+X Y
+150 1.048576
+175 1.218816
+200 1.394761
+225 1.565001
+250 1.745041
+}\rowfour
+
+\pgfplotstablecreatecol[linear regression]
+{regression}
+{\rowfour}
+
+\xdef\slopefour{\pgfplotstableregressiona}
+\xdef\interceptfour{\pgfplotstableregressionb}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      title = {\(I^{2}\) vs. Voltage},
+      xlabel = {Voltage (V)},
+      ylabel = {\(I^{2}\) (\(\text{A}^{2}\))},
+      legend pos = outer north east,
+    ]
+    \addplot [only marks, mark = *, red] table {\rowone};
+    \addplot [thick, red] table[
+    y={create col/linear regression={y=Y}}] {\rowone};
+    \addlegendentry{Beam Radius of 3.5 cm}
+    \addlegendentry{\((\pgfmathprintnumber{\slopeone})x\pgfmathprintnumber[print sign]{\interceptone}\)};
+    \addplot [only marks, mark = *, blue] table {\rowtwo};
+    \addplot [thick, blue] table[
+    y={create col/linear regression={y=Y}}] {\rowtwo};
+    \addlegendentry{Beam Radius of 4.0 cm}
+    \addlegendentry{\((\pgfmathprintnumber{\slopetwo})x\pgfmathprintnumber[print sign]{\intercepttwo}\)};
+    \addplot [only marks, mark = *, orange] table {\rowthree};
+    \addplot [thick, orange] table[
+    y={create col/linear regression={y=Y}}] {\rowthree};
+    \addlegendentry{Beam Radius of 4.5 cm}
+    \addlegendentry{\((\pgfmathprintnumber{\slopethree})x\pgfmathprintnumber[print sign]{\interceptthree}\)};
+    \addplot [only marks, mark = *, purple] table {\rowfour};
+    \addplot [thick, purple] table[
+    y={create col/linear regression={y=Y}}] {\rowfour};
+    \addlegendentry{Beam Radius of 5.0 cm}
+    \addlegendentry{\((\pgfmathprintnumber{\slopefour})x\pgfmathprintnumber[print sign]{\interceptfour}\)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:1}
+\end{figure}
+
+\begin{enumerate}
+  \item{For each radius obtained, plot \(I^{2}\) versus \(V\). This means that for each ROW of your data table, one data set is to be plotted. You will end up with four sets of data, representing four different values of \(r\). You may plot all four data sets on the same graph if they are clearly labeled.}
+  
+    The table for this data is shown in Figure ~\ref{fig:1}.
+
+  \item{Find the slope of the best-fit line for each data set.  What does this slope represent?}{\label{q:2}}
+
+    The slope for each radius is shown in Figure ~\ref{fig:1}. Recall Equation 8 from the lab manual, shown below. It can be manipulated to give the slopes of the best-fit lines in Figure ~\ref{fig:1} by moving the current squared to one side:
+    \begin{equation*}
+      \begin{split}
+        \dfrac{e}{m_{e}} &= \dfrac{125}{32}\dfrac{VR^{2}}{\mu_{0}^{2}I^{2}N^{2}r^{2}} \\
+        I^{2} &= \left(\dfrac{125}{32}\dfrac{m_{e}}{e}\dfrac{R^{2}}{\mu_{0}^{2}N^{2}r^{2}}\right)V \\ 
+      \end{split}
+    \end{equation*}
+    The value of the slope, shown in Question ~\ref{q:3}, represents the expression in parentheses as shown above, while \(V\) is the \(x\)-value and \(I^{2}\) is the \(y\)-value.
+
+  \item{From Equation 8, the slope of the best-fit line of this graph corresponds to
+  \begin{equation*}
+    \begin{split}
+      \dfrac{125}{32}\dfrac{R^{2}}{\mu_{0}^{2}N^{2}r^{2}}\dfrac{1}{\left(\tfrac{e}{m}\right)} \\
+    \end{split}
+  \end{equation*}
+  Prove this in the theory section of your report.}{\label{q:3}}
+
+    The derivation of the slope of the best-fit line is shown in answering Question ~\ref{q:2}.
+    
+  \item{Using Equation 9, find the experimental value of \(\sfrac{e}{m}\) using each of your slope values. Keep in mind that each slope corresponds to a particular \(r\) value! (Use a spreadsheet, for instance, to perform this tedious calculation.)}
+    
+    The experimental values of \(\sfrac{e}{m}\) are shown in Table ~\ref{tab:3}.
+
+    \begin{table}
+      \centering
+      \begin{tabular}{| l | r |}
+        \hline\hline
+        Radius (m) & Experimental Value of \(|\sfrac{e}{m}|\) (\(\sfrac{\text{C}}{\text{kg}}\)) \\
+        \hline
+        0.0350 & \(1.84\times{10}^{11}\) \\ %863051 (LDR)
+        \hline
+        0.0400 & \(1.80\times{10}^{11}\) \\ %514226 (LDR)
+        \hline
+        0.0450 & \(1.80\times{10}^{11}\) \\ %190975 (LDR)
+        \hline
+        0.0500 & \(1.80\times{10}^{11}\) \\ %926902 (LDR)
+        \hline
+        Average & \(1.81\times{10}^{11}\) \\ %873788 (LDR)
+        \hline
+        SD & \(2.01\times{10}^{9}\) \\ %2206815 (LDR)
+        \hline\hline
+      \end{tabular}
+      \caption{Experimental value of \(\sfrac{e}{m}\) and descriptive statistics}
+      \label{tab:3}
+    \end{table}
+
+  \item{Find the average and standard deviation of the experimental value of \(\sfrac{e}{m}\) and compare it with the theoretical value. What are the sources of error?}
+
+    The average and standard deviation (abbreviated "SD") are shown in Table ~\ref{tab:3}. The percentage error was calculated as 2.77\%, supporting the formulas derived previously in the lab manual. Sources of error include not setting the voltage exactly, error in using the human eye to gather the radii, and unaccounted resistances in the equipment. %9197727 (LDR)
+
+    Note: In Table ~\ref{tab:2} and ~\ref{tab:3} an extra significant figure was added to the radii values as the mirror ruler was assumed to be a standard ruler with ten millimeters in each centimeter. This "extra" zero was not originally in the data sheet.
+
+  \item{Calculate the velocity of electrons for each accelerating potential.}
+  
+    By Equation 5 in the lab manual, the velocity is calculated by taking into account the applied voltage, electron charge, and electron mass:
+      \begin{equation*}
+        \begin{split}
+          v &= \sqrt{\dfrac{2eV}{m_{e}}} \\
+        \end{split}
+      \end{equation*}
+
+      The velocity of the electrons is calculated for each radii in Table ~\ref{tab:4} using both the theoretical value of charge per mass (shown in Table ~\ref{tab:1}) and the average experimental value of charge per mass (shown in Table ~\ref{tab:3}).
+
+      \begin{table}
+        \centering
+        \begin{tabular}{| l | c | c |}
+          \hline\hline
+          Voltage (V) & Expr. Velocity (\(\sfrac{\text{m}}{\text{s}}\)) & Theo. Velocity (\(\sfrac{\text{m}}{\text{s}}\)) \\
+          \hline
+          150 & 7370000 & 7270000 \\ %6283.758 (LDR) %6360.85 (LDR)
+          \hline
+          175 & 7960000 & 7850000 \\ %6495.824 (LDR) %8566.748 (LDR)
+          \hline
+          200 & 8510000 & 8390000 \\ %5851.821 (LDR) %0470.785
+          \hline
+          225 & 9020000 & 8900000 \\ %1818.254 %9438.185 (LDR)
+          \hline
+          250 & 9510000 & 9380000 \\ %9831.439 (LDR) %0831.52
+          \hline\hline
+        \end{tabular}
+        \caption{Velocity of electrons due to applied voltage}
+        \label{tab:4}
+      \end{table}
+\end{enumerate}
+
+\end{document}
